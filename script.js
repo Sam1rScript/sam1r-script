@@ -3,12 +3,15 @@ let partners = [];
 let customGames = [];
 let adminUnlocked = false;
 
-const GITHUB_RAW_URL = 'https://raw.githubusercontent.com/Sam1rScript/sam1r-script/main/data/scripts.json';
-
+// ===== ПУБЛИЧНАЯ ЗАГРУЗКА (БЕЗ ТОКЕНА) =====
 function loadData() {
-    fetch(GITHUB_RAW_URL + '?t=' + Date.now())
+    var url = 'https://raw.githubusercontent.com/Sam1rScript/sam1r-script/main/data/scripts.json';
+    
+    fetch(url)
         .then(function(response) {
-            if (!response.ok) throw new Error('Ошибка загрузки данных');
+            if (!response.ok) {
+                throw new Error('Ошибка загрузки: ' + response.status);
+            }
             return response.json();
         })
         .then(function(data) {
@@ -25,6 +28,31 @@ function loadData() {
         });
 }
 
+// ===== КОПИРОВАНИЕ =====
+function copyScript(id) {
+    var script = null;
+    for (var i = 0; i < scripts.length; i++) {
+        if (scripts[i].id === id) {
+            script = scripts[i];
+            break;
+        }
+    }
+    if (script) {
+        navigator.clipboard.writeText(script.code).then(function() {
+            showToast('Код скопирован', 'success');
+        }).catch(function() {
+            var textarea = document.createElement('textarea');
+            textarea.value = script.code;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+            showToast('Код скопирован', 'success');
+        });
+    }
+}
+
+// ===== ОТОБРАЖЕНИЕ =====
 function renderRecentScripts() {
     var container = document.getElementById('recentScripts');
     var recent = scripts.slice(-3).reverse();
@@ -180,29 +208,7 @@ function createScriptCard(s, isRecent) {
     return html;
 }
 
-function copyScript(id) {
-    var script = null;
-    for (var i = 0; i < scripts.length; i++) {
-        if (scripts[i].id === id) {
-            script = scripts[i];
-            break;
-        }
-    }
-    if (script) {
-        navigator.clipboard.writeText(script.code).then(function() {
-            showToast('Код скопирован', 'success');
-        }).catch(function() {
-            var textarea = document.createElement('textarea');
-            textarea.value = script.code;
-            document.body.appendChild(textarea);
-            textarea.select();
-            document.execCommand('copy');
-            document.body.removeChild(textarea);
-            showToast('Код скопирован', 'success');
-        });
-    }
-}
-
+// ===== УДАЛЕНИЕ (только для админки) =====
 function deleteScript(id) {
     if (!confirm('Удалить этот скрипт навсегда?')) return;
     var newScripts = [];
@@ -233,6 +239,7 @@ function deletePartner(id) {
     showToast('Партнёр удалён', 'error');
 }
 
+// ===== СОХРАНЕНИЕ (только для админки) =====
 function saveDataToGitHub() {
     var data = {
         scripts: scripts,
@@ -300,6 +307,7 @@ function clearAllData() {
     showToast('Все данные удалены', 'error');
 }
 
+// ===== КАСТОМНАЯ ИГРА =====
 function toggleCustomGame() {
     var select = document.getElementById('scriptMode');
     var customGroup = document.getElementById('customGameGroup');
@@ -395,6 +403,7 @@ function updateModeFilter() {
     }
 }
 
+// ===== СОХРАНЕНИЕ СКРИПТА (админка) =====
 function saveScript() {
     var name = document.getElementById('scriptName').value.trim();
     var desc = document.getElementById('scriptDesc').value.trim();
@@ -500,10 +509,12 @@ function savePartnerData(name, desc, link, image) {
     showToast('Партнёр добавлен', 'success');
 }
 
+// ===== ФИЛЬТР =====
 function filterScripts() {
     renderAllScripts();
 }
 
+// ===== НАВИГАЦИЯ =====
 function navigate(page) {
     var pages = document.querySelectorAll('.page');
     for (var i = 0; i < pages.length; i++) {
@@ -547,6 +558,7 @@ function checkAdminAccess() {
     }
 }
 
+// ===== ТОСТ =====
 function showToast(message, type) {
     var toast = document.getElementById('toast');
     toast.textContent = message;
@@ -558,11 +570,13 @@ function showToast(message, type) {
     }, 3000);
 }
 
+// ===== СТАТИСТИКА =====
 function updateStats() {
     document.getElementById('statScripts').textContent = scripts.length;
     document.getElementById('statExploits').textContent = 0;
 }
 
+// ===== РЕНДЕР =====
 function renderAll() {
     renderRecentScripts();
     renderAllScripts();
@@ -577,6 +591,7 @@ function renderAll() {
     updateModeFilter();
 }
 
+// ===== ИНИЦИАЛИЗАЦИЯ =====
 document.addEventListener('DOMContentLoaded', function() {
     loadData();
     document.getElementById('scriptsSearch').addEventListener('input', filterScripts);
