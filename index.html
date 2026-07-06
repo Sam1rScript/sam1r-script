@@ -16,33 +16,208 @@
             </div>
             <div class="header-right">
                 <a href="https://t.me/sam1rscript" target="_blank" class="header-link">Telegram</a>
+                <a href="https://github.com/sam1rscript" target="_blank" class="header-link">GitHub</a>
                 <a href="admin.html" class="header-link admin-link">Войти</a>
             </div>
         </div>
     </header>
 
+    <div class="hero-wrapper" id="heroWrapper">
+        <div class="hero-bg"></div>
+        <div class="hero">
+            <div class="hero-logo">
+                <div class="logo-glow">
+                    <img src="images/Logo2.png" alt="Sam1r Script" class="hero-logo-img" onerror="this.style.display='none'">
+                    <div class="particles-container">
+                        <span class="particle p1">✦</span>
+                        <span class="particle p2">✦</span>
+                        <span class="particle p3">✦</span>
+                        <span class="particle p4">✦</span>
+                        <span class="particle p5">✦</span>
+                        <span class="particle p6">✦</span>
+                        <span class="particle p7">✦</span>
+                        <span class="particle p8">✦</span>
+                        <span class="particle p9">✦</span>
+                        <span class="particle p10">✦</span>
+                        <span class="particle p11">✦</span>
+                        <span class="particle p12">✦</span>
+                    </div>
+                </div>
+            </div>
+            <h1 class="hero-title">Sam1r <span class="accent">Script</span></h1>
+            <p class="hero-subtitle">Твой гид в мире Roblox скриптов и эксплойтов</p>
+        </div>
+    </div>
+
     <main class="main">
 
-        <div class="section-header">
-            <h2 class="section-title">Все скрипты</h2>
-            <span class="count-badge" id="scriptsCount">0</span>
-        </div>
+        <section id="page-home" class="page active">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number" id="statScripts">0</div>
+                    <div class="stat-label">Скриптов</div>
+                    <div class="stat-change">+12 за неделю</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="statExploits">0</div>
+                    <div class="stat-label">Эксплойтов</div>
+                    <div class="stat-change">+6 за неделю</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">156</div>
+                    <div class="stat-label">Админов</div>
+                    <div class="stat-change">+9 за неделю</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">18</div>
+                    <div class="stat-label">Обновлений</div>
+                    <div class="stat-change">за неделю</div>
+                </div>
+            </div>
 
-        <div class="search-bar">
-            <input type="text" class="search-input" id="scriptsSearch" placeholder="Поиск скриптов...">
-            <select class="filter-select" id="scriptsFilter">
-                <option value="all">Все категории</option>
-                <option value="фарм">Фарм</option>
-                <option value="админ">Админ</option>
-                <option value="aim">Aim</option>
-                <option value="esp">ESP</option>
-            </select>
-            <select class="filter-select" id="modeFilter">
-                <option value="all">Все режимы</option>
-            </select>
-        </div>
+            <div class="section">
+                <h2 class="section-title">Последние обновления</h2>
+                <div class="scripts-list" id="recentScripts"></div>
+            </div>
 
-        <div class="scripts-list" id="scriptsList"></div>
+            <div class="section">
+                <h2 class="section-title">Наши партнёры</h2>
+                <div class="partners-list" id="partnersList"></div>
+            </div>
+        </section>
+
+        <section id="page-scripts" class="page">
+            <div class="section-header">
+                <h2 class="section-title">Все скрипты</h2>
+                <span class="count-badge" id="scriptsCount">0</span>
+            </div>
+            <div class="search-bar">
+                <input type="text" class="search-input" id="scriptsSearch" placeholder="Поиск скриптов...">
+                <select class="filter-select" id="scriptsFilter">
+                    <option value="all">Все категории</option>
+                    <option value="фарм">Фарм</option>
+                    <option value="админ">Админ</option>
+                    <option value="aim">Aim</option>
+                    <option value="esp">ESP</option>
+                </select>
+                <select class="filter-select" id="modeFilter">
+                    <option value="all">Все режимы</option>
+                    <option value="doors">DOORS</option>
+                    <option value="sab">SAB</option>
+                    <option value="gag">GAG 2</option>
+                    <option value="bloxfruits">BLOX FRUITS</option>
+                    <option value="arsenal">ARSENAL</option>
+                </select>
+            </div>
+            <div class="scripts-list" id="scriptsList"></div>
+        </section>
+
+        <section id="page-exploits" class="page">
+            <h2 class="section-title">Эксплойты</h2>
+            <div class="scripts-list" id="exploitsList"></div>
+        </section>
+
+        <section id="page-partners" class="page">
+            <h2 class="section-title">Партнёры</h2>
+            <p class="subtitle">Проекты, которые мы рекомендуем</p>
+            <div class="partners-grid" id="partnersGrid"></div>
+        </section>
+
+        <section id="page-admin" class="page">
+            <h2 class="section-title">Админ-панель</h2>
+            
+            <div class="admin-panel">
+                <h3 style="color: rgba(255,255,255,0.6); font-size: 16px; margin-bottom: 16px;">Добавить скрипт</h3>
+                <div class="admin-form">
+                    <div class="form-group full-width">
+                        <label>Название скрипта</label>
+                        <input type="text" id="scriptName" placeholder="Например: Infinite Yield">
+                    </div>
+                    <div class="form-group full-width">
+                        <label>Описание</label>
+                        <textarea id="scriptDesc" placeholder="Краткое описание скрипта..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Категория</label>
+                        <select id="scriptCategory">
+                            <option value="фарм">Фарм</option>
+                            <option value="админ">Админ</option>
+                            <option value="aim">Aim</option>
+                            <option value="esp">ESP</option>
+                            <option value="другое">Другое</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Режим</label>
+                        <select id="scriptMode">
+                            <option value="doors">DOORS</option>
+                            <option value="sab">SAB</option>
+                            <option value="gag">GAG 2</option>
+                            <option value="bloxfruits">BLOX FRUITS</option>
+                            <option value="arsenal">ARSENAL</option>
+                            <option value="other">Другое</option>
+                        </select>
+                    </div>
+                    <div class="form-group full-width" id="customGameGroup" style="display: none;">
+                        <label>Название игры</label>
+                        <input type="text" id="customGameInput" placeholder="Введите название игры...">
+                    </div>
+                    <div class="form-group">
+                        <label>Дата</label>
+                        <input type="date" id="scriptDate">
+                    </div>
+                    <div class="form-group">
+                        <label>Картинка скрипта</label>
+                        <input type="file" id="scriptImage" accept="image/*">
+                    </div>
+                    <div class="form-group full-width">
+                        <label>Код скрипта</label>
+                        <textarea id="scriptCode" placeholder="Вставьте код скрипта..."></textarea>
+                    </div>
+                    <button class="btn-primary admin-submit" onclick="saveScript()">Сохранить скрипт</button>
+                </div>
+            </div>
+
+            <div class="admin-panel" style="margin-top: 24px;">
+                <h3 style="color: rgba(255,255,255,0.6); font-size: 16px; margin-bottom: 16px;">Добавить партнёра</h3>
+                <div class="admin-form">
+                    <div class="form-group full-width">
+                        <label>Название партнёра</label>
+                        <input type="text" id="partnerName" placeholder="Например: Crystal Hub">
+                    </div>
+                    <div class="form-group full-width">
+                        <label>Описание</label>
+                        <textarea id="partnerDesc" placeholder="Краткое описание партнёра..."></textarea>
+                    </div>
+                    <div class="form-group full-width">
+                        <label>Логотип партнёра</label>
+                        <input type="file" id="partnerImage" accept="image/*">
+                    </div>
+                    <div class="form-group full-width">
+                        <label>Ссылка на партнёра</label>
+                        <input type="url" id="partnerLink" placeholder="https://...">
+                    </div>
+                    <button class="btn-primary admin-submit" onclick="savePartner()">Добавить партнёра</button>
+                </div>
+            </div>
+
+            <div style="margin-top: 30px;">
+                <h3 style="color: rgba(255,255,255,0.5); font-size: 14px; margin-bottom: 12px;">Управление скриптами</h3>
+                <div id="adminScriptsList"></div>
+            </div>
+
+            <div style="margin-top: 30px;">
+                <h3 style="color: rgba(255,255,255,0.5); font-size: 14px; margin-bottom: 12px;">Управление партнёрами</h3>
+                <div id="adminPartnersList"></div>
+            </div>
+
+            <div style="margin-top: 30px; display: flex; gap: 12px; flex-wrap: wrap; padding: 20px 0; border-top: 1px solid rgba(255,255,255,0.06);">
+                <button class="btn-primary" onclick="exportData()">Экспорт данных</button>
+                <button class="btn-primary" onclick="document.getElementById('importInput').click()">Импорт данных</button>
+                <input type="file" id="importInput" accept=".json" style="display:none;" onchange="importData(event)">
+                <button class="btn-danger" onclick="clearAllData()" style="background: rgba(239,68,68,0.15); color: #ef4444; padding: 8px 18px; border-radius: 8px; border: 1px solid rgba(239,68,68,0.2); cursor: pointer;">Очистить все</button>
+            </div>
+        </section>
 
     </main>
 
