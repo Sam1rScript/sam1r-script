@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sam1r Script</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>S</text></svg>">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <span class="logo-text">Sam1r <span class="logo-accent">Script</span></span>
+            </div>
+            <div class="header-right">
+                <a href="https://t.me/sam1rscript" target="_blank" class="header-link">Telegram</a>
+                <a href="admin.html" class="header-link admin-link">Войти</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+
+        <div class="section-header">
+            <h2 class="section-title">Все скрипты</h2>
+            <span class="count-badge" id="scriptsCount">0</span>
+        </div>
+
+        <div class="search-bar">
+            <input type="text" class="search-input" id="scriptsSearch" placeholder="Поиск скриптов...">
+            <select class="filter-select" id="scriptsFilter">
+                <option value="all">Все категории</option>
+                <option value="фарм">Фарм</option>
+                <option value="админ">Админ</option>
+                <option value="aim">Aim</option>
+                <option value="esp">ESP</option>
+            </select>
+            <select class="filter-select" id="modeFilter">
+                <option value="all">Все режимы</option>
+            </select>
+        </div>
+
+        <div class="scripts-list" id="scriptsList"></div>
+
+    </main>
+
+    <div class="toast" id="toast"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
