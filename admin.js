@@ -1,35 +1,55 @@
-// ===== НАСТРОЙКИ GitHub =====
-var GITHUB_TOKEN = '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';
 var GITHUB_REPO = 'Sam1rScript/sam1r-script';
 var DATA_FILE = 'data/scripts.json';
-
-// ===== ОСТАЛЬНОЙ КОД =====
 
 let scripts = [];
 let partners = [];
 let customGames = [];
 
+function getToken() {
+    var token = localStorage.getItem('github_token');
+    if (!token) {
+        token = document.getElementById('githubToken').value.trim();
+        if (token) {
+            localStorage.setItem('github_token', token);
+        }
+    }
+    return token;
+}
+
 function loadData() {
+    var token = getToken();
+    if (!token) {
+        updateStatus('Введите GitHub токен в поле выше', 'error');
+        return;
+    }
+    
     updateStatus('Загрузка данных...', 'loading');
     
-    fetch('https://raw.githubusercontent.com/' + GITHUB_REPO + '/main/' + DATA_FILE)
-        .then(function(response) {
-            if (!response.ok) throw new Error('Ошибка загрузки');
-            return response.json();
-        })
-        .then(function(data) {
-            scripts = data.scripts || [];
-            partners = data.partners || [];
-            customGames = data.customGames || [];
-            renderAdminScripts();
-            updateGameSelect();
-            updateStatus('Данные загружены', 'ok');
-        })
-        .catch(function(error) {
-            console.error('Ошибка:', error);
-            updateStatus('Ошибка загрузки данных. Проверьте токен и репозиторий.', 'error');
-            showToast('Ошибка загрузки данных', 'error');
-        });
+    fetch('https://api.github.com/repos/' + GITHUB_REPO + '/contents/' + DATA_FILE, {
+        headers: {
+            'Authorization': 'token ' + token,
+            'Accept': 'application/vnd.github.v3+json'
+        }
+    })
+    .then(function(response) {
+        if (!response.ok) throw new Error('Ошибка загрузки: ' + response.status);
+        return response.json();
+    })
+    .then(function(data) {
+        var content = atob(data.content);
+        var json = JSON.parse(content);
+        scripts = json.scripts || [];
+        partners = json.partners || [];
+        customGames = json.customGames || [];
+        renderAdminScripts();
+        updateGameSelect();
+        updateStatus('Данные загружены', 'ok');
+    })
+    .catch(function(error) {
+        console.error('Ошибка:', error);
+        updateStatus('Ошибка: ' + error.message, 'error');
+        showToast('Ошибка загрузки данных', 'error');
+    });
 }
 
 function updateStatus(text, type) {
@@ -44,7 +64,26 @@ function syncData() {
     loadData();
 }
 
+function setToken() {
+    var token = document.getElementById('githubToken').value.trim();
+    if (token) {
+        localStorage.setItem('github_token', token);
+        updateStatus('Токен установлен', 'ok');
+        showToast('Токен установлен', 'success');
+        loadData();
+    } else {
+        showToast('Введите токен', 'error');
+    }
+}
+
 function saveToGitHub(data) {
+    var token = getToken();
+    if (!token) {
+        updateStatus('Нет токена! Введите токен выше', 'error');
+        showToast('Нет токена!', 'error');
+        return;
+    }
+    
     updateStatus('Сохранение на GitHub...', 'loading');
     
     var jsonData = JSON.stringify(data, null, 2);
@@ -54,12 +93,12 @@ function saveToGitHub(data) {
     
     fetch(url, {
         headers: {
-            'Authorization': 'token ' + GITHUB_TOKEN,
+            'Authorization': 'token ' + token,
             'Accept': 'application/vnd.github.v3+json'
         }
     })
     .then(function(response) {
-        if (!response.ok) throw new Error('Ошибка получения файла');
+        if (!response.ok) throw new Error('Ошибка получения файла: ' + response.status);
         return response.json();
     })
     .then(function(fileInfo) {
@@ -68,7 +107,7 @@ function saveToGitHub(data) {
         return fetch(url, {
             method: 'PUT',
             headers: {
-                'Authorization': 'token ' + GITHUB_TOKEN,
+                'Authorization': 'token ' + token,
                 'Accept': 'application/vnd.github.v3+json',
                 'Content-Type': 'application/json'
             },
@@ -81,7 +120,7 @@ function saveToGitHub(data) {
         });
     })
     .then(function(response) {
-        if (!response.ok) throw new Error('Ошибка сохранения');
+        if (!response.ok) throw new Error('Ошибка сохранения: ' + response.status);
         return response.json();
     })
     .then(function() {
@@ -90,7 +129,7 @@ function saveToGitHub(data) {
     })
     .catch(function(error) {
         console.error('Ошибка:', error);
-        updateStatus('Ошибка сохранения: ' + error.message, 'error');
+        updateStatus('Ошибка: ' + error.message, 'error');
         showToast('Ошибка сохранения на GitHub', 'error');
     });
 }
@@ -340,6 +379,11 @@ function checkAdminKey() {
         var dateInput = document.getElementById('scriptDate');
         if (dateInput) {
             dateInput.value = new Date().toISOString().split('T')[0];
+        }
+        var savedToken = localStorage.getItem('github_token');
+        if (savedToken) {
+            document.getElementById('githubToken').value = savedToken;
+            updateStatus('Токен загружен из памяти', 'ok');
         }
         loadData();
     } else {
