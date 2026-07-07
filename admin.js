@@ -17,6 +17,13 @@ function getToken() {
     return token;
 }
 
+function toggleKeyInput(show) {
+    var group = document.getElementById('keyInputGroup');
+    if (group) {
+        group.style.display = show ? 'flex' : 'none';
+    }
+}
+
 function loadData() {
     var token = getToken();
     if (!token) {
@@ -167,6 +174,12 @@ function saveScript() {
     var mode = document.getElementById('scriptMode').value;
     var date = document.getElementById('scriptDate').value;
     var code = document.getElementById('scriptCode').value.trim();
+    
+    var hasKey = document.querySelector('input[name="hasKey"]:checked');
+    var key = '';
+    if (hasKey && hasKey.value === 'yes') {
+        key = document.getElementById('scriptKey').value.trim();
+    }
 
     if (mode === 'other') {
         var customInput = document.getElementById('customGameInput').value.trim();
@@ -188,10 +201,10 @@ function saveScript() {
         return;
     }
 
-    saveScriptData(name, desc, category, mode, date, code);
+    saveScriptData(name, desc, category, mode, date, code, key);
 }
 
-function saveScriptData(name, desc, category, mode, date, code) {
+function saveScriptData(name, desc, category, mode, date, code, key) {
     var newScript = {
         id: Date.now(),
         name: name,
@@ -201,6 +214,10 @@ function saveScriptData(name, desc, category, mode, date, code) {
         date: date || new Date().toISOString().split('T')[0],
         code: code
     };
+    
+    if (key) {
+        newScript.key = key;
+    }
     
     scripts.push(newScript);
     
@@ -214,6 +231,9 @@ function saveScriptData(name, desc, category, mode, date, code) {
     document.getElementById('customGameInput').value = '';
     document.getElementById('customGameGroup').style.display = 'none';
     document.getElementById('scriptMode').value = 'doors';
+    document.getElementById('scriptKey').value = '';
+    document.querySelector('input[name="hasKey"][value="no"]').checked = true;
+    document.getElementById('keyInputGroup').style.display = 'none';
     showToast('Скрипт добавлен', 'success');
 }
 
@@ -321,9 +341,10 @@ function renderAdminScripts() {
     var html = '';
     for (var i = 0; i < scripts.length; i++) {
         var s = scripts[i];
+        var keyBadge = s.key ? '<span class="script-tag" style="background:rgba(52,211,153,0.15);color:#34d399;">Ключ: ' + s.key + '</span>' : '';
         html += '<div class="script-card" style="margin-bottom: 8px;">';
         html += '<div class="script-info">';
-        html += '<div class="script-name">' + s.name + ' <span class="script-tag">' + s.category + '</span><span class="script-mode-tag">' + (s.mode || '').toUpperCase().replace(/_/g, ' ') + '</span></div>';
+        html += '<div class="script-name">' + s.name + ' <span class="script-tag">' + s.category + '</span><span class="script-mode-tag">' + (s.mode || '').toUpperCase().replace(/_/g, ' ') + '</span> ' + keyBadge + '</div>';
         html += '<div class="script-meta">' + s.date + '</div>';
         html += '</div>';
         html += '<div class="script-actions">';
