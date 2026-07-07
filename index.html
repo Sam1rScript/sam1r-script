@@ -441,7 +441,10 @@
             if (isLoading) return;
             isLoading = true;
 
-            document.getElementById('scriptsList').innerHTML = '<div class="loading">Загрузка...</div>';
+            var listEl = document.getElementById('scriptsList');
+            if (listEl) {
+                listEl.innerHTML = '<div class="loading">Загрузка...</div>';
+            }
 
             fetch(JSON_URL + '?t=' + Date.now())
                 .then(function(response) {
@@ -455,7 +458,10 @@
                     isLoading = false;
                 })
                 .catch(function(error) {
-                    document.getElementById('scriptsList').innerHTML = '<div class="error">Ошибка загрузки: ' + error.message + '</div>';
+                    var listEl = document.getElementById('scriptsList');
+                    if (listEl) {
+                        listEl.innerHTML = '<div class="error">Ошибка загрузки: ' + error.message + '</div>';
+                    }
                     isLoading = false;
                 });
         }
@@ -470,18 +476,28 @@
             var panelExploits = document.getElementById('panelExploits');
             var countLabel = document.getElementById('countLabel');
 
-            if (panelScripts) panelScripts.textContent = allScripts.length;
-            if (panelExploits) panelExploits.textContent = 0;
-            if (countLabel) countLabel.textContent = allScripts.length + ' скриптов';
+            if (panelScripts) {
+                panelScripts.textContent = allScripts.length;
+            }
+            if (panelExploits) {
+                panelExploits.textContent = 0;
+            }
+            if (countLabel) {
+                countLabel.textContent = allScripts.length + ' скриптов';
+            }
         }
 
         function renderScripts() {
             var container = document.getElementById('scriptsList');
             if (!container) return;
 
-            var search = document.getElementById('searchInput').value.toLowerCase();
-            var category = document.getElementById('categoryFilter').value;
-            var mode = document.getElementById('modeFilter').value;
+            var searchInput = document.getElementById('searchInput');
+            var categoryFilter = document.getElementById('categoryFilter');
+            var modeFilter = document.getElementById('modeFilter');
+
+            var search = searchInput ? searchInput.value.toLowerCase() : '';
+            var category = categoryFilter ? categoryFilter.value : 'all';
+            var mode = modeFilter ? modeFilter.value : 'all';
 
             var filtered = allScripts.filter(function(s) {
                 var match = true;
@@ -589,9 +605,19 @@
             }
         }
 
-        document.getElementById('searchInput').addEventListener('input', filterScripts);
-        document.getElementById('categoryFilter').addEventListener('change', filterScripts);
-        document.getElementById('modeFilter').addEventListener('change', filterScripts);
+        var searchInput = document.getElementById('searchInput');
+        var categoryFilter = document.getElementById('categoryFilter');
+        var modeFilter = document.getElementById('modeFilter');
+
+        if (searchInput) {
+            searchInput.addEventListener('input', filterScripts);
+        }
+        if (categoryFilter) {
+            categoryFilter.addEventListener('change', filterScripts);
+        }
+        if (modeFilter) {
+            modeFilter.addEventListener('change', filterScripts);
+        }
 
         loadData();
 
