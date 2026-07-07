@@ -20,47 +20,323 @@
         }
 
         .container {
+            max-width: 800px;
             max-width: 900px;
             margin: 0 auto;
         }
 
-        .header {
-            display: flex;
-            align-items: center;
+@@ -30,7 +30,7 @@
             justify-content: space-between;
             padding: 16px 0 20px;
             border-bottom: 1px solid rgba(255,255,255,0.06);
+            margin-bottom: 24px;
             margin-bottom: 30px;
             flex-wrap: wrap;
             gap: 10px;
         }
-
-        .logo {
-            font-size: 24px;
-            font-weight: 800;
+@@ -61,304 +61,6 @@
             color: #ffffff;
         }
 
-        .logo span {
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            margin-bottom: 30px;
+        }
+
+        .stat {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 12px;
+            padding: 16px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 28px;
+            font-weight: 700;
+        }
+
+        .stat-label {
+            font-size: 13px;
+            color: rgba(255,255,255,0.4);
+            margin-top: 2px;
+        }
+
+        .section-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .section-title .accent {
             color: #8b5cf6;
         }
 
-        .header-links {
+        .script {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 12px;
+            padding: 16px 20px;
+            margin-bottom: 12px;
+            transition: all 0.2s;
+        }
+
+        .script:hover {
+            border-color: rgba(139,92,246,0.2);
+            background: rgba(255,255,255,0.05);
+        }
+
+        .script-header {
             display: flex;
-            gap: 16px;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 4px;
         }
 
-        .header-links a {
-            color: rgba(255,255,255,0.4);
-            text-decoration: none;
+        .script-name {
+            font-size: 17px;
+            font-weight: 600;
+        }
+
+        .script-tag {
+            font-size: 11px;
+            font-weight: 500;
+            background: rgba(139,92,246,0.15);
+            color: #8b5cf6;
+            padding: 2px 10px;
+            border-radius: 20px;
+        }
+
+        .script-mode {
+            font-size: 11px;
+            font-weight: 500;
+            background: rgba(6,182,212,0.15);
+            color: #06b6d4;
+            padding: 2px 10px;
+            border-radius: 20px;
+        }
+
+        .script-desc {
             font-size: 14px;
-            transition: color 0.2s;
+            color: rgba(255,255,255,0.5);
+            margin: 4px 0 8px;
         }
 
-        .header-links a:hover {
+        .script-meta {
+            font-size: 12px;
+            color: rgba(255,255,255,0.2);
+            margin-bottom: 8px;
+        }
+
+        .script-code {
+            background: rgba(255,255,255,0.04);
+            padding: 10px 14px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            color: rgba(255,255,255,0.6);
+            word-break: break-all;
+            border: 1px solid rgba(255,255,255,0.04);
+            position: relative;
+        }
+
+        .copy-btn {
+            background: rgba(139,92,246,0.15);
+            color: #8b5cf6;
+            border: none;
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: inherit;
+            float: right;
+            margin-left: 10px;
+        }
+
+        .copy-btn:hover {
+            background: rgba(139,92,246,0.25);
+        }
+
+        .copy-btn.copied {
+            background: rgba(52,211,153,0.2);
+            color: #34d399;
+        }
+
+        .empty {
+        .hero {
+            text-align: center;
+            padding: 40px 20px;
+            color: rgba(255,255,255,0.2);
+        }
+
+        .loading {
+            text-align: center;
+            padding: 40px 20px;
+            color: rgba(255,255,255,0.2);
+        }
+
+        .error {
+            text-align: center;
+            padding: 40px 20px;
+            color: #ef4444;
+        }
+
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .count-label {
+            color: rgba(255,255,255,0.2);
+            font-size: 14px;
+        }
+
+        .search-bar {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+
+        .search-input {
+            flex: 1;
+            min-width: 150px;
+            padding: 10px 14px;
+            border-radius: 10px;
+            border: 1px solid rgba(255,255,255,0.06);
+            background: rgba(255,255,255,0.03);
+            color: #ffffff;
+            font-size: 14px;
+            outline: none;
+        }
+
+        .search-input:focus {
+            border-color: rgba(139,92,246,0.3);
+        }
+
+        .search-input::placeholder {
+            color: rgba(255,255,255,0.2);
+        }
+
+        .filter-select {
+            padding: 10px 14px;
+            border-radius: 10px;
+            border: 1px solid rgba(255,255,255,0.06);
+            background: rgba(255,255,255,0.03);
+            color: rgba(255,255,255,0.6);
+            font-size: 14px;
+            outline: none;
+            cursor: pointer;
+        }
+
+        .filter-select option {
+            background: #1a1a2e;
             color: #ffffff;
         }
 
-        .hero {
+        .footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.04);
             text-align: center;
-            padding: 30
+            color: rgba(255,255,255,0.15);
+            font-size: 13px;
+        }
+
+        @media (max-width: 600px) {
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .script-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .search-bar {
+                flex-direction: column;
+            }
+            .search-input {
+                min-width: unset;
+            }
+            .filter-select {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <header class="header">
+            <div class="logo">Sam1r <span>Script</span></div>
+            <div class="header-links">
+                <a href="https://t.me/sam1rscript" target="_blank">Telegram</a>
+                <a href="https://discord.gg/X9EYnyxy6t" target="_blank">Discord</a>
+            </div>
+        </header>
+
+        <div class="stats">
+            <div class="stat">
+                <div class="stat-number" id="statScripts">0</div>
+                <div class="stat-label">Скриптов</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number" id="statExploits">0</div>
+                <div class="stat-label">Эксплойтов</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">3</div>
+                <div class="stat-label">Админов</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">750+</div>
+                <div class="stat-label">Подписчиков</div>
+            </div>
+        </div>
+
+        <div class="top-bar">
+            <div class="section-title" style="margin-bottom:0;">Все скрипты</div>
+            <span class="count-label" id="countLabel">0</span>
+        </div>
+
+        <div class="search-bar">
+            <input type="text" class="search-input" id="searchInput" placeholder="Поиск скриптов...">
+            <select class="filter-select" id="categoryFilter">
+                <option value="all">Все категории</option>
+                <option value="farm">Farm</option>
+                <option value="admin">Admin</option>
+                <option value="aim">Aim</option>
+                <option value="esp">ESP</option>
+                <option value="other">Other</option>
+            </select>
+            <select class="filter-select" id="modeFilter">
+                <option value="all">Все режимы</option>
+            </select>
+        </div>
+
+        <div id="scriptsList">
+            <div class="loading">Загрузка...</div>
+        </div>
+
+        <div class="footer">
+            &copy; 2026 Sam1r Script. Все права защищены.
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
