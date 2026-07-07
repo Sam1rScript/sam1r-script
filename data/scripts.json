@@ -3,8 +3,8 @@
     {
       "id": 1783412915006,
       "name": "ilovepigs",
-      "desc": "ÃÂÃÂÃÂÃÂ»ÃÂÃÂÃÂÃÂ: ilovepigs",
-      "category": "ÃÂÃÂ´ÃÂÃÂÃÂÃÂÃÂÃÂ³ÃÂÃÂ¾ÃÂÃÂµ",
+      "desc": "Клоч: ilovepigs",
+      "category": "другое",
       "mode": "+1_speed_keyboard_escape",
       "date": "2026-07-07",
       "code": "loadstring(game:HttpGet(\"https://raw.githubusercontent.com/mopsscript7-gif/loader1/refs/heads/main/keyboard\", true))()"
@@ -12,8 +12,8 @@
     {
       "id": 1783413004097,
       "name": "Abysall",
-      "desc": "ÃÂ¤ÃÂ»ÃÂ°ÃÂ¹, ÃÂ½ÃÂ¾ÃÂÃÂºÃÂ»ÃÂ¸ÃÂ¿, ÃÂ±ÃÂµÃÂÃÂºÃÂ¾ÃÂ½ÃÂµÃÂÃÂ½ÃÂÃÂµ ÃÂ¿ÃÂÃÂÃÂ¶ÃÂºÃÂ¸, ÃÂÃÂÃÂ½ÃÂºÃÂÃÂ¸ÃÂ¸ ÃÂ°ÃÂ²ÃÂÃÂ¾ÃÂ¼ÃÂ°ÃÂÃÂ¸ÃÂºÃÂ¸ (ÃÂ°ÃÂ²ÃÂÃÂ¾ ÃÂ»ÃÂÃÂ, ÃÂ°ÃÂ²ÃÂÃÂ¾ ÃÂ³ÃÂ¾ÃÂ»ÃÂ¾ÃÂ²ÃÂ¾ÃÂ»ÃÂ¾ÃÂ¼ÃÂºÃÂ¸ ÃÂ¸ ÃÂÃÂ´), ÃÂ±ÃÂ°ÃÂ¹ÃÂ¿ÃÂ°ÃÂÃÂÃÂ ÃÂ¿ÃÂ»ÃÂµÃÂ¹ÃÂÃÂ° ÃÂ¸ ÃÂ°ÃÂ½ÃÂÃÂ¸ÃÂÃÂ¸ÃÂÃÂ°, ÃÂ²ÃÂ¸ÃÂ·ÃÂÃÂ°ÃÂ»ÃÂ ÃÂ¸ ESP (ÃÂ´ÃÂ²ÃÂµÃÂÃÂµÃÂ¹, ÃÂ¸ÃÂ³ÃÂÃÂ¾ÃÂºÃÂ¾ÃÂ², ÃÂ¿ÃÂÃÂµÃÂ´ÃÂ¼ÃÂµÃÂÃÂ¾ÃÂ², ÃÂ´ÃÂµÃÂ½ÃÂµÃÂ³ ÃÂ¸ ÃÂÃÂ´), ÃÂ½ÃÂ°ÃÂÃÂÃÂÃÂ¾ÃÂ¹ÃÂºÃÂ¸ ÃÂ¼ÃÂµÃÂ½ÃÂ ÃÂÃÂºÃÂÃÂ¸ÃÂ¿ÃÂÃÂ°",
-      "category": "ÃÂÃÂ°ÃÂÃÂ¼",
+      "desc": "Флай, ноклип, бесконечные прыжки, функции автоматики (авто лут, авто головаломки и тд), байпасс плейса и античита, визуалы и ESP (дверей, игроков, предметов, денег и тд), настройки меню скрипта",
+      "category": "фарм",
       "mode": "doors",
       "date": "2026-07-07",
       "code": "loadstring(game:HttpGet(\"https://raw.githubusercontent.com/bocaj111004/Abysall/refs/heads/main/Loader.luau\"))()"
@@ -21,8 +21,8 @@
     {
       "id": 1783413063386,
       "name": "Pulse Hub",
-      "desc": "Main â Role ESP (Enable Role ESP), X-Ray Ñ Ð½Ð°ÑÑÑÐ¾Ð¹ÐºÐ¾Ð¹ ÑÐ¸Ð»Ñ, No Clip, Auto Fling Sheriff. Sheriff â Auto Pickup Gun, Gun ESP, Silent Aim, Wallbang, Auto Shoot, Auto Kill. Murder â Kill Aura (Kill All, Kill Only Sheriff) Ð¸ Kill Player ÑÐ¾ ÑÐ¿Ð¸ÑÐºÐ¾Ð¼ Ð¸Ð³ÑÐ¾ÐºÐ¾Ð² Ð¸ Kill Selected. Auto Farm â Auto Farm, Auto-Respawn, Anti-Fling, Avoid Murderer, Auto-Fling, Kill Aura Ð¿Ð»ÑÑ Ð¿Ð¾ÐºÐ°Ð·Ð°ÑÐµÐ»Ð¸ Rate/Status. Fun/Troll â Ð²ÑÐ±Ð¾Ñ Ð»ÑÐ±ÑÑ Emote Ð¸ Auto Emote, Walk Speed (ÑÐ¾Ð³Ð³Ð» + Ð¿Ð¾Ð»Ð·ÑÐ½Ð¾Ðº 16), Jump Power (ÑÐ¾Ð³Ð³Ð» + Ð¿Ð¾Ð»Ð·ÑÐ½Ð¾Ðº 50), Touch Fling.",
-      "category": "ÑÐ°ÑÐ¼",
+      "desc": "Main — Role ESP (Enable Role ESP), X-Ray с настройкой силы, No Clip, Auto Fling Sheriff. Sheriff — Auto Pickup Gun, Gun ESP, Silent Aim, Wallbang, Auto Shoot, Auto Kill. Murder — Kill Aura (Kill All, Kill Only Sheriff) и Kill Player со списком игроков и Kill Selected. Auto Farm — Auto Farm, Auto-Respawn, Anti-Fling, Avoid Murderer, Auto-Fling, Kill Aura плюс показатели Rate/Status. Fun/Troll — выбор любых Emote и Auto Emote, Walk Speed (тоггл + ползунок 16), Jump Power (тоггл + ползунок 50), Touch Fling.",
+      "category": "фарм",
       "mode": "murder_mystery_2",
       "date": "2026-07-07",
       "code": "loadstring(game:HttpGet(\"https://api.luarmor.net/files/v4/loaders/5857a6cfae3b902eb3c2dff7cdbf173b.lua\"))()"
