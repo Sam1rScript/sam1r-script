@@ -1,4 +1,3 @@
-// ===== НАСТРОЙКИ =====
 var GITHUB_REPO = 'Sam1rScript/sam1r-script';
 var DATA_FILE = 'data/scripts.json';
 
@@ -7,7 +6,6 @@ let partners = [];
 let customGames = [];
 let adminUnlocked = false;
 
-// ===== ПОЛУЧЕНИЕ ТОКЕНА ИЗ LOCALSTORAGE =====
 function getToken() {
     var token = localStorage.getItem('github_token');
     if (!token) {
@@ -19,7 +17,6 @@ function getToken() {
     return token;
 }
 
-// ===== ЗАГРУЗКА ДАННЫХ =====
 function loadData() {
     var token = getToken();
     if (!token) {
@@ -60,7 +57,6 @@ function loadData() {
     });
 }
 
-// ===== СОХРАНЕНИЕ В GITHUB =====
 function saveToGitHub(data) {
     var token = getToken();
     if (!token) {
@@ -120,7 +116,6 @@ function saveToGitHub(data) {
     });
 }
 
-// ===== УСТАНОВКА ТОКЕНА =====
 function setToken() {
     var token = document.getElementById('githubToken').value.trim();
     if (token) {
@@ -133,7 +128,6 @@ function setToken() {
     }
 }
 
-// ===== УДАЛЕНИЕ СКРИПТА =====
 function deleteScript(id) {
     if (!confirm('Удалить этот скрипт навсегда?')) return;
     
@@ -150,7 +144,6 @@ function deleteScript(id) {
     showToast('Скрипт удалён', 'error');
 }
 
-// ===== УДАЛЕНИЕ ПАРТНЁРА =====
 function deletePartner(id) {
     if (!confirm('Удалить этого партнёра навсегда?')) return;
     
@@ -167,7 +160,6 @@ function deletePartner(id) {
     showToast('Партнёр удалён', 'error');
 }
 
-// ===== СОХРАНЕНИЕ СКРИПТА =====
 function saveScript() {
     var name = document.getElementById('scriptName').value.trim();
     var desc = document.getElementById('scriptDesc').value.trim();
@@ -225,7 +217,6 @@ function saveScriptData(name, desc, category, mode, date, code) {
     showToast('Скрипт добавлен', 'success');
 }
 
-// ===== СОХРАНЕНИЕ ПАРТНЁРА =====
 function savePartner() {
     var name = document.getElementById('partnerName').value.trim();
     var desc = document.getElementById('partnerDesc').value.trim();
@@ -258,7 +249,6 @@ function savePartnerData(name, desc, link) {
     showToast('Партнёр добавлен', 'success');
 }
 
-// ===== КАСТОМНАЯ ИГРА =====
 function addCustomGame(gameName) {
     var trimmed = gameName.trim().toLowerCase().replace(/\s+/g, '_');
     if (!trimmed) return null;
@@ -321,7 +311,6 @@ function updateGameSelect() {
     }
 }
 
-// ===== ОТОБРАЖЕНИЕ СПИСКА СКРИПТОВ В АДМИНКЕ =====
 function renderAdminScripts() {
     var container = document.getElementById('adminScriptsList');
     if (!container) return;
@@ -345,7 +334,6 @@ function renderAdminScripts() {
     container.innerHTML = html;
 }
 
-// ===== ЭКСПОРТ ДАННЫХ =====
 function exportData() {
     var data = {
         scripts: scripts,
@@ -364,7 +352,6 @@ function exportData() {
     showToast('Данные экспортированы', 'success');
 }
 
-// ===== ИМПОРТ ДАННЫХ =====
 function importData(event) {
     var file = event.target.files[0];
     if (!file) return;
@@ -391,7 +378,6 @@ function importData(event) {
     event.target.value = '';
 }
 
-// ===== ОЧИСТКА ВСЕХ ДАННЫХ =====
 function clearAllData() {
     if (!confirm('Удалить ВСЕ данные? Это нельзя отменить!')) return;
     if (!confirm('Точно удалить всё?')) return;
@@ -403,7 +389,6 @@ function clearAllData() {
     showToast('Все данные удалены', 'error');
 }
 
-// ===== СТАТУС =====
 function updateStatus(text, type) {
     var status = document.getElementById('statusText');
     if (status) {
@@ -412,7 +397,6 @@ function updateStatus(text, type) {
     }
 }
 
-// ===== ТОСТ =====
 function showToast(message, type) {
     var toast = document.getElementById('toast');
     toast.textContent = message;
@@ -424,7 +408,6 @@ function showToast(message, type) {
     }, 3000);
 }
 
-// ===== ПРОВЕРКА ПАРОЛЯ =====
 function checkAdminKey() {
     var key = document.getElementById('adminKey').value;
     var error = document.getElementById('authError');
@@ -448,7 +431,6 @@ function checkAdminKey() {
     }
 }
 
-// ===== ИНИЦИАЛИЗАЦИЯ =====
 document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('adminKey').focus();
 });
