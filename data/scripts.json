@@ -3,8 +3,8 @@
     {
       "id": 1783412915006,
       "name": "ilovepigs",
-      "desc": "ÐÐ»Ð¾Ñ: ilovepigs",
-      "category": "Ð´ÑÑÐ³Ð¾Ðµ",
+      "desc": "ÃÂÃÂ»ÃÂ¾ÃÂ: ilovepigs",
+      "category": "ÃÂ´ÃÂÃÂÃÂ³ÃÂ¾ÃÂµ",
       "mode": "+1_speed_keyboard_escape",
       "date": "2026-07-07",
       "code": "loadstring(game:HttpGet(\"https://raw.githubusercontent.com/mopsscript7-gif/loader1/refs/heads/main/keyboard\", true))()"
@@ -12,8 +12,8 @@
     {
       "id": 1783413004097,
       "name": "Abysall",
-      "desc": "Ð¤Ð»Ð°Ð¹, Ð½Ð¾ÐºÐ»Ð¸Ð¿, Ð±ÐµÑÐºÐ¾Ð½ÐµÑÐ½ÑÐµ Ð¿ÑÑÐ¶ÐºÐ¸, ÑÑÐ½ÐºÑÐ¸Ð¸ Ð°Ð²ÑÐ¾Ð¼Ð°ÑÐ¸ÐºÐ¸ (Ð°Ð²ÑÐ¾ Ð»ÑÑ, Ð°Ð²ÑÐ¾ Ð³Ð¾Ð»Ð¾Ð²Ð°Ð»Ð¾Ð¼ÐºÐ¸ Ð¸ ÑÐ´), Ð±Ð°Ð¹Ð¿Ð°ÑÑ Ð¿Ð»ÐµÐ¹ÑÐ° Ð¸ Ð°Ð½ÑÐ¸ÑÐ¸ÑÐ°, Ð²Ð¸Ð·ÑÐ°Ð»Ñ Ð¸ ESP (Ð´Ð²ÐµÑÐµÐ¹, Ð¸Ð³ÑÐ¾ÐºÐ¾Ð², Ð¿ÑÐµÐ´Ð¼ÐµÑÐ¾Ð², Ð´ÐµÐ½ÐµÐ³ Ð¸ ÑÐ´), Ð½Ð°ÑÑÑÐ¾Ð¹ÐºÐ¸ Ð¼ÐµÐ½Ñ ÑÐºÑÐ¸Ð¿ÑÐ°",
-      "category": "ÑÐ°ÑÐ¼",
+      "desc": "ÃÂ¤ÃÂ»ÃÂ°ÃÂ¹, ÃÂ½ÃÂ¾ÃÂºÃÂ»ÃÂ¸ÃÂ¿, ÃÂ±ÃÂµÃÂÃÂºÃÂ¾ÃÂ½ÃÂµÃÂÃÂ½ÃÂÃÂµ ÃÂ¿ÃÂÃÂÃÂ¶ÃÂºÃÂ¸, ÃÂÃÂÃÂ½ÃÂºÃÂÃÂ¸ÃÂ¸ ÃÂ°ÃÂ²ÃÂÃÂ¾ÃÂ¼ÃÂ°ÃÂÃÂ¸ÃÂºÃÂ¸ (ÃÂ°ÃÂ²ÃÂÃÂ¾ ÃÂ»ÃÂÃÂ, ÃÂ°ÃÂ²ÃÂÃÂ¾ ÃÂ³ÃÂ¾ÃÂ»ÃÂ¾ÃÂ²ÃÂ°ÃÂ»ÃÂ¾ÃÂ¼ÃÂºÃÂ¸ ÃÂ¸ ÃÂÃÂ´), ÃÂ±ÃÂ°ÃÂ¹ÃÂ¿ÃÂ°ÃÂÃÂ ÃÂ¿ÃÂ»ÃÂµÃÂ¹ÃÂÃÂ° ÃÂ¸ ÃÂ°ÃÂ½ÃÂÃÂ¸ÃÂÃÂ¸ÃÂÃÂ°, ÃÂ²ÃÂ¸ÃÂ·ÃÂÃÂ°ÃÂ»ÃÂ ÃÂ¸ ESP (ÃÂ´ÃÂ²ÃÂµÃÂÃÂµÃÂ¹, ÃÂ¸ÃÂ³ÃÂÃÂ¾ÃÂºÃÂ¾ÃÂ², ÃÂ¿ÃÂÃÂµÃÂ´ÃÂ¼ÃÂµÃÂÃÂ¾ÃÂ², ÃÂ´ÃÂµÃÂ½ÃÂµÃÂ³ ÃÂ¸ ÃÂÃÂ´), ÃÂ½ÃÂ°ÃÂÃÂÃÂÃÂ¾ÃÂ¹ÃÂºÃÂ¸ ÃÂ¼ÃÂµÃÂ½ÃÂ ÃÂÃÂºÃÂÃÂ¸ÃÂ¿ÃÂÃÂ°",
+      "category": "ÃÂÃÂ°ÃÂÃÂ¼",
       "mode": "doors",
       "date": "2026-07-07",
       "code": "loadstring(game:HttpGet(\"https://raw.githubusercontent.com/bocaj111004/Abysall/refs/heads/main/Loader.luau\"))()"
@@ -21,8 +21,8 @@
     {
       "id": 1783413063386,
       "name": "Pulse Hub",
-      "desc": "Main â Role ESP (Enable Role ESP), X-Ray Ñ Ð½Ð°ÑÑÑÐ¾Ð¹ÐºÐ¾Ð¹ ÑÐ¸Ð»Ñ, No Clip, Auto Fling Sheriff. Sheriff â Auto Pickup Gun, Gun ESP, Silent Aim, Wallbang, Auto Shoot, Auto Kill. Murder â Kill Aura (Kill All, Kill Only Sheriff) Ð¸ Kill Player ÑÐ¾ ÑÐ¿Ð¸ÑÐºÐ¾Ð¼ Ð¸Ð³ÑÐ¾ÐºÐ¾Ð² Ð¸ Kill Selected. Auto Farm â Auto Farm, Auto-Respawn, Anti-Fling, Avoid Murderer, Auto-Fling, Kill Aura Ð¿Ð»ÑÑ Ð¿Ð¾ÐºÐ°Ð·Ð°ÑÐµÐ»Ð¸ Rate/Status. Fun/Troll â Ð²ÑÐ±Ð¾Ñ Ð»ÑÐ±ÑÑ Emote Ð¸ Auto Emote, Walk Speed (ÑÐ¾Ð³Ð³Ð» + Ð¿Ð¾Ð»Ð·ÑÐ½Ð¾Ðº 16), Jump Power (ÑÐ¾Ð³Ð³Ð» + Ð¿Ð¾Ð»Ð·ÑÐ½Ð¾Ðº 50), Touch Fling.",
-      "category": "ÑÐ°ÑÐ¼",
+      "desc": "Main Ã¢ÂÂ Role ESP (Enable Role ESP), X-Ray ÃÂ ÃÂ½ÃÂ°ÃÂÃÂÃÂÃÂ¾ÃÂ¹ÃÂºÃÂ¾ÃÂ¹ ÃÂÃÂ¸ÃÂ»ÃÂ, No Clip, Auto Fling Sheriff. Sheriff Ã¢ÂÂ Auto Pickup Gun, Gun ESP, Silent Aim, Wallbang, Auto Shoot, Auto Kill. Murder Ã¢ÂÂ Kill Aura (Kill All, Kill Only Sheriff) ÃÂ¸ Kill Player ÃÂÃÂ¾ ÃÂÃÂ¿ÃÂ¸ÃÂÃÂºÃÂ¾ÃÂ¼ ÃÂ¸ÃÂ³ÃÂÃÂ¾ÃÂºÃÂ¾ÃÂ² ÃÂ¸ Kill Selected. Auto Farm Ã¢ÂÂ Auto Farm, Auto-Respawn, Anti-Fling, Avoid Murderer, Auto-Fling, Kill Aura ÃÂ¿ÃÂ»ÃÂÃÂ ÃÂ¿ÃÂ¾ÃÂºÃÂ°ÃÂ·ÃÂ°ÃÂÃÂµÃÂ»ÃÂ¸ Rate/Status. Fun/Troll Ã¢ÂÂ ÃÂ²ÃÂÃÂ±ÃÂ¾ÃÂ ÃÂ»ÃÂÃÂ±ÃÂÃÂ Emote ÃÂ¸ Auto Emote, Walk Speed (ÃÂÃÂ¾ÃÂ³ÃÂ³ÃÂ» + ÃÂ¿ÃÂ¾ÃÂ»ÃÂ·ÃÂÃÂ½ÃÂ¾ÃÂº 16), Jump Power (ÃÂÃÂ¾ÃÂ³ÃÂ³ÃÂ» + ÃÂ¿ÃÂ¾ÃÂ»ÃÂ·ÃÂÃÂ½ÃÂ¾ÃÂº 50), Touch Fling.",
+      "category": "ÃÂÃÂ°ÃÂÃÂ¼",
       "mode": "murder_mystery_2",
       "date": "2026-07-07",
       "code": "loadstring(game:HttpGet(\"https://api.luarmor.net/files/v4/loaders/5857a6cfae3b902eb3c2dff7cdbf173b.lua\"))()"
@@ -30,8 +30,8 @@
     {
       "id": 1783413171675,
       "name": "Cat Hub",
-      "desc": "Ð ÑÐºÑÐ¸Ð¿ÑÐµ ÐµÑÑÑ ÐºÑÑÐ° ÑÑÐ½ÐºÑÐ¸Ð¹ Ð´Ð»Ñ ÑÐ°ÑÐ¼Ð° Ð¸ ÑÐ´",
-      "category": "ÑÐ°ÑÐ¼",
+      "desc": "ÃÂ ÃÂÃÂºÃÂÃÂ¸ÃÂ¿ÃÂÃÂµ ÃÂµÃÂÃÂÃÂ ÃÂºÃÂÃÂÃÂ° ÃÂÃÂÃÂ½ÃÂºÃÂÃÂ¸ÃÂ¹ ÃÂ´ÃÂ»ÃÂ ÃÂÃÂ°ÃÂÃÂ¼ÃÂ° ÃÂ¸ ÃÂÃÂ´",
+      "category": "ÃÂÃÂ°ÃÂÃÂ¼",
       "mode": "gag",
       "date": "2026-07-07",
       "code": "loadstring(game:HttpGet(\"https://api.luarmor.net/files/v4/loaders/cab22c2350e769a5d8ab35a9c8ee3e8b.lua\"))()"
@@ -40,11 +40,20 @@
       "id": 1783413711930,
       "name": "sdfgdfgsdfgsdfgsdfgsdfgfdsgfgsd",
       "desc": "sdfgsdfgsdfgsdfg",
-      "category": "админ",
+      "category": "Ð°Ð´Ð¼Ð¸Ð½",
       "mode": "sab",
       "date": "2026-07-07",
       "code": "sdfgdfgsdfg",
       "key": "Net idi nahuy"
+    },
+    {
+      "id": 1783413724335,
+      "name": "dhdfghdfghfgh",
+      "desc": "fgdhfghdfghdfghfg",
+      "category": "админ",
+      "mode": "doors",
+      "date": "2026-07-07",
+      "code": "fghdfghdfgh"
     }
   ],
   "partners": [],
