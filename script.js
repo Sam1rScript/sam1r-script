@@ -1,7 +1,16 @@
 var JSON_URL = 'https://raw.githubusercontent.com/Sam1rScript/sam1r-script/main/data/scripts.json';
         var allScripts = [];
+        var isLoading = false;
 
         function loadData() {
+            if (isLoading) return;
+            isLoading = true;
+
+            var listEl = document.getElementById('scriptsList');
+            if (listEl) {
+                listEl.innerHTML = '<div class="loading">Загрузка...</div>';
+            }
+
             fetch(JSON_URL + '?t=' + Date.now())
                 .then(function(response) {
                     if (!response.ok) throw new Error('Ошибка: ' + response.status);
@@ -11,9 +20,14 @@ var JSON_URL = 'https://raw.githubusercontent.com/Sam1rScript/sam1r-script/main/
                     allScripts = data.scripts || [];
                     renderAll();
                     updateFilters();
+                    isLoading = false;
                 })
                 .catch(function(error) {
-                    document.getElementById('scriptsList').innerHTML = '<div class="error">Ошибка загрузки: ' + error.message + '</div>';
+                    var listEl = document.getElementById('scriptsList');
+                    if (listEl) {
+                        listEl.innerHTML = '<div class="error">Ошибка загрузки: ' + error.message + '</div>';
+                    }
+                    isLoading = false;
                 });
         }
 
@@ -23,16 +37,32 @@ var JSON_URL = 'https://raw.githubusercontent.com/Sam1rScript/sam1r-script/main/
         }
 
         function renderStats() {
-            document.getElementById('statScripts').textContent = allScripts.length;
-            document.getElementById('statExploits').textContent = 0;
-            document.getElementById('countLabel').textContent = allScripts.length + ' скриптов';
+            var panelScripts = document.getElementById('panelScripts');
+            var panelExploits = document.getElementById('panelExploits');
+            var countLabel = document.getElementById('countLabel');
+
+            if (panelScripts) {
+                panelScripts.textContent = allScripts.length;
+            }
+            if (panelExploits) {
+                panelExploits.textContent = 0;
+            }
+            if (countLabel) {
+                countLabel.textContent = allScripts.length + ' скриптов';
+            }
         }
 
         function renderScripts() {
             var container = document.getElementById('scriptsList');
-            var search = document.getElementById('searchInput').value.toLowerCase();
-            var category = document.getElementById('categoryFilter').value;
-            var mode = document.getElementById('modeFilter').value;
+            if (!container) return;
+
+            var searchInput = document.getElementById('searchInput');
+            var categoryFilter = document.getElementById('categoryFilter');
+            var modeFilter = document.getElementById('modeFilter');
+
+            var search = searchInput ? searchInput.value.toLowerCase() : '';
+            var category = categoryFilter ? categoryFilter.value : 'all';
+            var mode = modeFilter ? modeFilter.value : 'all';
 
             var filtered = allScripts.filter(function(s) {
                 var match = true;
@@ -99,6 +129,8 @@ var JSON_URL = 'https://raw.githubusercontent.com/Sam1rScript/sam1r-script/main/
 
         function updateFilters() {
             var select = document.getElementById('modeFilter');
+            if (!select) return;
+
             var current = select.value;
             var modes = {};
             for (var i = 0; i < allScripts.length; i++) {
@@ -119,9 +151,38 @@ var JSON_URL = 'https://raw.githubusercontent.com/Sam1rScript/sam1r-script/main/
             renderScripts();
         }
 
-        document.getElementById('searchInput').addEventListener('input', filterScripts);
-        document.getElementById('categoryFilter').addEventListener('change', filterScripts);
-        document.getElementById('modeFilter').addEventListener('change', filterScripts);
+        function switchTab(tab) {
+            document.querySelectorAll('.panel-btn').forEach(function(btn) {
+                btn.classList.toggle('active', btn.dataset.tab === tab);
+            });
+
+            document.querySelectorAll('.content-section').forEach(function(el) {
+                el.classList.remove('active');
+            });
+
+            var target = document.getElementById('content-' + tab);
+            if (target) target.classList.add('active');
+
+            if (tab === 'scripts') {
+                setTimeout(function() {
+                    renderScripts();
+                }, 100);
+            }
+        }
+
+        var searchInput = document.getElementById('searchInput');
+        var categoryFilter = document.getElementById('categoryFilter');
+        var modeFilter = document.getElementById('modeFilter');
+
+        if (searchInput) {
+            searchInput.addEventListener('input', filterScripts);
+        }
+        if (categoryFilter) {
+            categoryFilter.addEventListener('change', filterScripts);
+        }
+        if (modeFilter) {
+            modeFilter.addEventListener('change', filterScripts);
+        }
 
         loadData();
 
