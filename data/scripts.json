@@ -17,8 +17,19 @@
       "mode": "doors",
       "date": "2026-07-07",
       "code": "TYUJTYU"
+    },
+    {
+      "id": 1783412219402,
+      "name": "fghj",
+      "desc": "fghj",
+      "category": "aim",
+      "mode": "davalka",
+      "date": "2026-07-07",
+      "code": "fhgj"
     }
   ],
   "partners": [],
-  "customGames": []
+  "customGames": [
+    "davalka"
+  ]
 }
