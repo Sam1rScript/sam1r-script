@@ -207,22 +207,6 @@
             color: #ef4444;
         }
 
-        .partners {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 8px;
-        }
-
-        .partner {
-            padding: 8px 18px;
-            border-radius: 20px;
-            background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(255,255,255,0.06);
-            color: rgba(255,255,255,0.5);
-            font-size: 14px;
-        }
-
         .top-bar {
             display: flex;
             justify-content: space-between;
@@ -368,8 +352,6 @@
             <div class="loading">Загрузка...</div>
         </div>
 
-        
-
         <div class="footer">
             &copy; 2026 Sam1r Script. Все права защищены.
         </div>
@@ -379,7 +361,6 @@
     <script>
         var JSON_URL = 'https://raw.githubusercontent.com/Sam1rScript/sam1r-script/main/data/scripts.json';
         var allScripts = [];
-        var partners = [];
 
         function loadData() {
             fetch(JSON_URL + '?t=' + Date.now())
@@ -389,7 +370,6 @@
                 })
                 .then(function(data) {
                     allScripts = data.scripts || [];
-                    partners = data.partners || [];
                     renderAll();
                     updateFilters();
                 })
@@ -401,7 +381,6 @@
         function renderAll() {
             renderStats();
             renderScripts();
-            renderPartners();
         }
 
         function renderStats() {
@@ -477,19 +456,6 @@
                     btn.classList.remove('copied');
                 }, 2000);
             });
-        }
-
-        function renderPartners() {
-            var container = document.getElementById('partnersList');
-            if (!partners.length) {
-                container.innerHTML = '<span class="partner" style="color:rgba(255,255,255,0.2);">Нет партнёров</span>';
-                return;
-            }
-            var html = '';
-            for (var i = 0; i < partners.length; i++) {
-                html += '<span class="partner">' + partners[i].name + '</span>';
-            }
-            container.innerHTML = html;
         }
 
         function updateFilters() {
