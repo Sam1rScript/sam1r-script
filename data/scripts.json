@@ -23,14 +23,6 @@
       "mode": "murder_mystery_2",
       "date": "2026-07-07",
       "code": "loadstring(game:HttpGet(\"https://api.luarmor.net/files/v4/loaders/5857a6cfae3b902eb3c2dff7cdbf173b.lua\"))()"
-    },
-    {
-      "name": "Penis Hub",
-      "desc": "The big big Penis",
-      "category": "AFK",
-      "mode": "big_penis",
-      "date": "2026-07-07",
-      "code": "loadstring(game:HttpGet('https://raw.githubusercontent.com/Fluxyyy333/HoshiOnTop/main/loader.lua'))()"
     }
   ],
   "partners": [
