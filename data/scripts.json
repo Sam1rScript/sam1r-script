@@ -1,20 +1,20 @@
 {
   "scripts": [
     {
-      "id": 1783413171674,
-      "name": "zenss555a",
-      "desc": "Aimbot (head-aim, bind-activated), player ESP (including enemies and teammates), infinite jump, forward teleport, speed hack with adjustable multiplier, as well as basic visual and utility features.",
-      "category": "cheat",
-      "mode": "Prison Life",
+      "name": "Test Script 1",
+      "desc": "Это тестовый скрипт для проверки работы",
+      "category": "farm",
+      "mode": "doors",
       "date": "2026-07-07",
-      "code": "loadstring(game:HttpGet('https://raw.githubusercontent.com/zenss555a/script/refs/heads/main/Prison-Life.lua', true))()"
+      "code": "loadstring(game:HttpGet(\"https://example.com/test1.lua\"))()"
+    },
+    {
+      "name": "Test Script 2",
+      "desc": "Второй тестовый скрипт",
+      "category": "admin",
+      "mode": "bloxfruits",
+      "date": "2026-07-06",
+      "code": "loadstring(game:HttpGet(\"https://example.com/test2.lua\"))()"
     }
-    
-  ],
-  "partners": [],
-  "customGames": [
-    "davalka",
-    "+1_speed_keyboard_escape",
-    "murder_mystery_2"
   ]
 }
