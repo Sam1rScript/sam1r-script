@@ -1,8 +1,3 @@
-var TOKEN_PART1 = 'ghp_LsuF'; 
-var TOKEN_PART2 = '2NwFLA5cL2yhWurxiOE9qC03';
-var TOKEN_PART3 = '9N3Coov6';
-var TOKEN_PART4 = 's';
-var GITHUB_TOKEN = TOKEN_PART1 + TOKEN_PART2 + TOKEN_PART3 + TOKEN_PART4;
 var GITHUB_REPO = 'Sam1rScript/sam1r-script';
 var DATA_FILE = 'data/scripts.json';
 
@@ -11,14 +6,9 @@ let partners = [];
 let customGames = [];
 
 function loadData() {
-    var url = 'https://api.github.com/repos/' + GITHUB_REPO + '/contents/' + DATA_FILE + '?t=' + Date.now();
+    var url = 'https://raw.githubusercontent.com/' + GITHUB_REPO + '/main/' + DATA_FILE + '?t=' + Date.now();
     
-    fetch(url, {
-        headers: {
-            'Authorization': 'token ' + GITHUB_TOKEN,
-            'Accept': 'application/vnd.github.v3+json'
-        }
-    })
+    fetch(url)
     .then(function(response) {
         if (!response.ok) {
             throw new Error('Ошибка загрузки: ' + response.status);
@@ -26,11 +16,9 @@ function loadData() {
         return response.json();
     })
     .then(function(data) {
-        var content = atob(data.content);
-        var json = JSON.parse(content);
-        scripts = json.scripts || [];
-        partners = json.partners || [];
-        customGames = json.customGames || [];
+        scripts = data.scripts || [];
+        partners = data.partners || [];
+        customGames = data.customGames || [];
         renderAll();
         updateModeFilter();
         showToast('Данные загружены', 'success');
