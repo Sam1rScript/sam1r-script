@@ -3,11 +3,20 @@
     {
       "id": 1783412915006,
       "name": "ilovepigs",
-      "desc": "Ключ: ilovepigs",
-      "category": "другое",
+      "desc": "ÐÐ»ÑÑ: ilovepigs",
+      "category": "Ð´ÑÑÐ³Ð¾Ðµ",
       "mode": "+1_speed_keyboard_escape",
       "date": "2026-07-07",
       "code": "loadstring(game:HttpGet(\"https://raw.githubusercontent.com/mopsscript7-gif/loader1/refs/heads/main/keyboard\", true))()"
+    },
+    {
+      "id": 1783413004097,
+      "name": "Abysall",
+      "desc": "Флай, ноуклип, бесконечные прыжки, функции автоматики (авто лут, авто головоломки и тд), байпассы плейса и античита, визуалы и ESP (дверей, игроков, предметов, денег и тд), настройки меню скрипта",
+      "category": "фарм",
+      "mode": "doors",
+      "date": "2026-07-07",
+      "code": "loadstring(game:HttpGet(\"https://raw.githubusercontent.com/bocaj111004/Abysall/refs/heads/main/Loader.luau\"))()"
     }
   ],
   "partners": [],
