@@ -1,15 +1,5 @@
 {
-  "scripts": [
-    {
-      "id": 1783412219402,
-      "name": "fghj",
-      "desc": "fghj",
-      "category": "aim",
-      "mode": "davalka",
-      "date": "2026-07-07",
-      "code": "fhgj"
-    }
-  ],
+  "scripts": [],
   "partners": [],
   "customGames": [
     "davalka"
