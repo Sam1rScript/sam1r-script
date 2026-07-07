@@ -334,6 +334,38 @@
         .status-bar .status-text .loading {
             color: #fbbf24;
         }
+        .key-toggle {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            margin-top: 4px;
+        }
+        .key-toggle label {
+            font-size: 13px;
+            font-weight: 500;
+            color: rgba(255,255,255,0.6);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .key-toggle input[type="radio"] {
+            width: 16px;
+            height: 16px;
+            accent-color: #8b5cf6;
+            cursor: pointer;
+        }
+        .key-input-group {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-top: 4px;
+        }
+        .key-input-group input {
+            flex: 1;
+            min-width: 150px;
+        }
         @media (max-width: 768px) {
             .admin-form {
                 grid-template-columns: 1fr;
@@ -354,6 +386,9 @@
             }
             .auth-box h2 {
                 font-size: 22px;
+            }
+            .key-toggle {
+                flex-wrap: wrap;
             }
         }
         @media (max-width: 480px) {
@@ -440,6 +475,20 @@
                     <div>
                         <label>Дата</label>
                         <input type="date" id="scriptDate">
+                    </div>
+                    <div class="full-width">
+                        <label>Ключ-система</label>
+                        <div class="key-toggle">
+                            <label>
+                                <input type="radio" name="hasKey" value="yes" onchange="toggleKeyInput(true)"> Есть ключ
+                            </label>
+                            <label>
+                                <input type="radio" name="hasKey" value="no" checked onchange="toggleKeyInput(false)"> Нет ключа
+                            </label>
+                        </div>
+                        <div class="key-input-group" id="keyInputGroup" style="display: none;">
+                            <input type="text" id="scriptKey" placeholder="Введите ключ для скрипта...">
+                        </div>
                     </div>
                     <div class="full-width">
                         <label>Код скрипта</label>
