@@ -168,20 +168,6 @@
             outline: none;
             transition: all 0.2s ease;
         }
-        .admin-form input[type="file"] {
-            padding: 8px;
-            color: rgba(255,255,255,0.5);
-            cursor: pointer;
-        }
-        .admin-form input[type="file"]::-webkit-file-upload-button {
-            padding: 6px 16px;
-            border: none;
-            border-radius: 6px;
-            background: rgba(139,92,246,0.2);
-            color: #8b5cf6;
-            font-weight: 500;
-            cursor: pointer;
-        }
         .admin-form textarea {
             min-height: 70px;
             resize: vertical;
@@ -408,11 +394,11 @@
 
             <div class="status-bar">
                 <span class="status-text" id="statusText">Подключение к GitHub...</span>
-                <button class="btn-primary" onclick="syncData()" style="padding: 4px 14px; font-size: 12px;">Синхронизировать</button>
-            <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap; margin-top:8px;">
-                <input type="password" id="githubToken" placeholder="GitHub Token" style="padding:6px 12px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:rgba(255,255,255,0.03);color:#fff;font-size:12px;outline:none;flex:1;min-width:150px;">
-                <button class="btn-primary" onclick="setToken()" style="padding:4px 14px;font-size:12px;">Установить</button>
-            </div>
+                <button class="btn-primary" onclick="loadData()" style="padding: 4px 14px; font-size: 12px;">Синхронизировать</button>
+                <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap; margin-top:8px;">
+                    <input type="password" id="githubToken" placeholder="GitHub Token" style="padding:6px 12px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:rgba(255,255,255,0.03);color:#fff;font-size:12px;outline:none;flex:1;min-width:150px;">
+                    <button class="btn-primary" onclick="setToken()" style="padding:4px 14px;font-size:12px;">Установить</button>
+                </div>
             </div>
 
             <div class="admin-panel">
@@ -454,10 +440,6 @@
                     <div>
                         <label>Дата</label>
                         <input type="date" id="scriptDate">
-                    </div>
-                    <div>
-                        <label>Картинка скрипта</label>
-                        <input type="file" id="scriptImage" accept="image/*">
                     </div>
                     <div class="full-width">
                         <label>Код скрипта</label>
