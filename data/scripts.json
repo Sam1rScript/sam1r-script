@@ -10,6 +10,14 @@
     },
     {
       "name": "Test Script 2",
+      "desc": "Это текст тест работы",
+      "category": "farm",
+      "mode": "rooms",
+      "date": "2026-07-07",
+      "code": "loadstring(game:HttpGet(\"https://example.com/test1.lua\"))()"
+    },
+    {
+      "name": "Test Script 3",
       "desc": "Второй тестовый скрипт",
       "category": "admin",
       "mode": "bloxfruits",
