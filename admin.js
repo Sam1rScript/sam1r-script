@@ -166,7 +166,7 @@ function deletePartner(id) {
     showToast('Партнёр удалён', 'error');
 }
 
-// ===== СОХРАНЕНИЕ СКРИПТА =====
+// ===== СОХРАНЕНИЕ СКРИПТА (БЕЗ КАРТИНКИ) =====
 function saveScript() {
     var name = document.getElementById('scriptName').value.trim();
     var desc = document.getElementById('scriptDesc').value.trim();
@@ -174,7 +174,6 @@ function saveScript() {
     var mode = document.getElementById('scriptMode').value;
     var date = document.getElementById('scriptDate').value;
     var code = document.getElementById('scriptCode').value.trim();
-    var imageInput = document.getElementById('scriptImage');
 
     if (mode === 'other') {
         var customInput = document.getElementById('customGameInput').value.trim();
@@ -196,15 +195,8 @@ function saveScript() {
         return;
     }
 
-    if (imageInput.files && imageInput.files[0]) {
-        var reader = new FileReader();
-        reader.onload = function(e) {
-            saveScriptData(name, desc, category, mode, date, code, e.target.result);
-        };
-        reader.readAsDataURL(imageInput.files[0]);
-    } else {
-        showToast('Добавьте картинку для скрипта', 'error');
-    }
+    // Сохраняем БЕЗ картинки
+    saveScriptData(name, desc, category, mode, date, code, '');
 }
 
 function saveScriptData(name, desc, category, mode, date, code, image) {
@@ -215,9 +207,13 @@ function saveScriptData(name, desc, category, mode, date, code, image) {
         category: category,
         mode: mode,
         date: date || new Date().toISOString().split('T')[0],
-        code: code,
-        image: image
+        code: code
     };
+    // Если есть картинка - добавляем, но лучше без неё
+    if (image && image.length < 5000) {
+        newScript.image = image;
+    }
+    
     scripts.push(newScript);
     
     var data = { scripts: scripts, partners: partners, customGames: customGames };
@@ -234,27 +230,19 @@ function saveScriptData(name, desc, category, mode, date, code, image) {
     showToast('Скрипт добавлен', 'success');
 }
 
-// ===== СОХРАНЕНИЕ ПАРТНЁРА =====
+// ===== СОХРАНЕНИЕ ПАРТНЁРА (БЕЗ КАРТИНКИ) =====
 function savePartner() {
     var name = document.getElementById('partnerName').value.trim();
     var desc = document.getElementById('partnerDesc').value.trim();
     var link = document.getElementById('partnerLink').value.trim();
-    var imageInput = document.getElementById('partnerImage');
 
     if (!name || !desc) {
         showToast('Заполните все поля', 'error');
         return;
     }
 
-    if (imageInput.files && imageInput.files[0]) {
-        var reader = new FileReader();
-        reader.onload = function(e) {
-            savePartnerData(name, desc, link, e.target.result);
-        };
-        reader.readAsDataURL(imageInput.files[0]);
-    } else {
-        showToast('Добавьте логотип для партнёра', 'error');
-    }
+    // Сохраняем БЕЗ картинки
+    savePartnerData(name, desc, link, '');
 }
 
 function savePartnerData(name, desc, link, image) {
@@ -262,9 +250,12 @@ function savePartnerData(name, desc, link, image) {
         id: Date.now(),
         name: name,
         desc: desc,
-        link: link || '#',
-        image: image
+        link: link || '#'
     };
+    if (image && image.length < 5000) {
+        newPartner.image = image;
+    }
+    
     partners.push(newPartner);
     
     var data = { scripts: scripts, partners: partners, customGames: customGames };
@@ -472,7 +463,6 @@ function checkAdminKey() {
         if (dateInput) {
             dateInput.value = new Date().toISOString().split('T')[0];
         }
-        // Проверяем, есть ли сохранённый токен
         var savedToken = localStorage.getItem('github_token');
         if (savedToken) {
             document.getElementById('githubToken').value = savedToken;
