@@ -1,15 +1,10 @@
-var TOKEN_PART1 = 'ghp_3thE';
-var TOKEN_PART2 = 'pZUdsrAZvXu2X4QFnEtq4v4';
-var TOKEN_PART3 = 'd9d2JJqe';
-var TOKEN_PART4 = 's';
-var GITHUB_TOKEN = TOKEN_PART1 + TOKEN_PART2 + TOKEN_PART3 + TOKEN_PART4;
+var GITHUB_TOKEN = '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';
 var GITHUB_REPO = 'Sam1rScript/sam1r-script';
 var DATA_FILE = 'data/scripts.json';
 
 let scripts = [];
 let partners = [];
 let customGames = [];
-let adminUnlocked = false;
 
 function loadData() {
     var url = 'https://api.github.com/repos/' + GITHUB_REPO + '/contents/' + DATA_FILE + '?t=' + Date.now();
@@ -22,7 +17,7 @@ function loadData() {
     })
     .then(function(response) {
         if (!response.ok) {
-            throw new Error('Ошибка загрузки: ' + response.status);
+            throw new Error('Ошибка загрузки');
         }
         return response.json();
     })
@@ -51,20 +46,20 @@ function copyScript(id) {
         }
     }
     if (script) {
-        var codeText = script.code;
+        var text = script.code;
         if (script.key) {
-            codeText = 'Ключ: ' + script.key + '\n\n' + codeText;
+            text = 'Key: ' + script.key + '\n\n' + text;
         }
-        navigator.clipboard.writeText(codeText).then(function() {
-            showToast('Код скопирован', 'success');
+        navigator.clipboard.writeText(text).then(function() {
+            showToast('Copied!', 'success');
         }).catch(function() {
             var textarea = document.createElement('textarea');
-            textarea.value = codeText;
+            textarea.value = text;
             document.body.appendChild(textarea);
             textarea.select();
             document.execCommand('copy');
             document.body.removeChild(textarea);
-            showToast('Код скопирован', 'success');
+            showToast('Copied!', 'success');
         });
     }
 }
@@ -73,7 +68,7 @@ function renderRecentScripts() {
     var container = document.getElementById('recentScripts');
     var recent = scripts.slice(-3).reverse();
     if (!recent.length) {
-        container.innerHTML = '<div class="empty-state">Пока нет скриптов</div>';
+        container.innerHTML = '<div class="empty-state">No scripts yet</div>';
         return;
     }
     var html = '';
@@ -98,7 +93,7 @@ function renderAllScripts() {
         if (match) filtered.push(s);
     }
     if (!filtered.length) {
-        container.innerHTML = '<div class="empty-state">Скрипты не найдены</div>';
+        container.innerHTML = '<div class="empty-state">Scripts not found</div>';
     } else {
         var html = '';
         for (var i = 0; i < filtered.length; i++) {
@@ -111,42 +106,29 @@ function renderAllScripts() {
 
 function renderExploits() {
     var container = document.getElementById('exploitsList');
-    container.innerHTML = '<div class="empty-state">Эксплойты появятся позже</div>';
+    container.innerHTML = '<div class="empty-state">Exploits coming soon</div>';
 }
 
 function renderPartners() {
     var container = document.getElementById('partnersList');
     if (!partners.length) {
-        container.innerHTML = '<span style="color: rgba(255,255,255,0.2); font-size: 14px;">Пока нет партнёров</span>';
+        container.innerHTML = '<span style="color: rgba(255,255,255,0.2); font-size: 14px;">No partners yet</span>';
     } else {
         var html = '';
         for (var i = 0; i < partners.length; i++) {
             var p = partners[i];
-            html += '<a href="' + (p.link || '#') + '" target="_blank" class="partner-tag">';
-            if (p.image) html += '<img src="' + p.image + '">';
-            html += p.name + '</a>';
+            html += '<a href="' + (p.link || '#') + '" target="_blank" class="partner-tag">' + p.name + '</a>';
         }
         container.innerHTML = html;
     }
     var grid = document.getElementById('partnersGrid');
     if (!partners.length) {
-        grid.innerHTML = '<div class="empty-state">Пока нет партнёров</div>';
+        grid.innerHTML = '<div class="empty-state">No partners yet</div>';
     } else {
         var html = '';
         for (var i = 0; i < partners.length; i++) {
             var p = partners[i];
-            html += '<div class="partner-card">';
-            if (p.image) {
-                html += '<img src="' + p.image + '">';
-            } else {
-                html += '<div style="width:64px;height:64px;border-radius:50%;background:rgba(139,92,246,0.2);margin:0 auto 10px;display:flex;align-items:center;justify-content:center;font-size:28px;">&#129309;</div>';
-            }
-            html += '<h4>' + p.name + '</h4>';
-            html += '<p>' + (p.desc || '') + '</p>';
-            if (p.link) {
-                html += '<a href="' + p.link + '" target="_blank" style="color:#8b5cf6;font-size:13px;text-decoration:none;margin-top:6px;display:inline-block;">Перейти &#8594;</a>';
-            }
-            html += '</div>';
+            html += '<div class="partner-card">' + p.name + '</div>';
         }
         grid.innerHTML = html;
     }
@@ -154,7 +136,7 @@ function renderPartners() {
 
 function createScriptCard(s, isRecent) {
     var modeLabel = s.mode ? s.mode.toUpperCase().replace(/_/g, ' ') : '';
-    var keyBadge = s.key ? '<span class="script-tag" style="background:rgba(52,211,153,0.15);color:#34d399;">Ключ: ' + s.key + '</span>' : '';
+    var keyBadge = s.key ? '<span class="script-tag" style="background:rgba(52,211,153,0.15);color:#34d399;">Key: ' + s.key + '</span>' : '';
     var html = '';
     html += '<div class="script-card">';
     html += '<div class="script-info">';
@@ -167,9 +149,9 @@ function createScriptCard(s, isRecent) {
     html += '</div>';
     html += '<div class="script-actions">';
     if (isRecent) {
-        html += '<button class="btn-secondary" onclick="navigate(\'scripts\')">Подробнее</button>';
+        html += '<button class="btn-secondary" onclick="document.getElementById(\'page-scripts\').scrollIntoView()">View all</button>';
     } else {
-        html += '<button class="btn-secondary" onclick="copyScript(' + s.id + ')">Копировать</button>';
+        html += '<button class="btn-secondary" onclick="copyScript(' + s.id + ')">Copy</button>';
     }
     html += '</div>';
     html += '</div>';
@@ -183,7 +165,7 @@ function updateModeFilter() {
     select.innerHTML = '';
     var all = document.createElement('option');
     all.value = 'all';
-    all.textContent = 'Все режимы';
+    all.textContent = 'All modes';
     select.appendChild(all);
     var games = [];
     for (var i = 0; i < scripts.length; i++) {
@@ -235,21 +217,6 @@ function navigate(page) {
             hero.classList.add('hidden');
         }
     }
-    if (page === 'admin') {
-        checkAdminAccess();
-    }
-}
-
-function checkAdminAccess() {
-    if (adminUnlocked) return;
-    var password = prompt('Введите пароль администратора:');
-    if (password === 'sam1r2025') {
-        adminUnlocked = true;
-        showToast('Добро пожаловать в админ-панель', 'success');
-    } else if (password !== null) {
-        showToast('Неверный пароль', 'error');
-        navigate('home');
-    }
 }
 
 function showToast(message, type) {
@@ -276,29 +243,6 @@ function renderAll() {
     updateStats();
     updateModeFilter();
 }
-
-var lastLoad = localStorage.getItem('sam1r_last_load');
-var now = Date.now();
-
-if (!lastLoad || (now - parseInt(lastLoad)) > 10000) {
-    localStorage.setItem('sam1r_last_load', String(now));
-    setTimeout(function() {
-        loadData();
-    }, 300);
-}
-
-document.addEventListener('visibilitychange', function() {
-    if (!document.hidden) {
-        loadData();
-    }
-});
-
-window.addEventListener('load', function() {
-    var cache = performance.getEntriesByType('navigation')[0];
-    if (cache && cache.type === 'reload') {
-        loadData();
-    }
-});
 
 document.addEventListener('DOMContentLoaded', function() {
     loadData();
