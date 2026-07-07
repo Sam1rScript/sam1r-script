@@ -3,8 +3,8 @@
     {
       "id": 1783412915006,
       "name": "ilovepigs",
-      "desc": "ÃÂÃÂ»ÃÂ¾ÃÂ: ilovepigs",
-      "category": "ÃÂ´ÃÂÃÂÃÂ³ÃÂ¾ÃÂµ",
+      "desc": "Keyboard macro script",
+      "category": "other",
       "mode": "+1_speed_keyboard_escape",
       "date": "2026-07-07",
       "code": "loadstring(game:HttpGet(\"https://raw.githubusercontent.com/mopsscript7-gif/loader1/refs/heads/main/keyboard\", true))()"
@@ -12,8 +12,8 @@
     {
       "id": 1783413004097,
       "name": "Abysall",
-      "desc": "ÃÂ¤ÃÂ»ÃÂ°ÃÂ¹, ÃÂ½ÃÂ¾ÃÂºÃÂ»ÃÂ¸ÃÂ¿, ÃÂ±ÃÂµÃÂÃÂºÃÂ¾ÃÂ½ÃÂµÃÂÃÂ½ÃÂÃÂµ ÃÂ¿ÃÂÃÂÃÂ¶ÃÂºÃÂ¸, ÃÂÃÂÃÂ½ÃÂºÃÂÃÂ¸ÃÂ¸ ÃÂ°ÃÂ²ÃÂÃÂ¾ÃÂ¼ÃÂ°ÃÂÃÂ¸ÃÂºÃÂ¸ (ÃÂ°ÃÂ²ÃÂÃÂ¾ ÃÂ»ÃÂÃÂ, ÃÂ°ÃÂ²ÃÂÃÂ¾ ÃÂ³ÃÂ¾ÃÂ»ÃÂ¾ÃÂ²ÃÂ°ÃÂ»ÃÂ¾ÃÂ¼ÃÂºÃÂ¸ ÃÂ¸ ÃÂÃÂ´), ÃÂ±ÃÂ°ÃÂ¹ÃÂ¿ÃÂ°ÃÂÃÂ ÃÂ¿ÃÂ»ÃÂµÃÂ¹ÃÂÃÂ° ÃÂ¸ ÃÂ°ÃÂ½ÃÂÃÂ¸ÃÂÃÂ¸ÃÂÃÂ°, ÃÂ²ÃÂ¸ÃÂ·ÃÂÃÂ°ÃÂ»ÃÂ ÃÂ¸ ESP (ÃÂ´ÃÂ²ÃÂµÃÂÃÂµÃÂ¹, ÃÂ¸ÃÂ³ÃÂÃÂ¾ÃÂºÃÂ¾ÃÂ², ÃÂ¿ÃÂÃÂµÃÂ´ÃÂ¼ÃÂµÃÂÃÂ¾ÃÂ², ÃÂ´ÃÂµÃÂ½ÃÂµÃÂ³ ÃÂ¸ ÃÂÃÂ´), ÃÂ½ÃÂ°ÃÂÃÂÃÂÃÂ¾ÃÂ¹ÃÂºÃÂ¸ ÃÂ¼ÃÂµÃÂ½ÃÂ ÃÂÃÂºÃÂÃÂ¸ÃÂ¿ÃÂÃÂ°",
-      "category": "ÃÂÃÂ°ÃÂÃÂ¼",
+      "desc": "Fly, noclip, infinite jumps, auto farm, auto head, bypass, visuals, ESP, configurable menu",
+      "category": "farm",
       "mode": "doors",
       "date": "2026-07-07",
       "code": "loadstring(game:HttpGet(\"https://raw.githubusercontent.com/bocaj111004/Abysall/refs/heads/main/Loader.luau\"))()"
@@ -21,8 +21,8 @@
     {
       "id": 1783413063386,
       "name": "Pulse Hub",
-      "desc": "Main Ã¢ÂÂ Role ESP (Enable Role ESP), X-Ray ÃÂ ÃÂ½ÃÂ°ÃÂÃÂÃÂÃÂ¾ÃÂ¹ÃÂºÃÂ¾ÃÂ¹ ÃÂÃÂ¸ÃÂ»ÃÂ, No Clip, Auto Fling Sheriff. Sheriff Ã¢ÂÂ Auto Pickup Gun, Gun ESP, Silent Aim, Wallbang, Auto Shoot, Auto Kill. Murder Ã¢ÂÂ Kill Aura (Kill All, Kill Only Sheriff) ÃÂ¸ Kill Player ÃÂÃÂ¾ ÃÂÃÂ¿ÃÂ¸ÃÂÃÂºÃÂ¾ÃÂ¼ ÃÂ¸ÃÂ³ÃÂÃÂ¾ÃÂºÃÂ¾ÃÂ² ÃÂ¸ Kill Selected. Auto Farm Ã¢ÂÂ Auto Farm, Auto-Respawn, Anti-Fling, Avoid Murderer, Auto-Fling, Kill Aura ÃÂ¿ÃÂ»ÃÂÃÂ ÃÂ¿ÃÂ¾ÃÂºÃÂ°ÃÂ·ÃÂ°ÃÂÃÂµÃÂ»ÃÂ¸ Rate/Status. Fun/Troll Ã¢ÂÂ ÃÂ²ÃÂÃÂ±ÃÂ¾ÃÂ ÃÂ»ÃÂÃÂ±ÃÂÃÂ Emote ÃÂ¸ Auto Emote, Walk Speed (ÃÂÃÂ¾ÃÂ³ÃÂ³ÃÂ» + ÃÂ¿ÃÂ¾ÃÂ»ÃÂ·ÃÂÃÂ½ÃÂ¾ÃÂº 16), Jump Power (ÃÂÃÂ¾ÃÂ³ÃÂ³ÃÂ» + ÃÂ¿ÃÂ¾ÃÂ»ÃÂ·ÃÂÃÂ½ÃÂ¾ÃÂº 50), Touch Fling.",
-      "category": "ÃÂÃÂ°ÃÂÃÂ¼",
+      "desc": "Role ESP, X-Ray, No Clip, Auto Fling, Gun ESP, Silent Aim, Wallbang, Auto Shoot, Kill Aura, Auto Farm, Walk Speed, Jump Power",
+      "category": "farm",
       "mode": "murder_mystery_2",
       "date": "2026-07-07",
       "code": "loadstring(game:HttpGet(\"https://api.luarmor.net/files/v4/loaders/5857a6cfae3b902eb3c2dff7cdbf173b.lua\"))()"
@@ -30,30 +30,11 @@
     {
       "id": 1783413171675,
       "name": "Cat Hub",
-      "desc": "ÃÂ ÃÂÃÂºÃÂÃÂ¸ÃÂ¿ÃÂÃÂµ ÃÂµÃÂÃÂÃÂ ÃÂºÃÂÃÂÃÂ° ÃÂÃÂÃÂ½ÃÂºÃÂÃÂ¸ÃÂ¹ ÃÂ´ÃÂ»ÃÂ ÃÂÃÂ°ÃÂÃÂ¼ÃÂ° ÃÂ¸ ÃÂÃÂ´",
-      "category": "ÃÂÃÂ°ÃÂÃÂ¼",
+      "desc": "Many farming functions",
+      "category": "farm",
       "mode": "gag",
       "date": "2026-07-07",
       "code": "loadstring(game:HttpGet(\"https://api.luarmor.net/files/v4/loaders/cab22c2350e769a5d8ab35a9c8ee3e8b.lua\"))()"
-    },
-    {
-      "id": 1783413711930,
-      "name": "sdfgdfgsdfgsdfgsdfgsdfgfdsgfgsd",
-      "desc": "sdfgsdfgsdfgsdfg",
-      "category": "Ð°Ð´Ð¼Ð¸Ð½",
-      "mode": "sab",
-      "date": "2026-07-07",
-      "code": "sdfgdfgsdfg",
-      "key": "Net idi nahuy"
-    },
-    {
-      "id": 1783413743663,
-      "name": "thertherthrththererth",
-      "desc": "wrghsethserthrtherth",
-      "category": "админ",
-      "mode": "bloxfruits",
-      "date": "2026-07-07",
-      "code": "erthertherthhertertherth"
     }
   ],
   "partners": [],
