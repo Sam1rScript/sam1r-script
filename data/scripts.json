@@ -1,28 +1,25 @@
 {
   "scripts": [
     {
-      "name": "Test Script 1",
-      "desc": "Это тестовый скрипт для проверки работы",
+      "name": "Abysall",
+      "desc": "Fly, noclip, infinite jumps, auto farm, ESP",
       "category": "farm",
       "mode": "doors",
       "date": "2026-07-07",
-      "code": "loadstring(game:HttpGet(\"https://example.com/test1.lua\"))()"
+      "code": "loadstring(game:HttpGet(\"https://raw.githubusercontent.com/bocaj111004/Abysall/refs/heads/main/Loader.luau\"))()"
     },
     {
-      "name": "Test Script 2",
-      "desc": "Это текст тест работы",
+      "name": "Pulse Hub",
+      "desc": "Role ESP, X-Ray, No Clip, Silent Aim, Kill Aura",
       "category": "farm",
-      "mode": "rooms",
+      "mode": "murder_mystery_2",
       "date": "2026-07-07",
-      "code": "loadstring(game:HttpGet(\"https://example.com/test1.lua\"))()"
-    },
-    {
-      "name": "Test Script 3",
-      "desc": "Второй тестовый скрипт",
-      "category": "admin",
-      "mode": "bloxfruits",
-      "date": "2026-07-06",
-      "code": "loadstring(game:HttpGet(\"https://example.com/test2.lua\"))()"
+      "code": "loadstring(game:HttpGet(\"https://api.luarmor.net/files/v4/loaders/5857a6cfae3b902eb3c2dff7cdbf173b.lua\"))()"
     }
+  ],
+  "partners": [
+    { "name": "Crystal Hub" },
+    { "name": "DarkX Hub" },
+    { "name": "Lunar Scripts" }
   ]
 }
