@@ -24,7 +24,6 @@
             margin: 0 auto;
         }
 
-        /* ===== ШАПКА ===== */
         .header {
             display: flex;
             align-items: center;
@@ -62,7 +61,6 @@
             color: #ffffff;
         }
 
-        /* ===== СТАТИСТИКА ===== */
         .stats {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -89,7 +87,6 @@
             margin-top: 2px;
         }
 
-        /* ===== ЗАГОЛОВКИ ===== */
         .section-title {
             font-size: 20px;
             font-weight: 700;
@@ -100,7 +97,6 @@
             color: #8b5cf6;
         }
 
-        /* ===== КАРТОЧКИ СКРИПТОВ ===== */
         .script {
             background: rgba(255,255,255,0.03);
             border: 1px solid rgba(255,255,255,0.06);
@@ -193,7 +189,6 @@
             color: #34d399;
         }
 
-        /* ===== ПУСТОЕ СОСТОЯНИЕ ===== */
         .empty {
             text-align: center;
             padding: 40px 20px;
@@ -206,25 +201,12 @@
             color: rgba(255,255,255,0.2);
         }
 
-        .loading::after {
-            content: '...';
-            animation: dots 1.5s steps(4, end) infinite;
-        }
-
-        @keyframes dots {
-            0% { content: ''; }
-            25% { content: '.'; }
-            50% { content: '..'; }
-            75% { content: '...'; }
-        }
-
         .error {
             text-align: center;
             padding: 40px 20px;
             color: #ef4444;
         }
 
-        /* ===== ПАРТНЁРЫ ===== */
         .partners {
             display: flex;
             flex-wrap: wrap;
@@ -241,7 +223,72 @@
             font-size: 14px;
         }
 
-        /* ===== АДАПТИВ ===== */
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .count-label {
+            color: rgba(255,255,255,0.2);
+            font-size: 14px;
+        }
+
+        .search-bar {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+
+        .search-input {
+            flex: 1;
+            min-width: 150px;
+            padding: 10px 14px;
+            border-radius: 10px;
+            border: 1px solid rgba(255,255,255,0.06);
+            background: rgba(255,255,255,0.03);
+            color: #ffffff;
+            font-size: 14px;
+            outline: none;
+        }
+
+        .search-input:focus {
+            border-color: rgba(139,92,246,0.3);
+        }
+
+        .search-input::placeholder {
+            color: rgba(255,255,255,0.2);
+        }
+
+        .filter-select {
+            padding: 10px 14px;
+            border-radius: 10px;
+            border: 1px solid rgba(255,255,255,0.06);
+            background: rgba(255,255,255,0.03);
+            color: rgba(255,255,255,0.6);
+            font-size: 14px;
+            outline: none;
+            cursor: pointer;
+        }
+
+        .filter-select option {
+            background: #1a1a2e;
+            color: #ffffff;
+        }
+
+        .footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.04);
+            text-align: center;
+            color: rgba(255,255,255,0.15);
+            font-size: 13px;
+        }
+
         @media (max-width: 600px) {
             .stats {
                 grid-template-columns: repeat(2, 1fr);
@@ -254,6 +301,15 @@
                 flex-direction: column;
                 align-items: flex-start;
             }
+            .search-bar {
+                flex-direction: column;
+            }
+            .search-input {
+                min-width: unset;
+            }
+            .filter-select {
+                width: 100%;
+            }
         }
     </style>
 </head>
@@ -261,7 +317,6 @@
 
     <div class="container">
 
-        <!-- ===== ШАПКА ===== -->
         <header class="header">
             <div class="logo">Sam1r <span>Script</span></div>
             <div class="header-links">
@@ -270,8 +325,7 @@
             </div>
         </header>
 
-        <!-- ===== СТАТИСТИКА ===== -->
-        <div class="stats" id="stats">
+        <div class="stats">
             <div class="stat">
                 <div class="stat-number" id="statScripts">0</div>
                 <div class="stat-label">Скриптов</div>
@@ -290,41 +344,32 @@
             </div>
         </div>
 
-        <!-- ===== ПОСЛЕДНИЕ ОБНОВЛЕНИЯ ===== -->
-        <div class="section-title">📌 Последние <span class="accent">обновления</span></div>
-        <div id="recentList"></div>
-
-        <!-- ===== ВСЕ СКРИПТЫ ===== -->
-        <div style="margin-top: 40px;">
-            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px; flex-wrap:wrap; gap:10px;">
-                <div class="section-title" style="margin-bottom:0;">📜 Все <span class="accent">скрипты</span></div>
-                <span style="color:rgba(255,255,255,0.2); font-size:14px;" id="countLabel">0</span>
-            </div>
-
-            <!-- ПОИСК И ФИЛЬТРЫ -->
-            <div style="display:flex; gap:10px; margin-bottom:16px; flex-wrap:wrap;">
-                <input type="text" id="searchInput" placeholder="🔍 Поиск..." style="flex:1; min-width:150px; padding:10px 14px; border-radius:10px; border:1px solid rgba(255,255,255,0.06); background:rgba(255,255,255,0.03); color:#fff; font-size:14px; outline:none;">
-                <select id="categoryFilter" style="padding:10px 14px; border-radius:10px; border:1px solid rgba(255,255,255,0.06); background:rgba(255,255,255,0.03); color:rgba(255,255,255,0.6); font-size:14px; outline:none; cursor:pointer;">
-                    <option value="all">Все категории</option>
-                    <option value="farm">Farm</option>
-                    <option value="admin">Admin</option>
-                    <option value="aim">Aim</option>
-                    <option value="esp">ESP</option>
-                    <option value="other">Other</option>
-                </select>
-                <select id="modeFilter" style="padding:10px 14px; border-radius:10px; border:1px solid rgba(255,255,255,0.06); background:rgba(255,255,255,0.03); color:rgba(255,255,255,0.6); font-size:14px; outline:none; cursor:pointer;">
-                    <option value="all">Все режимы</option>
-                </select>
-            </div>
-
-            <div id="scriptsList">
-                <div class="loading">Загрузка</div>
-            </div>
+        <div class="top-bar">
+            <div class="section-title" style="margin-bottom:0;">Все скрипты</div>
+            <span class="count-label" id="countLabel">0</span>
         </div>
 
-        <!-- ===== ПАРТНЁРЫ ===== -->
+        <div class="search-bar">
+            <input type="text" class="search-input" id="searchInput" placeholder="Поиск скриптов...">
+            <select class="filter-select" id="categoryFilter">
+                <option value="all">Все категории</option>
+                <option value="farm">Farm</option>
+                <option value="admin">Admin</option>
+                <option value="aim">Aim</option>
+                <option value="esp">ESP</option>
+                <option value="other">Other</option>
+            </select>
+            <select class="filter-select" id="modeFilter">
+                <option value="all">Все режимы</option>
+            </select>
+        </div>
+
+        <div id="scriptsList">
+            <div class="loading">Загрузка...</div>
+        </div>
+
         <div style="margin-top: 40px;">
-            <div class="section-title">🤝 Наши <span class="accent">партнёры</span></div>
+            <div class="section-title">Партнёры</div>
             <div class="partners" id="partnersList">
                 <span class="partner">Crystal Hub</span>
                 <span class="partner">DarkX Hub</span>
@@ -332,16 +377,14 @@
             </div>
         </div>
 
-        <!-- ===== ПОДВАЛ ===== -->
-        <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.04); text-align:center; color:rgba(255,255,255,0.15); font-size:13px;">
-            Sam1r Script — просто скрипты для Roblox
+        <div class="footer">
+            Sam1r Script
         </div>
 
     </div>
 
     <script>
         var JSON_URL = 'https://raw.githubusercontent.com/Sam1rScript/sam1r-script/main/data/scripts.json';
-
         var allScripts = [];
         var partners = [];
 
@@ -364,7 +407,6 @@
 
         function renderAll() {
             renderStats();
-            renderRecent();
             renderScripts();
             renderPartners();
         }
@@ -373,20 +415,6 @@
             document.getElementById('statScripts').textContent = allScripts.length;
             document.getElementById('statExploits').textContent = 0;
             document.getElementById('countLabel').textContent = allScripts.length + ' скриптов';
-        }
-
-        function renderRecent() {
-            var container = document.getElementById('recentList');
-            var recent = allScripts.slice(-3).reverse();
-            if (!recent.length) {
-                container.innerHTML = '<div class="empty">Нет скриптов</div>';
-                return;
-            }
-            var html = '';
-            for (var i = 0; i < recent.length; i++) {
-                html += createScriptHTML(recent[i]);
-            }
-            container.innerHTML = html;
         }
 
         function renderScripts() {
@@ -461,7 +489,7 @@
         function renderPartners() {
             var container = document.getElementById('partnersList');
             if (!partners.length) {
-                container.innerHTML = '<span class="partner" style="color:rgba(255,255,255,0.2);">Пока нет партнёров</span>';
+                container.innerHTML = '<span class="partner" style="color:rgba(255,255,255,0.2);">Нет партнёров</span>';
                 return;
             }
             var html = '';
