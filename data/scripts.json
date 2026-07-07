@@ -9,6 +9,14 @@
       "code": "loadstring(game:HttpGet(\"https://raw.githubusercontent.com/bocaj111004/Abysall/refs/heads/main/Loader.luau\"))()"
     },
     {
+      "name": "wihikk",
+      "desc": "Aimbot Wallbang",
+      "category": "cheat",
+      "mode": "Rooms",
+      "date": "2026-07-07",
+      "code": "loadstring(game:HttpGet('https://raw.githubusercontent.com/wihikk/wihikk-hub-v1/refs/heads/main/Script%2013.lua'))()"
+    },
+    {
       "name": "Pulse Hub",
       "desc": "Role ESP, X-Ray, No Clip, Silent Aim, Kill Aura",
       "category": "farm",
