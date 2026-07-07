@@ -1,5 +1,15 @@
 {
-  "scripts": [],
+  "scripts": [
+    {
+      "id": 1783351033321,
+      "name": "123",
+      "desc": "123",
+      "category": "фарм",
+      "mode": "doors",
+      "date": "2026-07-06",
+      "code": "123"
+    }
+  ],
   "partners": [],
   "customGames": []
 }
