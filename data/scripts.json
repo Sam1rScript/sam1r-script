@@ -3,8 +3,8 @@
     {
       "id": 1783412915006,
       "name": "ilovepigs",
-      "desc": "ÐÐ»ÑÑ: ilovepigs",
-      "category": "Ð´ÑÑÐ³Ð¾Ðµ",
+      "desc": "ÃÂÃÂ»ÃÂÃÂ: ilovepigs",
+      "category": "ÃÂ´ÃÂÃÂÃÂ³ÃÂ¾ÃÂµ",
       "mode": "+1_speed_keyboard_escape",
       "date": "2026-07-07",
       "code": "loadstring(game:HttpGet(\"https://raw.githubusercontent.com/mopsscript7-gif/loader1/refs/heads/main/keyboard\", true))()"
@@ -12,16 +12,26 @@
     {
       "id": 1783413004097,
       "name": "Abysall",
-      "desc": "Флай, ноуклип, бесконечные прыжки, функции автоматики (авто лут, авто головоломки и тд), байпассы плейса и античита, визуалы и ESP (дверей, игроков, предметов, денег и тд), настройки меню скрипта",
-      "category": "фарм",
+      "desc": "Ð¤Ð»Ð°Ð¹, Ð½Ð¾ÑÐºÐ»Ð¸Ð¿, Ð±ÐµÑÐºÐ¾Ð½ÐµÑÐ½ÑÐµ Ð¿ÑÑÐ¶ÐºÐ¸, ÑÑÐ½ÐºÑÐ¸Ð¸ Ð°Ð²ÑÐ¾Ð¼Ð°ÑÐ¸ÐºÐ¸ (Ð°Ð²ÑÐ¾ Ð»ÑÑ, Ð°Ð²ÑÐ¾ Ð³Ð¾Ð»Ð¾Ð²Ð¾Ð»Ð¾Ð¼ÐºÐ¸ Ð¸ ÑÐ´), Ð±Ð°Ð¹Ð¿Ð°ÑÑÑ Ð¿Ð»ÐµÐ¹ÑÐ° Ð¸ Ð°Ð½ÑÐ¸ÑÐ¸ÑÐ°, Ð²Ð¸Ð·ÑÐ°Ð»Ñ Ð¸ ESP (Ð´Ð²ÐµÑÐµÐ¹, Ð¸Ð³ÑÐ¾ÐºÐ¾Ð², Ð¿ÑÐµÐ´Ð¼ÐµÑÐ¾Ð², Ð´ÐµÐ½ÐµÐ³ Ð¸ ÑÐ´), Ð½Ð°ÑÑÑÐ¾Ð¹ÐºÐ¸ Ð¼ÐµÐ½Ñ ÑÐºÑÐ¸Ð¿ÑÐ°",
+      "category": "ÑÐ°ÑÐ¼",
       "mode": "doors",
       "date": "2026-07-07",
       "code": "loadstring(game:HttpGet(\"https://raw.githubusercontent.com/bocaj111004/Abysall/refs/heads/main/Loader.luau\"))()"
+    },
+    {
+      "id": 1783413063386,
+      "name": "Pulse Hub",
+      "desc": "Main — Role ESP (Enable Role ESP), X-Ray с настройкой силы, No Clip, Auto Fling Sheriff. Sheriff — Auto Pickup Gun, Gun ESP, Silent Aim, Wallbang, Auto Shoot, Auto Kill. Murder — Kill Aura (Kill All, Kill Only Sheriff) и Kill Player со списком игроков и Kill Selected. Auto Farm — Auto Farm, Auto-Respawn, Anti-Fling, Avoid Murderer, Auto-Fling, Kill Aura плюс показатели Rate/Status. Fun/Troll — выбор любых Emote и Auto Emote, Walk Speed (тоггл + ползунок 16), Jump Power (тоггл + ползунок 50), Touch Fling.",
+      "category": "фарм",
+      "mode": "murder_mystery_2",
+      "date": "2026-07-07",
+      "code": "loadstring(game:HttpGet(\"https://api.luarmor.net/files/v4/loaders/5857a6cfae3b902eb3c2dff7cdbf173b.lua\"))()"
     }
   ],
   "partners": [],
   "customGames": [
     "davalka",
-    "+1_speed_keyboard_escape"
+    "+1_speed_keyboard_escape",
+    "murder_mystery_2"
   ]
 }
