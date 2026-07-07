@@ -1,7 +1,18 @@
 {
-  "scripts": [],
+  "scripts": [
+    {
+      "id": 1783412915006,
+      "name": "ilovepigs",
+      "desc": "Ключ: ilovepigs",
+      "category": "другое",
+      "mode": "+1_speed_keyboard_escape",
+      "date": "2026-07-07",
+      "code": "loadstring(game:HttpGet(\"https://raw.githubusercontent.com/mopsscript7-gif/loader1/refs/heads/main/keyboard\", true))()"
+    }
+  ],
   "partners": [],
   "customGames": [
-    "davalka"
+    "davalka",
+    "+1_speed_keyboard_escape"
   ]
 }
