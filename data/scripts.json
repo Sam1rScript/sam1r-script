@@ -35,7 +35,17 @@
       "mode": "gag",
       "date": "2026-07-07",
       "code": "loadstring(game:HttpGet(\"https://api.luarmor.net/files/v4/loaders/cab22c2350e769a5d8ab35a9c8ee3e8b.lua\"))()"
+    },
+    {
+      "id": 1783413171674,
+      "name": "Cat Hub",
+      "desc": "Aimbot (head-aim, bind-activated), player ESP (including enemies and teammates), infinite jump, forward teleport, speed hack with adjustable multiplier, as well as basic visual and utility features.",
+      "category": "cheat",
+      "mode": "Prison Life",
+      "date": "2026-07-07",
+      "code": "loadstring(game:HttpGet("https://raw.githubusercontent.com/zenss555a/script/refs/heads/main/Prison-Life.lua", true))()"
     }
+    
   ],
   "partners": [],
   "customGames": [
