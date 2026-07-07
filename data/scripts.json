@@ -1,15 +1,5 @@
 {
-  "scripts": [
-    {
-      "id": 1783351033321,
-      "name": "123",
-      "desc": "123",
-      "category": "ÃÂÃÂ°ÃÂÃÂ¼",
-      "mode": "doors",
-      "date": "2026-07-06",
-      "code": "123"
-    }
-  ],
+  "scripts": [],
   "partners": [],
   "customGames": []
 }
