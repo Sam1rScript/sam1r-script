@@ -611,31 +611,3 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-// ===== ПРИНУДИТЕЛЬНОЕ ОБНОВЛЕНИЕ =====
-// Проверяем, когда был последний раз загружена страница
-var lastLoad = localStorage.getItem('sam1r_last_load');
-var now = Date.now();
-
-// Если прошло больше 10 секунд или нет записи - обновляем
-if (!lastLoad || (now - parseInt(lastLoad)) > 10000) {
-    localStorage.setItem('sam1r_last_load', String(now));
-    // Перезагружаем данные с принудительным обновлением кеша
-    setTimeout(function() {
-        loadData();
-    }, 500);
-}
-
-// ===== ОБНОВЛЯЕМ ПРИ ВОЗВРАЩЕНИИ НА СТРАНИЦУ =====
-document.addEventListener('visibilitychange', function() {
-    if (!document.hidden) {
-        loadData();
-    }
-});
-
-// ===== ОБНОВЛЯЕМ ПРИ F5 ИЛИ CTRL+F5 =====
-window.addEventListener('load', function() {
-    var cache = performance.getEntriesByType('navigation')[0];
-    if (cache && cache.type === 'reload') {
-        loadData();
-    }
-});
