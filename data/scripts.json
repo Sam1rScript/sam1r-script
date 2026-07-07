@@ -1,5 +1,15 @@
 {
-  "scripts": [],
+  "scripts": [
+    {
+      "id": 1783411824057,
+      "name": "123",
+      "desc": "123",
+      "category": "esp",
+      "mode": "bloxfruits",
+      "date": "2026-07-07",
+      "code": "123"
+    }
+  ],
   "partners": [],
   "customGames": []
 }
