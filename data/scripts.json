@@ -43,7 +43,7 @@
       "category": "cheat",
       "mode": "Prison Life",
       "date": "2026-07-07",
-      "code": "loadstring(game:HttpGet("https://raw.githubusercontent.com/zenss555a/script/refs/heads/main/Prison-Life.lua", true))()"
+      "code": "loadstring(game:HttpGet('https://raw.githubusercontent.com/zenss555a/script/refs/heads/main/Prison-Life.lua', true))()"
     }
     
   ],
