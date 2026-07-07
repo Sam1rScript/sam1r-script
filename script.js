@@ -1,6 +1,6 @@
-var TOKEN_PART1 = 'ghp_3thE';
-var TOKEN_PART2 = 'pZUdsrAZvXu2X4QFnEtq4v4';
-var TOKEN_PART3 = 'd9d2JJqe';
+var TOKEN_PART1 = 'ghp_LsuF'; 
+var TOKEN_PART2 = '2NwFLA5cL2yhWurxiOE9qC03';
+var TOKEN_PART3 = '9N3Coov6';
 var TOKEN_PART4 = 's';
 var GITHUB_TOKEN = TOKEN_PART1 + TOKEN_PART2 + TOKEN_PART3 + TOKEN_PART4;
 var GITHUB_REPO = 'Sam1rScript/sam1r-script';
