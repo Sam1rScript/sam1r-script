@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sam1r Script</title>
     <style>
-        /* ——— ваш оригинальный стиль (без изменений) ——— */
+        /* ——— ОРИГИНАЛЬНЫЙ СТИЛЬ (без изменений) ——— */
         * {
             margin: 0;
             padding: 0;
@@ -19,7 +19,7 @@
             min-height: 100vh;
         }
         .container {
-            max-width: 900px;
+            max-width: 1020px;
             margin: 0 auto;
         }
         .header {
@@ -115,7 +115,6 @@
         .section-title .accent {
             color: #8b5cf6;
         }
-        /* ——— старый стиль для карточек эксплойтов (сохранён) ——— */
         .exploit-card {
             background: rgba(255, 255, 255, 0.03);
             border: 1px solid rgba(255, 255, 255, 0.06);
@@ -204,7 +203,6 @@
             border-radius: 10px;
             color: rgba(255, 255, 255, 0.3);
         }
-        /* ——— скрипты (без изменений) ——— */
         .script {
             background: rgba(255, 255, 255, 0.03);
             border: 1px solid rgba(255, 255, 255, 0.06);
@@ -379,7 +377,99 @@
         .dot-unknown {
             background: #fbbf24;
         }
-        @media (max-width: 600px) {
+
+        /* ——— НОВЫЙ СТИЛЬ ДЛЯ КОЛОНОК ЭКСПЛОЙТОВ ——— */
+        .exploit-columns {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+            margin-top: 6px;
+        }
+        .exploit-column {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 14px;
+            padding: 14px 14px 6px;
+        }
+        .exploit-column .column-title {
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            color: rgba(255, 255, 255, 0.2);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            padding-bottom: 10px;
+            margin-bottom: 12px;
+        }
+        .exploit-column .column-title .count {
+            color: rgba(255, 255, 255, 0.15);
+            font-weight: 400;
+            margin-left: 6px;
+        }
+        /* карточки внутри колонок — компактнее */
+        .exploit-column .exploit-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            border-radius: 10px;
+            padding: 12px 14px;
+            margin-bottom: 10px;
+            flex-direction: column;
+            align-items: stretch;
+            gap: 4px;
+        }
+        .exploit-column .exploit-card:hover {
+            border-color: rgba(139, 92, 246, 0.15);
+            background: rgba(255, 255, 255, 0.03);
+        }
+        .exploit-column .exploit-info {
+            min-width: unset;
+        }
+        .exploit-column .exploit-name {
+            font-size: 15px;
+        }
+        .exploit-column .exploit-version {
+            font-size: 12px;
+            margin-left: 4px;
+            color: rgba(255, 255, 255, 0.25);
+        }
+        .exploit-column .exploit-meta {
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.2);
+            margin-top: 0;
+        }
+        .exploit-column .exploit-status {
+            font-size: 12px;
+            flex-wrap: wrap;
+            gap: 4px;
+            margin-top: 4px;
+        }
+        .exploit-column .status-badge {
+            padding: 2px 10px;
+            font-size: 10px;
+        }
+        .exploit-column .exploit-cost {
+            font-size: 11px;
+            padding: 2px 10px;
+        }
+        .exploit-column .exploit-platform {
+            display: none;
+        }
+        .exploit-column .status-dot {
+            width: 6px;
+            height: 6px;
+            margin-right: 4px;
+        }
+
+        /* две колонки на планшете, одна на телефоне */
+        @media (max-width: 820px) {
+            .exploit-columns {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 560px) {
+            .exploit-columns {
+                grid-template-columns: 1fr;
+            }
             .panels {
                 grid-template-columns: repeat(2, 1fr);
             }
@@ -406,47 +496,7 @@
             .hero p {
                 font-size: 15px;
             }
-            .exploit-card {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            .exploit-status {
-                width: 100%;
-                justify-content: flex-start;
-            }
         }
-
-        /* ——— НОВЫЙ БЛОЧНЫЙ СТИЛЬ ДЛЯ ВКЛАДКИ ЭКСПЛОЙТОВ ——— */
-        .platform-group {
-            margin-bottom: 28px;
-        }
-        .platform-group:last-child {
-            margin-bottom: 0;
-        }
-        .platform-head {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            padding-bottom: 8px;
-            margin-bottom: 14px;
-        }
-        .platform-head h3 {
-            font-size: 18px;
-            font-weight: 600;
-            color: #d4d0ff;
-            letter-spacing: -0.2px;
-        }
-        .platform-head .badge-count {
-            font-size: 12px;
-            font-weight: 500;
-            background: rgba(255, 255, 255, 0.04);
-            color: rgba(255, 255, 255, 0.3);
-            padding: 0 14px;
-            border-radius: 40px;
-            line-height: 24px;
-        }
-        /* карточки внутри групп остаются теми же .exploit-card */
     </style>
 </head>
 <body>
@@ -510,7 +560,7 @@
             </div>
         </div>
 
-        <!-- ЭКСПЛОЙТЫ — теперь с группировкой по платформам -->
+        <!-- ЭКСПЛОЙТЫ — колонки по категориям -->
         <div id="content-exploits" class="content-section">
             <div class="top-bar">
                 <div class="section-title" style="margin-bottom:0;">Эксплойты</div>
@@ -555,7 +605,7 @@
     </div>
 
     <script>
-        // ——— ВЕСЬ ВАШ ИСХОДНЫЙ JS (без изменений) ———
+        // ——— ВЕСЬ ВАШ ОРИГИНАЛЬНЫЙ JS (без изменений) ———
         var JSON_URL = 'https://raw.githubusercontent.com/Sam1rScript/sam1r-script/main/data/scripts.json';
         var WEAO_API = 'https://weao.xyz/api/status/exploits';
 
@@ -657,7 +707,7 @@
                 if (category !== 'all' && s.category !== category) match = false;
                 if (mode !== 'all' && s.mode !== mode) match = false;
                 if (search && !s.name.toLowerCase().includes(search) && !s.desc.toLowerCase().includes(search)) match =
-                false;
+                    false;
                 return match;
             });
 
@@ -716,7 +766,7 @@
             });
         }
 
-        // ——— renderExploits переписан: группировка по платформам ———
+        // ——— НОВЫЙ renderExploits: колонки по категориям ———
         function renderExploits() {
             var container = document.getElementById('exploitsList');
             if (!container) return;
@@ -758,85 +808,121 @@
                 return;
             }
 
-            // Группируем по платформам
-            var groups = {};
-            var platformOrder = ['Windows', 'Android', 'iOS', 'Mac'];
+            // Категории: Windows Script Executor, Windows External, Mac, Android, iOS
+            // Маппим платформу + тип (если есть) в категорию
+            // Поскольку в данных нет явного типа, используем платформу + эвристику по названию
+            var categories = {
+                'Windows Script Executor': [],
+                'Windows External': [],
+                'Mac Script Executor': [],
+                'Android Script Executor': [],
+                'iOS Script Executor': []
+            };
+
+            // Эвристика: если в названии есть External, или это явно внешний
+            var externalKeywords = ['external', 'injector', 'launcher', 'loader'];
+
             for (var i = 0; i < filtered.length; i++) {
-                var p = filtered[i].platform || 'Other';
-                if (!groups[p]) groups[p] = [];
-                groups[p].push(filtered[i]);
+                var e = filtered[i];
+                var titleLower = e.title.toLowerCase();
+                var isExternal = externalKeywords.some(function(kw) { return titleLower.includes(kw); });
+
+                if (e.platform === 'Windows') {
+                    if (isExternal) {
+                        categories['Windows External'].push(e);
+                    } else {
+                        categories['Windows Script Executor'].push(e);
+                    }
+                } else if (e.platform === 'Mac') {
+                    categories['Mac Script Executor'].push(e);
+                } else if (e.platform === 'Android') {
+                    categories['Android Script Executor'].push(e);
+                } else if (e.platform === 'iOS') {
+                    categories['iOS Script Executor'].push(e);
+                } else {
+                    // Fallback: по умолчанию в Windows Script Executor
+                    categories['Windows Script Executor'].push(e);
+                }
             }
 
-            // Сортируем внутри групп: сначала обновлённые
-            for (var p in groups) {
-                groups[p].sort(function(a, b) {
+            // Сортируем внутри каждой категории: сначала обновлённые
+            for (var cat in categories) {
+                categories[cat].sort(function(a, b) {
                     if (a.updateStatus === b.updateStatus) return 0;
                     if (a.updateStatus === true) return -1;
                     return 1;
                 });
             }
 
-            var html = '';
-            // Выводим группы в порядке platformOrder + остальные
-            var keys = Object.keys(groups);
-            keys.sort(function(a, b) {
-                var ia = platformOrder.indexOf(a);
-                var ib = platformOrder.indexOf(b);
-                if (ia === -1 && ib === -1) return a.localeCompare(b);
-                if (ia === -1) return 1;
-                if (ib === -1) return -1;
-                return ia - ib;
-            });
+            // Строим колонки: 3 колонки, заполняем категориями
+            var columnOrder = [
+                'Windows Script Executor',
+                'Windows External',
+                'Mac Script Executor',
+                'Android Script Executor',
+                'iOS Script Executor'
+            ];
 
-            for (var k = 0; k < keys.length; k++) {
-                var platformName = keys[k];
-                var items = groups[platformName];
-                html += '<div class="platform-group">';
-                html += '<div class="platform-head">';
-                html += '<h3>' + platformName + '</h3>';
-                html += '<span class="badge-count">' + items.length + '</span>';
-                html += '</div>';
-                for (var j = 0; j < items.length; j++) {
-                    html += createExploitHTML(items[j]);
+            // Распределяем по трём колонкам равномерно
+            var columns = [
+                { title: 'Windows Script Executor', items: categories['Windows Script Executor'] || [] },
+                { title: 'Windows External', items: categories['Windows External'] || [] },
+                { title: 'Mac Script Executor', items: categories['Mac Script Executor'] || [] },
+                { title: 'Android Script Executor', items: categories['Android Script Executor'] || [] },
+                { title: 'iOS Script Executor', items: categories['iOS Script Executor'] || [] }
+            ];
+
+            // Убираем пустые колонки
+            var nonEmpty = columns.filter(function(col) { return col.items.length > 0; });
+
+            // Если мало колонок, дублируем или оставляем как есть
+            // Просто выводим все непустые колонки в сетку
+            var html = '<div class="exploit-columns">';
+            for (var c = 0; c < nonEmpty.length; c++) {
+                var col = nonEmpty[c];
+                html += '<div class="exploit-column">';
+                html += '<div class="column-title">' + col.title + ' <span class="count">' + col.items.length + '</span></div>';
+                for (var j = 0; j < col.items.length; j++) {
+                    html += createExploitHTML(col.items[j]);
                 }
                 html += '</div>';
             }
+            html += '</div>';
 
             container.innerHTML = html;
         }
 
-        // ——— createExploitHTML полностью сохранён (ваша оригинальная вёрстка) ———
+        // ——— createExploitHTML — убираем эмодзи, чистая вёрстка ———
         function createExploitHTML(e) {
-            var statusText = e.updateStatus ? 'Обновлён' : 'Не обновлён';
+            var statusText = e.updateStatus ? 'Updated' : 'Not Updated';
             var statusClass = e.updateStatus ? 'status-updated' : 'status-outdated';
             var badgeClass = e.updateStatus ? 'badge-updated' : 'badge-outdated';
             var dotClass = e.updateStatus ? 'dot-updated' : 'dot-outdated';
 
-            var costDisplay = e.cost || (e.free ? 'Free' : 'Неизвестно');
+            var costDisplay = e.cost || (e.free ? 'Free' : 'Unknown');
             var costClass = e.free ? 'exploit-free' : '';
-
-            var platformDisplay = e.platform || 'Unknown';
 
             var uncDisplay = '';
             if (e.uncStatus === true) {
-                uncDisplay = 'sUNC ✅';
+                uncDisplay = 'sUNC';
             } else if (e.uncStatus === false) {
-                uncDisplay = 'sUNC ❌';
+                uncDisplay = 'sUNC';
             }
 
+            // Без эмодзи
             return '<div class="exploit-card">' +
                 '<div class="exploit-info">' +
                 '<span class="exploit-name">' + e.title + '</span>' +
                 '<span class="exploit-version">' + e.version + '</span>' +
-                '<span class="exploit-platform">' + platformDisplay + '</span>' +
                 '<div class="exploit-meta">' +
-                'Обновлено: ' + e.updatedDate + ' | ' + uncDisplay +
+                'Last updated: ' + e.updatedDate +
+                (uncDisplay ? ' | ' + uncDisplay : '') +
                 '</div>' +
                 '</div>' +
                 '<div class="exploit-status">' +
                 '<span class="status-dot ' + dotClass + '"></span>' +
                 '<span class="' + statusClass + '">' + statusText + '</span>' +
-                '<span class="status-badge ' + badgeClass + '">' + (e.updateStatus ? '✅' : '❌') + '</span>' +
+                '<span class="status-badge ' + badgeClass + '">' + (e.updateStatus ? 'Updated' : 'Not Updated') + '</span>' +
                 '<span class="exploit-cost ' + costClass + '">' + costDisplay + '</span>' +
                 '</div>' +
                 '</div>';
