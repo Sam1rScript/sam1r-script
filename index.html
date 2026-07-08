@@ -227,6 +227,87 @@
             color: #34d399;
         }
 
+        .exploit {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 12px;
+            padding: 16px 20px;
+            margin-bottom: 12px;
+            transition: all 0.2s;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .exploit:hover {
+            border-color: rgba(139,92,246,0.2);
+            background: rgba(255,255,255,0.05);
+        }
+
+        .exploit-info {
+            flex: 1;
+        }
+
+        .exploit-name {
+            font-size: 17px;
+            font-weight: 600;
+        }
+
+        .exploit-version {
+            font-size: 13px;
+            color: rgba(255,255,255,0.4);
+            margin-left: 8px;
+        }
+
+        .exploit-details {
+            font-size: 13px;
+            color: rgba(255,255,255,0.4);
+            margin-top: 2px;
+        }
+
+        .exploit-status {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            font-weight: 500;
+            padding: 4px 12px;
+            border-radius: 20px;
+        }
+
+        .exploit-status.updated {
+            color: #34d399;
+            background: rgba(52,211,153,0.1);
+        }
+
+        .exploit-status.not-updated {
+            color: #f59e0b;
+            background: rgba(245,158,11,0.1);
+        }
+
+        .exploit-status .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .exploit-status.updated .dot {
+            background: #34d399;
+        }
+
+        .exploit-status.not-updated .dot {
+            background: #f59e0b;
+        }
+
+        .exploit-price {
+            font-size: 13px;
+            color: rgba(255,255,255,0.3);
+            margin-left: 12px;
+        }
+
         .empty {
             text-align: center;
             padding: 40px 20px;
@@ -346,6 +427,10 @@
             .hero p {
                 font-size: 15px;
             }
+            .exploit {
+                flex-direction: column;
+                align-items: flex-start;
+            }
         }
     </style>
 </head>
@@ -367,12 +452,12 @@
         </div>
 
         <div class="panels">
-            <button class="panel-btn active" data-tab="scripts" onclick="switchTab('scripts')">
+            <button class="panel-btn" data-tab="scripts" onclick="switchTab('scripts')">
                 <span class="number" id="panelScripts">0</span>
                 <span class="label">Скрипты</span>
             </button>
-            <button class="panel-btn" data-tab="exploits" onclick="switchTab('exploits')">
-                <span class="number" id="panelExploits">0</span>
+            <button class="panel-btn active" data-tab="exploits" onclick="switchTab('exploits')">
+                <span class="number" id="panelExploits">11</span>
                 <span class="label">Эксплойты</span>
             </button>
             <button class="panel-btn" data-tab="admins" onclick="switchTab('admins')">
@@ -385,7 +470,7 @@
             </button>
         </div>
 
-        <div id="content-scripts" class="content-section active">
+        <div id="content-scripts" class="content-section">
             <div class="top-bar">
                 <div class="section-title" style="margin-bottom:0;">Все скрипты</div>
                 <span class="count-label" id="countLabel">0</span>
@@ -411,9 +496,22 @@
             </div>
         </div>
 
-        <div id="content-exploits" class="content-section">
-            <div class="section-title">Эксплойты</div>
-            <div class="empty">Скоро появятся</div>
+        <div id="content-exploits" class="content-section active">
+            <div class="top-bar">
+                <div class="section-title" style="margin-bottom:0;">Windows Script Executor Exploits</div>
+                <span class="count-label">11 эксплойтов</span>
+            </div>
+
+            <div class="search-bar">
+                <input type="text" class="search-input" id="exploitSearch" placeholder="Поиск эксплойтов..." oninput="filterExploits()">
+                <select class="filter-select" id="exploitFilter" onchange="filterExploits()">
+                    <option value="all">Все статусы</option>
+                    <option value="updated">Обновлены</option>
+                    <option value="not-updated">Не обновлены</option>
+                </select>
+            </div>
+
+            <div id="exploitsList"></div>
         </div>
 
         <div id="content-admins" class="content-section">
@@ -432,7 +530,272 @@
 
     </div>
 
-    <script src="script.js"></script>
+    <script>
+        // ===== ДАННЫЕ ЭКСПЛОЙТОВ =====
+        var exploitsData = [
+            { name: "Volt", version: "1.2.26.2", sUNC: true, price: "$5.99 Weekly", lastUpdated: "07/03/2026 at 7:58 PM UTC", status: "not-updated" },
+            { name: "Potassium", version: "2.2.8", sUNC: true, price: "$22.99 Lifetime", lastUpdated: "07/08/2026 at 1:08 PM UTC", status: "updated" },
+            { name: "Wave", version: "NEW-1.3.8", sUNC: true, price: "$5.99 Weekly", lastUpdated: "07/07/2026 at 11:40 PM UTC", status: "updated" },
+            { name: "Synapse Z", version: "1.0.3.1", sUNC: true, price: "$3.99 Weekly", lastUpdated: "06/29/2026 at 8:38 PM UTC", status: "not-updated" },
+            { name: "Seliware", version: "2.4.9", sUNC: true, price: "$3.99 Weekly", lastUpdated: "05/23/2026 at 8:21 AM UTC", status: "not-updated" },
+            { name: "Madium", version: "1.6.2", sUNC: true, price: "Free", lastUpdated: "07/08/2026 at 11:09 AM UTC", status: "updated" },
+            { name: "Cosmic", version: "0.727", sUNC: true, price: "$15 Lifetime", lastUpdated: "06/28/2026 at 9:08 PM UTC", status: "not-updated" },
+            { name: "Velocity", version: "1.1.1", sUNC: true, price: "Key System", lastUpdated: "07/08/2026 at 12:16 PM UTC", status: "updated" },
+            { name: "SirHurt", version: "v5.447", sUNC: true, price: "$2.80 Weekly", lastUpdated: "07/07/2026 at 4:01 PM UTC", status: "updated" },
+            { name: "Solara", version: "3.261", sUNC: true, price: "Free", lastUpdated: "07/07/2026 at 6:16 PM UTC", status: "updated" },
+            { name: "Xeno", version: "1.3.55", sUNC: true, price: "Free", lastUpdated: "07/07/2026 at 4:01 PM UTC", status: "updated" }
+        ];
+
+        // ===== ОТОБРАЖЕНИЕ ЭКСПЛОЙТОВ =====
+        function renderExploits(filter, search) {
+            var container = document.getElementById('exploitsList');
+            var filtered = exploitsData;
+
+            if (filter && filter !== 'all') {
+                filtered = filtered.filter(function(e) { return e.status === filter; });
+            }
+
+            if (search) {
+                var s = search.toLowerCase();
+                filtered = filtered.filter(function(e) {
+                    return e.name.toLowerCase().includes(s) || e.version.toLowerCase().includes(s);
+                });
+            }
+
+            if (!filtered.length) {
+                container.innerHTML = '<div class="empty">Эксплойтов не найдено</div>';
+                return;
+            }
+
+            var html = '';
+            for (var i = 0; i < filtered.length; i++) {
+                var e = filtered[i];
+                var statusLabel = e.status === 'updated' ? 'Updated' : 'Not Updated';
+                var statusClass = e.status === 'updated' ? 'updated' : 'not-updated';
+                var sUNC = e.sUNC ? 'sUNC' : '';
+
+                html += '<div class="exploit">';
+                html += '<div class="exploit-info">';
+                html += '<span class="exploit-name">' + e.name + '</span>';
+                html += '<span class="exploit-version">' + e.version + '</span>';
+                html += '<span class="exploit-price">' + e.price + '</span>';
+                html += '<div class="exploit-details">' + sUNC + ' | Last updated: ' + e.lastUpdated + '</div>';
+                html += '</div>';
+                html += '<div class="exploit-status ' + statusClass + '">';
+                html += '<span class="dot"></span>';
+                html += statusLabel;
+                html += '</div>';
+                html += '</div>';
+            }
+            container.innerHTML = html;
+        }
+
+        function filterExploits() {
+            var filter = document.getElementById('exploitFilter').value;
+            var search = document.getElementById('exploitSearch').value;
+            renderExploits(filter, search);
+        }
+
+        // ===== ЗАГРУЗКА СКРИПТОВ =====
+        var JSON_URL = 'https://raw.githubusercontent.com/Sam1rScript/sam1r-script/main/data/scripts.json';
+        var allScripts = [];
+        var isLoading = false;
+
+        function loadData() {
+            if (isLoading) return;
+            isLoading = true;
+
+            var listEl = document.getElementById('scriptsList');
+            if (listEl) {
+                listEl.innerHTML = '<div class="loading">Загрузка...</div>';
+            }
+
+            fetch(JSON_URL + '?t=' + Date.now())
+                .then(function(response) {
+                    if (!response.ok) throw new Error('Ошибка: ' + response.status);
+                    return response.json();
+                })
+                .then(function(data) {
+                    allScripts = data.scripts || [];
+                    renderAll();
+                    updateFilters();
+                    isLoading = false;
+                })
+                .catch(function(error) {
+                    var listEl = document.getElementById('scriptsList');
+                    if (listEl) {
+                        listEl.innerHTML = '<div class="error">Ошибка загрузки: ' + error.message + '</div>';
+                    }
+                    isLoading = false;
+                });
+        }
+
+        function renderAll() {
+            renderStats();
+            renderScripts();
+        }
+
+        function renderStats() {
+            var panelScripts = document.getElementById('panelScripts');
+            var panelExploits = document.getElementById('panelExploits');
+            var countLabel = document.getElementById('countLabel');
+
+            if (panelScripts) {
+                panelScripts.textContent = allScripts.length;
+            }
+            if (panelExploits) {
+                panelExploits.textContent = exploitsData.length;
+            }
+            if (countLabel) {
+                countLabel.textContent = allScripts.length + ' скриптов';
+            }
+        }
+
+        function renderScripts() {
+            var container = document.getElementById('scriptsList');
+            if (!container) return;
+
+            var searchInput = document.getElementById('searchInput');
+            var categoryFilter = document.getElementById('categoryFilter');
+            var modeFilter = document.getElementById('modeFilter');
+
+            var search = searchInput ? searchInput.value.toLowerCase() : '';
+            var category = categoryFilter ? categoryFilter.value : 'all';
+            var mode = modeFilter ? modeFilter.value : 'all';
+
+            var filtered = allScripts.filter(function(s) {
+                var match = true;
+                if (category !== 'all' && s.category !== category) match = false;
+                if (mode !== 'all' && s.mode !== mode) match = false;
+                if (search && !s.name.toLowerCase().includes(search) && !s.desc.toLowerCase().includes(search)) match = false;
+                return match;
+            });
+
+            if (!filtered.length) {
+                container.innerHTML = '<div class="empty">Скриптов не найдено</div>';
+                return;
+            }
+
+            var html = '';
+            for (var i = 0; i < filtered.length; i++) {
+                html += createScriptHTML(filtered[i]);
+            }
+            container.innerHTML = html;
+        }
+
+        function createScriptHTML(s) {
+            var modeLabel = s.mode ? s.mode.toUpperCase().replace(/_/g, ' ') : '';
+            var tag = s.category ? '<span class="script-tag">' + s.category + '</span>' : '';
+            var modeTag = s.mode ? '<span class="script-mode">' + modeLabel + '</span>' : '';
+
+            return '<div class="script">' +
+                '<div class="script-header">' +
+                '<span class="script-name">' + (s.name || 'Без названия') + '</span>' +
+                tag + modeTag +
+                '</div>' +
+                '<div class="script-desc">' + (s.desc || '') + '</div>' +
+                '<div class="script-meta">' + (s.date || '') + '</div>' +
+                '<div class="script-code">' +
+                '<button class="copy-btn" onclick="copyCode(this, \'' + s.code.replace(/'/g, "\\'") + '\')">Копировать</button>' +
+                s.code +
+                '</div>' +
+                '</div>';
+        }
+
+        function copyCode(btn, code) {
+            navigator.clipboard.writeText(code).then(function() {
+                btn.textContent = 'Скопировано!';
+                btn.classList.add('copied');
+                setTimeout(function() {
+                    btn.textContent = 'Копировать';
+                    btn.classList.remove('copied');
+                }, 2000);
+            }).catch(function() {
+                var textarea = document.createElement('textarea');
+                textarea.value = code;
+                document.body.appendChild(textarea);
+                textarea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textarea);
+                btn.textContent = 'Скопировано!';
+                btn.classList.add('copied');
+                setTimeout(function() {
+                    btn.textContent = 'Копировать';
+                    btn.classList.remove('copied');
+                }, 2000);
+            });
+        }
+
+        function updateFilters() {
+            var select = document.getElementById('modeFilter');
+            if (!select) return;
+
+            var current = select.value;
+            var modes = {};
+            for (var i = 0; i < allScripts.length; i++) {
+                if (allScripts[i].mode) {
+                    modes[allScripts[i].mode] = true;
+                }
+            }
+            var keys = Object.keys(modes).sort();
+            select.innerHTML = '<option value="all">Все режимы</option>';
+            for (var i = 0; i < keys.length; i++) {
+                var label = keys[i].toUpperCase().replace(/_/g, ' ');
+                select.innerHTML += '<option value="' + keys[i] + '">' + label + '</option>';
+            }
+            if (current) select.value = current;
+        }
+
+        function filterScripts() {
+            renderScripts();
+        }
+
+        function switchTab(tab) {
+            document.querySelectorAll('.panel-btn').forEach(function(btn) {
+                btn.classList.toggle('active', btn.dataset.tab === tab);
+            });
+
+            document.querySelectorAll('.content-section').forEach(function(el) {
+                el.classList.remove('active');
+            });
+
+            var target = document.getElementById('content-' + tab);
+            if (target) target.classList.add('active');
+
+            if (tab === 'scripts') {
+                setTimeout(function() {
+                    renderScripts();
+                }, 100);
+            }
+            if (tab === 'exploits') {
+                setTimeout(function() {
+                    renderExploits('all', '');
+                }, 100);
+            }
+        }
+
+        var searchInput = document.getElementById('searchInput');
+        var categoryFilter = document.getElementById('categoryFilter');
+        var modeFilter = document.getElementById('modeFilter');
+
+        if (searchInput) {
+            searchInput.addEventListener('input', filterScripts);
+        }
+        if (categoryFilter) {
+            categoryFilter.addEventListener('change', filterScripts);
+        }
+        if (modeFilter) {
+            modeFilter.addEventListener('change', filterScripts);
+        }
+
+        // Инициализация
+        renderExploits('all', '');
+        loadData();
+
+        document.addEventListener('visibilitychange', function() {
+            if (!document.hidden) loadData();
+        });
+    </script>
 
 </body>
 </html>
