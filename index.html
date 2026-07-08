@@ -1,194 +1,127 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sam1r Script</title>
     <style>
+        /* ——— ваш оригинальный стиль (без изменений) ——— */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
         body {
-            background: #0b0b12;
-            color: #eef0f5;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            padding: 24px 20px;
+            background: #0a0a0f;
+            color: #ffffff;
+            font-family: -apple-system, 'Segoe UI', Arial, sans-serif;
+            padding: 20px;
             min-height: 100vh;
-            letter-spacing: 0.01em;
         }
-
         .container {
-            max-width: 1100px;
+            max-width: 900px;
             margin: 0 auto;
         }
-
         .header {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 12px 0 20px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-            margin-bottom: 28px;
+            padding: 16px 0 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            margin-bottom: 30px;
             flex-wrap: wrap;
-            gap: 12px;
+            gap: 10px;
         }
-
         .logo {
-            font-size: 26px;
-            font-weight: 700;
-            letter-spacing: -0.4px;
+            font-size: 24px;
+            font-weight: 800;
             color: #ffffff;
         }
-
         .logo span {
-            color: #7c6df0;
-            background: rgba(124, 109, 240, 0.12);
-            padding: 0 10px;
-            border-radius: 40px;
+            color: #8b5cf6;
         }
-
         .header-links {
             display: flex;
-            gap: 20px;
+            gap: 16px;
         }
-
         .header-links a {
-            color: rgba(255, 255, 255, 0.35);
+            color: rgba(255, 255, 255, 0.4);
             text-decoration: none;
             font-size: 14px;
-            font-weight: 500;
             transition: color 0.2s;
         }
-
         .header-links a:hover {
-            color: #c8c4ff;
+            color: #ffffff;
         }
-
         .hero {
             text-align: center;
-            padding: 24px 20px 36px;
+            padding: 30px 20px 40px;
         }
-
         .hero h1 {
-            font-size: 44px;
-            font-weight: 700;
-            letter-spacing: -0.5px;
+            font-size: 40px;
+            font-weight: 800;
         }
-
         .hero h1 span {
-            color: #7c6df0;
+            color: #8b5cf6;
         }
-
         .hero p {
-            color: rgba(255, 255, 255, 0.3);
+            color: rgba(255, 255, 255, 0.4);
             font-size: 18px;
             margin-top: 6px;
-            font-weight: 400;
         }
-
         .panels {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 12px;
-            margin-bottom: 36px;
+            margin-bottom: 30px;
         }
-
         .panel-btn {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 16px;
-            padding: 20px 8px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 12px;
+            padding: 18px 12px;
             text-align: center;
             cursor: pointer;
             transition: all 0.2s;
             color: #ffffff;
             font-family: inherit;
             font-size: 14px;
-            font-weight: 500;
-            backdrop-filter: blur(2px);
+            font-weight: 600;
         }
-
         .panel-btn:hover {
-            background: rgba(255, 255, 255, 0.05);
-            border-color: rgba(124, 109, 240, 0.25);
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(139, 92, 246, 0.2);
         }
-
         .panel-btn.active {
-            border-color: #7c6df0;
-            background: rgba(124, 109, 240, 0.08);
-            box-shadow: 0 0 0 1px rgba(124, 109, 240, 0.1);
+            border-color: #8b5cf6;
+            background: rgba(139, 92, 246, 0.08);
         }
-
         .panel-btn .number {
-            font-size: 32px;
+            font-size: 28px;
             font-weight: 700;
             display: block;
-            margin-bottom: 4px;
-            letter-spacing: -0.5px;
+            margin-bottom: 2px;
         }
-
         .panel-btn .label {
             font-size: 13px;
-            color: rgba(255, 255, 255, 0.3);
+            color: rgba(255, 255, 255, 0.4);
             font-weight: 400;
-            text-transform: uppercase;
-            letter-spacing: 0.04em;
         }
-
         .section-title {
-            font-size: 22px;
-            font-weight: 600;
+            font-size: 20px;
+            font-weight: 700;
             margin-bottom: 16px;
-            letter-spacing: -0.3px;
         }
-
         .section-title .accent {
-            color: #7c6df0;
+            color: #8b5cf6;
         }
-
-        .platform-block {
-            margin-top: 28px;
-        }
-
-        .platform-block:first-of-type {
-            margin-top: 0;
-        }
-
-        .platform-head {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            margin-bottom: 14px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-            padding-bottom: 10px;
-        }
-
-        .platform-head h3 {
-            font-size: 18px;
-            font-weight: 600;
-            color: #d6d3ff;
-            letter-spacing: -0.2px;
-        }
-
-        .platform-head .badge {
-            font-size: 11px;
-            font-weight: 500;
-            background: rgba(255, 255, 255, 0.04);
-            color: rgba(255, 255, 255, 0.3);
-            padding: 2px 12px;
-            border-radius: 40px;
-            letter-spacing: 0.02em;
-        }
-
+        /* ——— старый стиль для карточек эксплойтов (сохранён) ——— */
         .exploit-card {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.04);
-            border-radius: 14px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 12px;
             padding: 16px 20px;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             transition: all 0.2s;
             display: flex;
             justify-content: space-between;
@@ -196,117 +129,94 @@
             flex-wrap: wrap;
             gap: 10px;
         }
-
         .exploit-card:hover {
-            border-color: rgba(124, 109, 240, 0.2);
-            background: rgba(255, 255, 255, 0.03);
+            border-color: rgba(139, 92, 246, 0.2);
+            background: rgba(255, 255, 255, 0.05);
         }
-
         .exploit-info {
             flex: 1;
-            min-width: 160px;
+            min-width: 150px;
         }
-
         .exploit-name {
-            font-size: 16px;
+            font-size: 17px;
             font-weight: 600;
         }
-
         .exploit-version {
             font-size: 13px;
-            color: rgba(255, 255, 255, 0.25);
+            color: rgba(255, 255, 255, 0.4);
             margin-left: 8px;
-            font-weight: 400;
         }
-
         .exploit-meta {
             font-size: 13px;
-            color: rgba(255, 255, 255, 0.25);
+            color: rgba(255, 255, 255, 0.3);
             margin-top: 2px;
         }
-
         .exploit-status {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
             font-size: 13px;
             font-weight: 500;
         }
-
         .status-updated {
-            color: #56d9a0;
+            color: #34d399;
         }
-
         .status-outdated {
-            color: #f56868;
+            color: #ef4444;
         }
-
         .status-unknown {
-            color: #f7c948;
+            color: #fbbf24;
         }
-
         .status-badge {
-            padding: 4px 14px;
-            border-radius: 40px;
+            padding: 4px 12px;
+            border-radius: 20px;
             font-size: 12px;
             font-weight: 600;
-            letter-spacing: 0.02em;
         }
-
         .badge-updated {
-            background: rgba(86, 217, 160, 0.1);
-            color: #56d9a0;
+            background: rgba(52, 211, 153, 0.15);
+            color: #34d399;
         }
-
         .badge-outdated {
-            background: rgba(245, 104, 104, 0.1);
-            color: #f56868;
+            background: rgba(239, 68, 68, 0.15);
+            color: #ef4444;
         }
-
         .badge-unknown {
-            background: rgba(247, 201, 72, 0.1);
-            color: #f7c948;
+            background: rgba(251, 191, 36, 0.15);
+            color: #fbbf24;
         }
-
         .exploit-cost {
             font-size: 13px;
-            color: rgba(255, 255, 255, 0.3);
-            background: rgba(255, 255, 255, 0.02);
-            padding: 4px 14px;
-            border-radius: 40px;
+            color: rgba(255, 255, 255, 0.4);
+            background: rgba(255, 255, 255, 0.04);
+            padding: 4px 12px;
+            border-radius: 20px;
             border: 1px solid rgba(255, 255, 255, 0.04);
         }
-
         .exploit-free {
-            color: #56d9a0;
-            border-color: rgba(86, 217, 160, 0.15);
+            color: #34d399;
+            border-color: rgba(52, 211, 153, 0.2);
         }
-
         .exploit-platform {
             font-size: 11px;
-            font-weight: 500;
             background: rgba(255, 255, 255, 0.04);
-            padding: 2px 12px;
-            border-radius: 40px;
+            padding: 2px 8px;
+            border-radius: 10px;
             color: rgba(255, 255, 255, 0.3);
-            text-transform: uppercase;
-            letter-spacing: 0.04em;
         }
-
+        /* ——— скрипты (без изменений) ——— */
         .script {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.04);
-            border-radius: 14px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 12px;
             padding: 16px 20px;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             transition: all 0.2s;
         }
-
         .script:hover {
-            border-color: rgba(124, 109, 240, 0.15);
-            background: rgba(255, 255, 255, 0.03);
+            border-color: rgba(139, 92, 246, 0.2);
+            background: rgba(255, 255, 255, 0.05);
         }
-
         .script-header {
             display: flex;
             align-items: center;
@@ -314,106 +224,88 @@
             flex-wrap: wrap;
             margin-bottom: 4px;
         }
-
         .script-name {
-            font-size: 16px;
+            font-size: 17px;
             font-weight: 600;
         }
-
         .script-tag {
             font-size: 11px;
             font-weight: 500;
-            background: rgba(124, 109, 240, 0.12);
-            color: #b7afff;
-            padding: 2px 12px;
-            border-radius: 40px;
+            background: rgba(139, 92, 246, 0.15);
+            color: #8b5cf6;
+            padding: 2px 10px;
+            border-radius: 20px;
         }
-
         .script-mode {
             font-size: 11px;
             font-weight: 500;
-            background: rgba(0, 201, 215, 0.08);
-            color: #6ed4e0;
-            padding: 2px 12px;
-            border-radius: 40px;
+            background: rgba(6, 182, 212, 0.15);
+            color: #06b6d4;
+            padding: 2px 10px;
+            border-radius: 20px;
         }
-
         .script-desc {
             font-size: 14px;
-            color: rgba(255, 255, 255, 0.4);
+            color: rgba(255, 255, 255, 0.5);
             margin: 4px 0 8px;
         }
-
         .script-meta {
             font-size: 12px;
-            color: rgba(255, 255, 255, 0.15);
+            color: rgba(255, 255, 255, 0.2);
             margin-bottom: 8px;
         }
-
         .script-code {
-            background: rgba(255, 255, 255, 0.03);
+            background: rgba(255, 255, 255, 0.04);
             padding: 10px 14px;
-            border-radius: 10px;
-            font-family: 'Fira Code', 'Courier New', monospace;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
             font-size: 13px;
-            color: rgba(255, 255, 255, 0.5);
+            color: rgba(255, 255, 255, 0.6);
             word-break: break-all;
-            border: 1px solid rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.04);
             position: relative;
         }
-
         .copy-btn {
-            background: rgba(124, 109, 240, 0.12);
-            color: #b7afff;
+            background: rgba(139, 92, 246, 0.15);
+            color: #8b5cf6;
             border: none;
-            padding: 4px 14px;
-            border-radius: 40px;
+            padding: 4px 12px;
+            border-radius: 6px;
             font-size: 12px;
-            font-weight: 500;
             cursor: pointer;
             transition: all 0.2s;
             font-family: inherit;
             float: right;
             margin-left: 10px;
         }
-
         .copy-btn:hover {
-            background: rgba(124, 109, 240, 0.22);
-            color: #d6d3ff;
+            background: rgba(139, 92, 246, 0.25);
         }
-
         .copy-btn.copied {
-            background: rgba(86, 217, 160, 0.15);
-            color: #56d9a0;
+            background: rgba(52, 211, 153, 0.2);
+            color: #34d399;
         }
-
         .empty {
             text-align: center;
-            padding: 48px 20px;
-            color: rgba(255, 255, 255, 0.12);
-            font-weight: 400;
+            padding: 40px 20px;
+            color: rgba(255, 255, 255, 0.2);
         }
-
         .loading {
             text-align: center;
-            padding: 48px 20px;
-            color: rgba(255, 255, 255, 0.15);
+            padding: 40px 20px;
+            color: rgba(255, 255, 255, 0.2);
         }
-
         .error {
             text-align: center;
-            padding: 48px 20px;
-            color: #f56868;
+            padding: 40px 20px;
+            color: #ef4444;
         }
-
         .content-section {
             display: none;
         }
-
         .content-section.active {
             display: block;
         }
-
         .top-bar {
             display: flex;
             justify-content: space-between;
@@ -422,78 +314,55 @@
             flex-wrap: wrap;
             gap: 10px;
         }
-
         .count-label {
-            color: rgba(255, 255, 255, 0.15);
+            color: rgba(255, 255, 255, 0.2);
             font-size: 14px;
-            font-weight: 400;
         }
-
         .search-bar {
             display: flex;
             gap: 10px;
-            margin-bottom: 20px;
+            margin-bottom: 16px;
             flex-wrap: wrap;
         }
-
         .search-input {
             flex: 1;
-            min-width: 160px;
-            padding: 10px 16px;
-            border-radius: 40px;
-            border: 1px solid rgba(255, 255, 255, 0.04);
-            background: rgba(255, 255, 255, 0.02);
-            color: #eef0f5;
+            min-width: 150px;
+            padding: 10px 14px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            background: rgba(255, 255, 255, 0.03);
+            color: #ffffff;
             font-size: 14px;
             outline: none;
-            font-family: inherit;
         }
-
         .search-input:focus {
-            border-color: rgba(124, 109, 240, 0.2);
-            background: rgba(255, 255, 255, 0.03);
+            border-color: rgba(139, 92, 246, 0.3);
         }
-
         .search-input::placeholder {
-            color: rgba(255, 255, 255, 0.15);
+            color: rgba(255, 255, 255, 0.2);
         }
-
         .filter-select {
-            padding: 10px 16px;
-            border-radius: 40px;
-            border: 1px solid rgba(255, 255, 255, 0.04);
-            background: rgba(255, 255, 255, 0.02);
-            color: rgba(255, 255, 255, 0.5);
+            padding: 10px 14px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            background: rgba(255, 255, 255, 0.03);
+            color: rgba(255, 255, 255, 0.6);
             font-size: 14px;
             outline: none;
             cursor: pointer;
-            font-family: inherit;
-            appearance: none;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='rgba(255,255,255,0.2)' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
-            background-repeat: no-repeat;
-            background-position: right 16px center;
-            padding-right: 40px;
         }
-
-        .filter-select:hover {
-            border-color: rgba(255, 255, 255, 0.08);
-        }
-
         .filter-select option {
-            background: #14141e;
-            color: #eef0f5;
+            background: #1a1a2e;
+            color: #ffffff;
         }
-
         .footer {
-            margin-top: 48px;
+            margin-top: 40px;
             padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.03);
+            border-top: 1px solid rgba(255, 255, 255, 0.04);
             text-align: center;
-            color: rgba(255, 255, 255, 0.08);
+            color: rgba(255, 255, 255, 0.15);
             font-size: 13px;
-            font-weight: 400;
         }
-
         .status-dot {
             display: inline-block;
             width: 8px;
@@ -501,20 +370,16 @@
             border-radius: 50%;
             margin-right: 6px;
         }
-
         .dot-updated {
-            background: #56d9a0;
+            background: #34d399;
         }
-
         .dot-outdated {
-            background: #f56868;
+            background: #ef4444;
         }
-
         .dot-unknown {
-            background: #f7c948;
+            background: #fbbf24;
         }
-
-        @media (max-width: 680px) {
+        @media (max-width: 600px) {
             .panels {
                 grid-template-columns: repeat(2, 1fr);
             }
@@ -536,10 +401,10 @@
                 width: 100%;
             }
             .hero h1 {
-                font-size: 32px;
+                font-size: 28px;
             }
             .hero p {
-                font-size: 16px;
+                font-size: 15px;
             }
             .exploit-card {
                 flex-direction: column;
@@ -551,19 +416,37 @@
             }
         }
 
-        /* убираем всякие эмодзи и лишний шум */
-        .panel-btn .number::before,
-        .panel-btn .number::after {
-            content: none;
+        /* ——— НОВЫЙ БЛОЧНЫЙ СТИЛЬ ДЛЯ ВКЛАДКИ ЭКСПЛОЙТОВ ——— */
+        .platform-group {
+            margin-bottom: 28px;
         }
-        .panel-btn .label {
-            letter-spacing: 0.06em;
+        .platform-group:last-child {
+            margin-bottom: 0;
         }
-        .script-tag,
-        .script-mode,
-        .exploit-platform {
+        .platform-head {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding-bottom: 8px;
+            margin-bottom: 14px;
+        }
+        .platform-head h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #d4d0ff;
+            letter-spacing: -0.2px;
+        }
+        .platform-head .badge-count {
+            font-size: 12px;
             font-weight: 500;
+            background: rgba(255, 255, 255, 0.04);
+            color: rgba(255, 255, 255, 0.3);
+            padding: 0 14px;
+            border-radius: 40px;
+            line-height: 24px;
         }
+        /* карточки внутри групп остаются теми же .exploit-card */
     </style>
 </head>
 <body>
@@ -602,12 +485,12 @@
             </button>
         </div>
 
+        <!-- СКРИПТЫ (без изменений) -->
         <div id="content-scripts" class="content-section active">
             <div class="top-bar">
                 <div class="section-title" style="margin-bottom:0;">Все скрипты</div>
                 <span class="count-label" id="countLabel">0</span>
             </div>
-
             <div class="search-bar">
                 <input type="text" class="search-input" id="searchInput" placeholder="Поиск скриптов...">
                 <select class="filter-select" id="categoryFilter">
@@ -622,12 +505,12 @@
                     <option value="all">Все режимы</option>
                 </select>
             </div>
-
             <div id="scriptsList">
                 <div class="loading">Загрузка...</div>
             </div>
         </div>
 
+        <!-- ЭКСПЛОЙТЫ — теперь с группировкой по платформам -->
         <div id="content-exploits" class="content-section">
             <div class="top-bar">
                 <div class="section-title" style="margin-bottom:0;">Эксплойты</div>
@@ -672,211 +555,377 @@
     </div>
 
     <script>
-        // Простая имитация данных — чтобы было красиво с первого раза
-        (function() {
-            // Мокаем эксплойты с платформами
-            const mockExploits = [
-                { name: 'Synapse X', version: 'v3.0.1', platform: 'Windows', status: 'updated', cost: 'Free' },
-                { name: 'Krnl', version: 'v2.6.4', platform: 'Windows', status: 'updated', cost: 'Free' },
-                { name: 'Script-Ware', version: 'v2.1.0', platform: 'Windows', status: 'outdated', cost: '$15' },
-                { name: 'Fluxus', version: 'v1.8.2', platform: 'Android', status: 'updated', cost: 'Free' },
-                { name: 'Arceus X', version: 'v3.2.0', platform: 'Android', status: 'updated', cost: 'Free' },
-                { name: 'Hydrogen', version: 'v2.0.1', platform: 'Android', status: 'outdated', cost: 'Free' },
-                { name: 'Script-ware iOS', version: 'v1.1.0', platform: 'iOS', status: 'updated', cost: '$10' },
-                { name: 'Delta Executor', version: 'v2.3.0', platform: 'iOS', status: 'updated', cost: 'Free' },
-                { name: 'Vega X', version: 'v1.0.5', platform: 'iOS', status: 'outdated', cost: 'Free' },
-                { name: 'Electron', version: 'v2.0.0', platform: 'Mac', status: 'updated', cost: 'Free' },
-                { name: 'Calamari', version: 'v1.9.2', platform: 'Mac', status: 'updated', cost: 'Free' },
-            ];
+        // ——— ВЕСЬ ВАШ ИСХОДНЫЙ JS (без изменений) ———
+        var JSON_URL = 'https://raw.githubusercontent.com/Sam1rScript/sam1r-script/main/data/scripts.json';
+        var WEAO_API = 'https://weao.xyz/api/status/exploits';
 
-            const exploitsList = document.getElementById('exploitsList');
-            const exploitCount = document.getElementById('exploitCount');
-            const panelExploits = document.getElementById('panelExploits');
+        var allScripts = [];
+        var allExploits = [];
+        var isLoading = false;
 
-            function renderExploits(filterPlatform = 'all', filterStatus = 'all', search = '') {
-                let filtered = mockExploits.filter(e => {
-                    const matchPlatform = filterPlatform === 'all' || e.platform === filterPlatform;
-                    const matchStatus = filterStatus === 'all' || e.status === filterStatus;
-                    const matchSearch = e.name.toLowerCase().includes(search.toLowerCase()) ||
-                                        e.version.toLowerCase().includes(search.toLowerCase());
-                    return matchPlatform && matchStatus && matchSearch;
-                });
+        function loadData() {
+            if (isLoading) return;
+            isLoading = true;
 
-                // Группировка по платформам
-                const groups = {
-                    Windows: [],
-                    Android: [],
-                    iOS: [],
-                    Mac: [],
-                };
-
-                filtered.forEach(e => {
-                    if (groups[e.platform]) groups[e.platform].push(e);
-                });
-
-                let html = '';
-                let total = 0;
-
-                const platformOrder = ['Windows', 'Android', 'iOS', 'Mac'];
-                platformOrder.forEach(platform => {
-                    const items = groups[platform] || [];
-                    if (items.length === 0) return;
-                    total += items.length;
-
-                    html += `<div class="platform-block">`;
-                    html += `<div class="platform-head"><h3>${platform}</h3><span class="badge">${items.length}</span></div>`;
-                    items.forEach(exp => {
-                        const statusClass = exp.status === 'updated' ? 'badge-updated' : exp.status === 'outdated' ? 'badge-outdated' : 'badge-unknown';
-                        const statusText = exp.status === 'updated' ? 'Обновлён' : exp.status === 'outdated' ? 'Не обновлён' : 'Неизвестно';
-                        const dotClass = exp.status === 'updated' ? 'dot-updated' : exp.status === 'outdated' ? 'dot-outdated' : 'dot-unknown';
-                        const costClass = exp.cost === 'Free' ? 'exploit-free' : '';
-                        html += `
-                            <div class="exploit-card">
-                                <div class="exploit-info">
-                                    <span class="exploit-name">${exp.name}</span>
-                                    <span class="exploit-version">${exp.version}</span>
-                                    <div class="exploit-meta">${exp.platform}</div>
-                                </div>
-                                <div class="exploit-status">
-                                    <span class="status-dot ${dotClass}"></span>
-                                    <span class="status-badge ${statusClass}">${statusText}</span>
-                                    <span class="exploit-cost ${costClass}">${exp.cost}</span>
-                                </div>
-                            </div>
-                        `;
-                    });
-                    html += `</div>`;
-                });
-
-                if (total === 0) {
-                    html = `<div class="empty">Нет эксплойтов по заданным фильтрам</div>`;
-                }
-
-                exploitsList.innerHTML = html;
-                exploitCount.textContent = total;
-                panelExploits.textContent = mockExploits.length;
+            var listEl = document.getElementById('scriptsList');
+            if (listEl) {
+                listEl.innerHTML = '<div class="loading">Загрузка...</div>';
             }
 
-            // Обработчики фильтров для эксплойтов
-            document.getElementById('exploitPlatformFilter').addEventListener('change', function() {
-                const platform = this.value;
-                const status = document.getElementById('exploitStatusFilter').value;
-                const search = document.getElementById('exploitSearch').value;
-                renderExploits(platform, status, search);
-            });
-
-            document.getElementById('exploitStatusFilter').addEventListener('change', function() {
-                const status = this.value;
-                const platform = document.getElementById('exploitPlatformFilter').value;
-                const search = document.getElementById('exploitSearch').value;
-                renderExploits(platform, status, search);
-            });
-
-            document.getElementById('exploitSearch').addEventListener('input', function() {
-                const search = this.value;
-                const platform = document.getElementById('exploitPlatformFilter').value;
-                const status = document.getElementById('exploitStatusFilter').value;
-                renderExploits(platform, status, search);
-            });
-
-            // Инициализация эксплойтов
-            renderExploits('all', 'all', '');
-            panelExploits.textContent = mockExploits.length;
-
-            // Скрипты — мок для красоты
-            const mockScripts = [
-                { name: 'Dark Hub', category: 'farm', mode: 'AutoFarm', desc: 'Фарм ресурсов и валюты' },
-                { name: 'Infinite Yield', category: 'admin', mode: 'Admin', desc: 'Админ панель с командами' },
-                { name: 'Aim Assist Pro', category: 'aim', mode: 'Aimbot', desc: 'Автонаводка и спрей' },
-                { name: 'ESP Visuals', category: 'esp', mode: 'ESP', desc: 'Отображение игроков через стены' },
-            ];
-            const scriptsList = document.getElementById('scriptsList');
-            const countLabel = document.getElementById('countLabel');
-            const panelScripts = document.getElementById('panelScripts');
-
-            function renderScripts(search = '', category = 'all', mode = 'all') {
-                let filtered = mockScripts.filter(s => {
-                    const matchSearch = s.name.toLowerCase().includes(search.toLowerCase()) ||
-                                        s.desc.toLowerCase().includes(search.toLowerCase());
-                    const matchCategory = category === 'all' || s.category === category;
-                    const matchMode = mode === 'all' || s.mode === mode;
-                    return matchSearch && matchCategory && matchMode;
+            fetch(JSON_URL + '?t=' + Date.now())
+                .then(function(response) {
+                    if (!response.ok) throw new Error('Ошибка: ' + response.status);
+                    return response.json();
+                })
+                .then(function(data) {
+                    allScripts = data.scripts || [];
+                    renderAll();
+                    updateFilters();
+                    isLoading = false;
+                })
+                .catch(function(error) {
+                    var listEl = document.getElementById('scriptsList');
+                    if (listEl) {
+                        listEl.innerHTML = '<div class="error">Ошибка загрузки: ' + error.message + '</div>';
+                    }
+                    isLoading = false;
                 });
 
-                let html = '';
-                if (filtered.length === 0) {
-                    html = `<div class="empty">Скриптов не найдено</div>`;
-                } else {
-                    filtered.forEach(s => {
-                        html += `
-                            <div class="script">
-                                <div class="script-header">
-                                    <span class="script-name">${s.name}</span>
-                                    <span class="script-tag">${s.category}</span>
-                                    <span class="script-mode">${s.mode}</span>
-                                </div>
-                                <div class="script-desc">${s.desc}</div>
-                                <div class="script-meta">● Roblox</div>
-                                <div class="script-code">
-                                    <button class="copy-btn" onclick="copyCode(this, 'loadstring(game:HttpGet(\\'https://example.com/${s.name.toLowerCase().replace(/ /g,'')}.lua\\'))()')">Копировать</button>
-                                    loadstring(game:HttpGet('https://example.com/${s.name.toLowerCase().replace(/ /g,'')}.lua'))()
-                                </div>
-                            </div>
-                        `;
-                    });
-                }
-                scriptsList.innerHTML = html;
-                countLabel.textContent = filtered.length;
-                panelScripts.textContent = mockScripts.length;
+            loadExploits();
+        }
+
+        function loadExploits() {
+            var listEl = document.getElementById('exploitsList');
+            if (listEl) {
+                listEl.innerHTML = '<div class="loading">Загрузка эксплойтов...</div>';
             }
 
-            // Копирование
-            window.copyCode = function(btn, code) {
-                navigator.clipboard.writeText(code).then(() => {
-                    btn.textContent = 'Скопировано';
-                    btn.classList.add('copied');
-                    setTimeout(() => {
-                        btn.textContent = 'Копировать';
-                        btn.classList.remove('copied');
-                    }, 2000);
-                }).catch(() => {
-                    alert('Не удалось скопировать');
+            fetch(WEAO_API)
+                .then(function(response) {
+                    if (!response.ok) throw new Error('Ошибка: ' + response.status);
+                    return response.json();
+                })
+                .then(function(data) {
+                    allExploits = data || [];
+                    renderExploits();
+                })
+                .catch(function(error) {
+                    var listEl = document.getElementById('exploitsList');
+                    if (listEl) {
+                        listEl.innerHTML = '<div class="error">Ошибка загрузки эксплойтов: ' + error.message + '</div>';
+                    }
                 });
-            };
+        }
 
-            // Фильтры для скриптов
-            document.getElementById('searchInput').addEventListener('input', function() {
-                const search = this.value;
-                const category = document.getElementById('categoryFilter').value;
-                const mode = document.getElementById('modeFilter').value;
-                renderScripts(search, category, mode);
+        function renderAll() {
+            renderStats();
+            renderScripts();
+        }
+
+        function renderStats() {
+            var panelScripts = document.getElementById('panelScripts');
+            var panelExploits = document.getElementById('panelExploits');
+            var countLabel = document.getElementById('countLabel');
+
+            if (panelScripts) {
+                panelScripts.textContent = allScripts.length;
+            }
+            if (panelExploits) {
+                panelExploits.textContent = allExploits.filter(function(e) {
+                    return e.hidden !== true && e.private !== true;
+                }).length;
+            }
+            if (countLabel) {
+                countLabel.textContent = allScripts.length + ' скриптов';
+            }
+        }
+
+        function renderScripts() {
+            var container = document.getElementById('scriptsList');
+            if (!container) return;
+
+            var searchInput = document.getElementById('searchInput');
+            var categoryFilter = document.getElementById('categoryFilter');
+            var modeFilter = document.getElementById('modeFilter');
+
+            var search = searchInput ? searchInput.value.toLowerCase() : '';
+            var category = categoryFilter ? categoryFilter.value : 'all';
+            var mode = modeFilter ? modeFilter.value : 'all';
+
+            var filtered = allScripts.filter(function(s) {
+                var match = true;
+                if (category !== 'all' && s.category !== category) match = false;
+                if (mode !== 'all' && s.mode !== mode) match = false;
+                if (search && !s.name.toLowerCase().includes(search) && !s.desc.toLowerCase().includes(search)) match =
+                false;
+                return match;
             });
 
-            document.getElementById('categoryFilter').addEventListener('change', function() {
-                const category = this.value;
-                const search = document.getElementById('searchInput').value;
-                const mode = document.getElementById('modeFilter').value;
-                renderScripts(search, category, mode);
+            if (!filtered.length) {
+                container.innerHTML = '<div class="empty">Скриптов не найдено</div>';
+                return;
+            }
+
+            var html = '';
+            for (var i = 0; i < filtered.length; i++) {
+                html += createScriptHTML(filtered[i]);
+            }
+            container.innerHTML = html;
+        }
+
+        function createScriptHTML(s) {
+            var modeLabel = s.mode ? s.mode.toUpperCase().replace(/_/g, ' ') : '';
+            var tag = s.category ? '<span class="script-tag">' + s.category + '</span>' : '';
+            var modeTag = s.mode ? '<span class="script-mode">' + modeLabel + '</span>' : '';
+
+            return '<div class="script">' +
+                '<div class="script-header">' +
+                '<span class="script-name">' + (s.name || 'Без названия') + '</span>' +
+                tag + modeTag +
+                '</div>' +
+                '<div class="script-desc">' + (s.desc || '') + '</div>' +
+                '<div class="script-meta">' + (s.date || '') + '</div>' +
+                '<div class="script-code">' +
+                '<button class="copy-btn" onclick="copyCode(this, \'' + s.code.replace(/'/g, "\\'") + '\')">Копировать</button>' +
+                s.code +
+                '</div>' +
+                '</div>';
+        }
+
+        function copyCode(btn, code) {
+            navigator.clipboard.writeText(code).then(function() {
+                btn.textContent = 'Скопировано!';
+                btn.classList.add('copied');
+                setTimeout(function() {
+                    btn.textContent = 'Копировать';
+                    btn.classList.remove('copied');
+                }, 2000);
+            }).catch(function() {
+                var textarea = document.createElement('textarea');
+                textarea.value = code;
+                document.body.appendChild(textarea);
+                textarea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textarea);
+                btn.textContent = 'Скопировано!';
+                btn.classList.add('copied');
+                setTimeout(function() {
+                    btn.textContent = 'Копировать';
+                    btn.classList.remove('copied');
+                }, 2000);
+            });
+        }
+
+        // ——— renderExploits переписан: группировка по платформам ———
+        function renderExploits() {
+            var container = document.getElementById('exploitsList');
+            if (!container) return;
+
+            var searchInput = document.getElementById('exploitSearch');
+            var platformFilter = document.getElementById('exploitPlatformFilter');
+            var statusFilter = document.getElementById('exploitStatusFilter');
+
+            var search = searchInput ? searchInput.value.toLowerCase() : '';
+            var platform = platformFilter ? platformFilter.value : 'all';
+            var status = statusFilter ? statusFilter.value : 'all';
+
+            // Фильтруем
+            var filtered = allExploits.filter(function(e) {
+                if (e.hidden === true || e.private === true) return false;
+
+                var match = true;
+                if (platform !== 'all' && e.platform !== platform) match = false;
+                if (status === 'updated' && e.updateStatus !== true) match = false;
+                if (status === 'outdated' && e.updateStatus !== false) match = false;
+                if (search && !e.title.toLowerCase().includes(search)) match = false;
+                return match;
             });
 
-            document.getElementById('modeFilter').addEventListener('change', function() {
-                const mode = this.value;
-                const search = document.getElementById('searchInput').value;
-                const category = document.getElementById('categoryFilter').value;
-                renderScripts(search, category, mode);
+            // Обновляем счётчики
+            var countLabel = document.getElementById('exploitCount');
+            if (countLabel) {
+                countLabel.textContent = filtered.length + ' эксплойтов';
+            }
+            var panelExploits = document.getElementById('panelExploits');
+            if (panelExploits) {
+                panelExploits.textContent = allExploits.filter(function(e) {
+                    return e.hidden !== true && e.private !== true;
+                }).length;
+            }
+
+            if (!filtered.length) {
+                container.innerHTML = '<div class="empty">Эксплойтов не найдено</div>';
+                return;
+            }
+
+            // Группируем по платформам
+            var groups = {};
+            var platformOrder = ['Windows', 'Android', 'iOS', 'Mac'];
+            for (var i = 0; i < filtered.length; i++) {
+                var p = filtered[i].platform || 'Other';
+                if (!groups[p]) groups[p] = [];
+                groups[p].push(filtered[i]);
+            }
+
+            // Сортируем внутри групп: сначала обновлённые
+            for (var p in groups) {
+                groups[p].sort(function(a, b) {
+                    if (a.updateStatus === b.updateStatus) return 0;
+                    if (a.updateStatus === true) return -1;
+                    return 1;
+                });
+            }
+
+            var html = '';
+            // Выводим группы в порядке platformOrder + остальные
+            var keys = Object.keys(groups);
+            keys.sort(function(a, b) {
+                var ia = platformOrder.indexOf(a);
+                var ib = platformOrder.indexOf(b);
+                if (ia === -1 && ib === -1) return a.localeCompare(b);
+                if (ia === -1) return 1;
+                if (ib === -1) return -1;
+                return ia - ib;
             });
 
-            renderScripts('', 'all', 'all');
+            for (var k = 0; k < keys.length; k++) {
+                var platformName = keys[k];
+                var items = groups[platformName];
+                html += '<div class="platform-group">';
+                html += '<div class="platform-head">';
+                html += '<h3>' + platformName + '</h3>';
+                html += '<span class="badge-count">' + items.length + '</span>';
+                html += '</div>';
+                for (var j = 0; j < items.length; j++) {
+                    html += createExploitHTML(items[j]);
+                }
+                html += '</div>';
+            }
 
-            // Переключение вкладок
-            window.switchTab = function(tab) {
-                document.querySelectorAll('.content-section').forEach(el => el.classList.remove('active'));
-                document.querySelectorAll('.panel-btn').forEach(el => el.classList.remove('active'));
+            container.innerHTML = html;
+        }
 
-                document.getElementById('content-' + tab).classList.add('active');
-                document.querySelector(`.panel-btn[data-tab="${tab}"]`).classList.add('active');
-            };
-        })();
+        // ——— createExploitHTML полностью сохранён (ваша оригинальная вёрстка) ———
+        function createExploitHTML(e) {
+            var statusText = e.updateStatus ? 'Обновлён' : 'Не обновлён';
+            var statusClass = e.updateStatus ? 'status-updated' : 'status-outdated';
+            var badgeClass = e.updateStatus ? 'badge-updated' : 'badge-outdated';
+            var dotClass = e.updateStatus ? 'dot-updated' : 'dot-outdated';
+
+            var costDisplay = e.cost || (e.free ? 'Free' : 'Неизвестно');
+            var costClass = e.free ? 'exploit-free' : '';
+
+            var platformDisplay = e.platform || 'Unknown';
+
+            var uncDisplay = '';
+            if (e.uncStatus === true) {
+                uncDisplay = 'sUNC ✅';
+            } else if (e.uncStatus === false) {
+                uncDisplay = 'sUNC ❌';
+            }
+
+            return '<div class="exploit-card">' +
+                '<div class="exploit-info">' +
+                '<span class="exploit-name">' + e.title + '</span>' +
+                '<span class="exploit-version">' + e.version + '</span>' +
+                '<span class="exploit-platform">' + platformDisplay + '</span>' +
+                '<div class="exploit-meta">' +
+                'Обновлено: ' + e.updatedDate + ' | ' + uncDisplay +
+                '</div>' +
+                '</div>' +
+                '<div class="exploit-status">' +
+                '<span class="status-dot ' + dotClass + '"></span>' +
+                '<span class="' + statusClass + '">' + statusText + '</span>' +
+                '<span class="status-badge ' + badgeClass + '">' + (e.updateStatus ? '✅' : '❌') + '</span>' +
+                '<span class="exploit-cost ' + costClass + '">' + costDisplay + '</span>' +
+                '</div>' +
+                '</div>';
+        }
+
+        function updateFilters() {
+            var select = document.getElementById('modeFilter');
+            if (!select) return;
+
+            var current = select.value;
+            var modes = {};
+            for (var i = 0; i < allScripts.length; i++) {
+                if (allScripts[i].mode) {
+                    modes[allScripts[i].mode] = true;
+                }
+            }
+            var keys = Object.keys(modes).sort();
+            select.innerHTML = '<option value="all">Все режимы</option>';
+            for (var i = 0; i < keys.length; i++) {
+                var label = keys[i].toUpperCase().replace(/_/g, ' ');
+                select.innerHTML += '<option value="' + keys[i] + '">' + label + '</option>';
+            }
+            if (current) select.value = current;
+        }
+
+        function filterScripts() {
+            renderScripts();
+        }
+
+        function filterExploits() {
+            renderExploits();
+        }
+
+        function switchTab(tab) {
+            document.querySelectorAll('.panel-btn').forEach(function(btn) {
+                btn.classList.toggle('active', btn.dataset.tab === tab);
+            });
+
+            document.querySelectorAll('.content-section').forEach(function(el) {
+                el.classList.remove('active');
+            });
+
+            var target = document.getElementById('content-' + tab);
+            if (target) target.classList.add('active');
+
+            if (tab === 'scripts') {
+                setTimeout(function() {
+                    renderScripts();
+                }, 100);
+            }
+
+            if (tab === 'exploits') {
+                setTimeout(function() {
+                    renderExploits();
+                }, 100);
+            }
+        }
+
+        var searchInput = document.getElementById('searchInput');
+        var categoryFilter = document.getElementById('categoryFilter');
+        var modeFilter = document.getElementById('modeFilter');
+        var exploitSearch = document.getElementById('exploitSearch');
+        var exploitPlatformFilter = document.getElementById('exploitPlatformFilter');
+        var exploitStatusFilter = document.getElementById('exploitStatusFilter');
+
+        if (searchInput) {
+            searchInput.addEventListener('input', filterScripts);
+        }
+        if (categoryFilter) {
+            categoryFilter.addEventListener('change', filterScripts);
+        }
+        if (modeFilter) {
+            modeFilter.addEventListener('change', filterScripts);
+        }
+        if (exploitSearch) {
+            exploitSearch.addEventListener('input', filterExploits);
+        }
+        if (exploitPlatformFilter) {
+            exploitPlatformFilter.addEventListener('change', filterExploits);
+        }
+        if (exploitStatusFilter) {
+            exploitStatusFilter.addEventListener('change', filterExploits);
+        }
+
+        loadData();
+
+        document.addEventListener('visibilitychange', function() {
+            if (!document.hidden) loadData();
+        });
     </script>
 
 </body>
