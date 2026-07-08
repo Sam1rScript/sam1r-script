@@ -1,4 +1,4 @@
- var JSON_URL = 'https://raw.githubusercontent.com/Sam1rScript/sam1r-script/main/data/scripts.json';
+var JSON_URL = 'https://raw.githubusercontent.com/Sam1rScript/sam1r-script/main/data/scripts.json';
         var WEAO_API = 'https://weao.xyz/api/status/exploits';
 
         var allScripts = [];
