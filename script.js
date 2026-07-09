@@ -279,6 +279,7 @@ function createExploitHTML(e) {
         '</div>' +
         '</div>';
 }
+
 function updateFilters() {
     var select = document.getElementById('modeFilter');
     if (!select) return;
