@@ -238,8 +238,16 @@ function createExploitHTML(e) {
     var linksHtml = '';
     if (website || discord) {
         linksHtml = '<div class="exploit-links">';
-        if (website) linksHtml += '<a href="' + website + '" target="_blank">🌐</a>';
-        if (discord) linksHtml += '<a href="' + discord + '" target="_blank">💬</a>';
+        if (website) {
+            linksHtml += '<a href="' + website + '" target="_blank">' +
+                '<img src="https://raw.githubusercontent.com/Sam1rScript/sam1r-script/main/assets/website-icon.png" alt="Website" onerror="this.style.display=\'none\'">' +
+                '</a>';
+        }
+        if (discord) {
+            linksHtml += '<a href="' + discord + '" target="_blank">' +
+                '<img src="https://raw.githubusercontent.com/Sam1rScript/sam1r-script/main/assets/discord-icon.png" alt="Discord" onerror="this.style.display=\'none\'">' +
+                '</a>';
+        }
         linksHtml += '</div>';
     }
 
