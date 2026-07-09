@@ -461,7 +461,7 @@ body {
 /* ===== ADMINS ===== */
 .admins-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 16px;
     margin-top: 6px;
 }
@@ -470,8 +470,7 @@ body {
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(255, 255, 255, 0.06);
     border-radius: 14px;
-    padding: 18px 16px 16px;
-    text-align: left;
+    padding: 18px 20px 18px;
     transition: all 0.25s ease;
 }
 
@@ -481,30 +480,41 @@ body {
     transform: translateY(-2px);
 }
 
+.admin-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 4px;
+    flex-wrap: wrap;
+}
+
 .admin-name {
     font-size: 20px;
     font-weight: 700;
     color: #ffffff;
     letter-spacing: -0.3px;
-    line-height: 1.2;
 }
 
-.admin-role {
-    font-size: 14px;
-    font-weight: 500;
-    color: #8b5cf6;
-    margin-bottom: 6px;
+.admin-badge {
+    font-size: 12px;
+    font-weight: 600;
+    color: #ffffff;
+    background: #8b5cf6;
+    padding: 3px 14px;
+    border-radius: 20px;
+    display: inline-block;
+    letter-spacing: 0.2px;
     text-transform: lowercase;
 }
 
-.admin-role:first-letter {
+.admin-badge:first-letter {
     text-transform: uppercase;
 }
 
 .admin-contacts {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px 14px;
+    gap: 8px 16px;
     font-size: 13px;
     color: rgba(255, 255, 255, 0.35);
     margin: 4px 0 6px;
@@ -529,5 +539,13 @@ body {
 @media (max-width: 600px) {
     .admins-grid {
         grid-template-columns: 1fr;
+    }
+    
+    .admin-header {
+        gap: 8px;
+    }
+    
+    .admin-name {
+        font-size: 18px;
     }
 }
