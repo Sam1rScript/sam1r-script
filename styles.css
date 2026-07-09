@@ -361,7 +361,7 @@ body {
     color: #ef4444;
 }
 .exploit-features .na {
-    color: rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.15);
 }
 .exploit-bottom {
     display: flex;
