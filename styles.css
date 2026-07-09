@@ -311,6 +311,7 @@ body {
     align-items: flex-start;
     flex-wrap: wrap;
     gap: 6px;
+    min-height: 28px;
 }
 .exploit-title {
     font-size: 17px;
@@ -333,6 +334,7 @@ body {
     font-size: 12px;
     color: rgba(255, 255, 255, 0.3);
     margin: 2px 0;
+    min-height: 18px;
 }
 .exploit-features {
     display: flex;
@@ -341,6 +343,7 @@ body {
     font-size: 12px;
     color: rgba(255, 255, 255, 0.4);
     margin: 2px 0;
+    min-height: 18px;
 }
 .exploit-features span {
     display: flex;
@@ -366,7 +369,8 @@ body {
     align-items: center;
     flex-wrap: wrap;
     gap: 6px;
-    margin-top: 2px;
+    margin-top: 4px;
+    min-height: 28px;
 }
 .exploit-status {
     display: flex;
@@ -391,17 +395,22 @@ body {
 }
 .exploit-links {
     display: flex;
-    gap: 10px;
+    gap: 8px;
+    align-items: center;
 }
 .exploit-links a {
-    color: rgba(139, 92, 246, 0.6);
-    text-decoration: none;
-    font-size: 16px;
-    transition: color 0.2s;
-    line-height: 1;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    transition: opacity 0.2s;
 }
 .exploit-links a:hover {
-    color: #8b5cf6;
+    opacity: 0.7;
+}
+.exploit-links a img {
+    width: 100%;
+    height: 100%;
+    display: block;
 }
 
 @media (max-width: 900px) {
