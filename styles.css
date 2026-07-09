@@ -461,50 +461,53 @@ body {
 /* ===== ADMINS ===== */
 .admins-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 16px;
-    margin-top: 6px;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 10px;
 }
 
 .admin-card {
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(255, 255, 255, 0.06);
-    border-radius: 14px;
-    padding: 18px 20px 18px;
-    transition: all 0.25s ease;
+    border-radius: 16px;
+    padding: 22px 24px 22px;
+    transition: all 0.3s ease;
 }
 
 .admin-card:hover {
-    border-color: rgba(139, 92, 246, 0.25);
-    background: rgba(255, 255, 255, 0.05);
-    transform: translateY(-2px);
+    border-color: rgba(139, 92, 246, 0.35);
+    background: rgba(255, 255, 255, 0.06);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(139, 92, 246, 0.08);
 }
 
 .admin-header {
     display: flex;
     align-items: center;
-    gap: 12px;
-    margin-bottom: 4px;
+    gap: 14px;
+    margin-bottom: 8px;
     flex-wrap: wrap;
 }
 
 .admin-name {
-    font-size: 20px;
+    font-size: 22px;
     font-weight: 700;
     color: #ffffff;
     letter-spacing: -0.3px;
 }
 
 .admin-badge {
-    font-size: 12px;
+    font-size: 13px;
     font-weight: 600;
     color: #ffffff;
-    background: #8b5cf6;
-    padding: 3px 14px;
-    border-radius: 20px;
+    background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+    padding: 5px 18px;
+    border-radius: 24px;
     display: inline-block;
-    letter-spacing: 0.2px;
+    letter-spacing: 0.3px;
     text-transform: lowercase;
+    box-shadow: 0 2px 12px rgba(139, 92, 246, 0.3);
+    border: 1px solid rgba(139, 92, 246, 0.2);
 }
 
 .admin-badge:first-letter {
@@ -514,38 +517,53 @@ body {
 .admin-contacts {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px 16px;
-    font-size: 13px;
+    gap: 10px 20px;
+    font-size: 14px;
     color: rgba(255, 255, 255, 0.35);
-    margin: 4px 0 6px;
+    margin: 6px 0 10px;
+    padding: 4px 0;
 }
 
 .admin-tag {
     color: #8b5cf6;
     font-weight: 500;
+    font-size: 14px;
 }
 
 .admin-id {
-    color: rgba(255, 255, 255, 0.25);
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 14px;
 }
 
 .admin-desc {
     font-size: 14px;
-    color: rgba(255, 255, 255, 0.4);
-    line-height: 1.5;
-    margin-top: 2px;
+    color: rgba(255, 255, 255, 0.45);
+    line-height: 1.6;
+    margin-top: 4px;
+    padding-top: 8px;
+    border-top: 1px solid rgba(255, 255, 255, 0.04);
 }
 
 @media (max-width: 600px) {
     .admins-grid {
         grid-template-columns: 1fr;
+        gap: 14px;
+    }
+    
+    .admin-card {
+        padding: 18px 18px 18px;
     }
     
     .admin-header {
-        gap: 8px;
+        gap: 10px;
     }
     
     .admin-name {
-        font-size: 18px;
+        font-size: 19px;
+    }
+    
+    .admin-badge {
+        font-size: 12px;
+        padding: 4px 14px;
     }
 }
