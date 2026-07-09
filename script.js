@@ -221,21 +221,21 @@ function createExploitHTML(e) {
 
     var platformDisplay = e.platform || 'Unknown';
 
-    var sUNC = e.sUNC || e.sunc || 'N/A';
-    var UNC = e.UNC || e.unc || 'N/A';
-    var decompiler = e.decompiler !== undefined ? e.decompiler : 'N/A';
-    var multiInstance = e.multiInstance !== undefined ? e.multiInstance : 'N/A';
-    var raknet = e.raknet !== undefined ? e.raknet : 'N/A';
+    var sUNC = e.sUNC !== undefined && e.sUNC !== null ? e.sUNC : 'N/A';
+    var UNC = e.UNC !== undefined && e.UNC !== null ? e.UNC : 'N/A';
+    var decompiler = e.decompiler !== undefined && e.decompiler !== null ? e.decompiler : 'N/A';
+    var multiInstance = e.multiInstance !== undefined && e.multiInstance !== null ? e.multiInstance : 'N/A';
+    var raknet = e.raknet !== undefined && e.raknet !== null ? e.raknet : 'N/A';
 
     var website = e.website || e.url || null;
     var discord = e.discord || null;
     var purchase = e.purchase || e.buy || null;
 
-    var decompilerIcon = decompiler === true ? '✔' : decompiler === false ? '✘' : '?';
+    var decompilerDisplay = decompiler === true ? '✔' : decompiler === false ? '✘' : '?';
     var decompilerClass = decompiler === true ? 'stat-good' : decompiler === false ? 'stat-bad' : 'stat-mid';
-    var multiIcon = multiInstance === true ? '✔' : multiInstance === false ? '✘' : '?';
+    var multiDisplay = multiInstance === true ? '✔' : multiInstance === false ? '✘' : '?';
     var multiClass = multiInstance === true ? 'stat-good' : multiInstance === false ? 'stat-bad' : 'stat-mid';
-    var raknetIcon = raknet === true ? '✔' : raknet === false ? '✘' : '?';
+    var raknetDisplay = raknet === true ? '✔' : raknet === false ? '✘' : '?';
     var raknetClass = raknet === true ? 'stat-good' : raknet === false ? 'stat-bad' : 'stat-mid';
 
     var linksHtml = '';
@@ -264,9 +264,9 @@ function createExploitHTML(e) {
         '<div class="exploit-stats">' +
         '<span>sUNC: <span class="stat-value">' + sUNC + '%</span></span>' +
         '<span>UNC: <span class="stat-value">' + UNC + '%</span></span>' +
-        '<span>Decompiler: <span class="' + decompilerClass + '">' + decompilerIcon + '</span></span>' +
-        '<span>Multi-instance: <span class="' + multiClass + '">' + multiIcon + '</span></span>' +
-        '<span>Raknet Library: <span class="' + raknetClass + '">' + raknetIcon + '</span></span>' +
+        '<span>Decompiler: <span class="' + decompilerClass + '">' + decompilerDisplay + '</span></span>' +
+        '<span>Multi-instance: <span class="' + multiClass + '">' + multiDisplay + '</span></span>' +
+        '<span>Raknet Library: <span class="' + raknetClass + '">' + raknetDisplay + '</span></span>' +
         '</div>' +
         linksHtml +
         '</div>';
