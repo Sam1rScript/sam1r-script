@@ -221,46 +221,46 @@ function createExploitHTML(e) {
 
     var platformDisplay = e.platform || 'Unknown';
 
-    var sUNC = e.sUNC !== undefined && e.sUNC !== null ? e.sUNC : 'N/A';
-    var UNC = e.UNC !== undefined && e.UNC !== null ? e.UNC : 'N/A';
-    var decompiler = e.decompiler !== undefined && e.decompiler !== null ? e.decompiler : 'N/A';
-    var multiInstance = e.multiInstance !== undefined && e.multiInstance !== null ? e.multiInstance : 'N/A';
-    var raknet = e.raknet !== undefined && e.raknet !== null ? e.raknet : 'N/A';
+    var sUNC = (e.sUNC !== undefined && e.sUNC !== null && e.sUNC !== '') ? e.sUNC : 'N/A';
+    var UNC = (e.UNC !== undefined && e.UNC !== null && e.UNC !== '') ? e.UNC : 'N/A';
+    var decompiler = (e.decompiler !== undefined && e.decompiler !== null) ? e.decompiler : 'N/A';
+    var multiInstance = (e.multiInstance !== undefined && e.multiInstance !== null) ? e.multiInstance : 'N/A';
+    var raknet = (e.raknet !== undefined && e.raknet !== null) ? e.raknet : 'N/A';
 
     var website = e.website || e.url || null;
     var discord = e.discord || null;
     var purchase = e.purchase || e.buy || null;
 
-    var decompilerDisplay = decompiler === true ? '✔' : decompiler === false ? '✘' : '?';
-    var decompilerClass = decompiler === true ? 'stat-good' : decompiler === false ? 'stat-bad' : 'stat-mid';
-    var multiDisplay = multiInstance === true ? '✔' : multiInstance === false ? '✘' : '?';
-    var multiClass = multiInstance === true ? 'stat-good' : multiInstance === false ? 'stat-bad' : 'stat-mid';
-    var raknetDisplay = raknet === true ? '✔' : raknet === false ? '✘' : '?';
-    var raknetClass = raknet === true ? 'stat-good' : raknet === false ? 'stat-bad' : 'stat-mid';
+    var decompilerDisplay = decompiler === true ? 'Yes' : decompiler === false ? 'No' : 'N/A';
+    var decompilerClass = decompiler === true ? 'stat-yes' : decompiler === false ? 'stat-no' : 'stat-na';
+    var multiDisplay = multiInstance === true ? 'Yes' : multiInstance === false ? 'No' : 'N/A';
+    var multiClass = multiInstance === true ? 'stat-yes' : multiInstance === false ? 'stat-no' : 'stat-na';
+    var raknetDisplay = raknet === true ? 'Yes' : raknet === false ? 'No' : 'N/A';
+    var raknetClass = raknet === true ? 'stat-yes' : raknet === false ? 'stat-no' : 'stat-na';
 
     var linksHtml = '';
     if (website || discord || purchase) {
         linksHtml = '<div class="exploit-links">';
         if (website) linksHtml += '<a href="' + website + '" target="_blank">Website</a>';
         if (discord) linksHtml += '<a href="' + discord + '" target="_blank">Discord</a>';
-        if (purchase) linksHtml += '<a href="' + purchase + '" target="_blank">Buy</a>';
+        if (purchase) linksHtml += '<a href="' + purchase + '" target="_blank">Purchase</a>';
         linksHtml += '</div>';
     }
 
     return '<div class="exploit-card">' +
         '<div class="exploit-header">' +
-        '<div class="exploit-info">' +
+        '<div>' +
         '<span class="exploit-name">' + e.title + '</span>' +
         '<span class="exploit-version">' + e.version + '</span>' +
         '<span class="exploit-platform">' + platformDisplay + '</span>' +
-        '<div class="exploit-meta">Last updated: ' + e.updatedDate + '</div>' +
         '</div>' +
-        '<div class="exploit-status">' +
+        '<div class="exploit-status-line">' +
         '<span class="status-dot ' + dotClass + '"></span>' +
-        '<span class="' + statusClass + '">' + statusText + '</span>' +
+        '<span class="status-text ' + statusClass + '">' + statusText + '</span>' +
         '<span class="exploit-cost ' + costClass + '">' + costDisplay + '</span>' +
         '</div>' +
         '</div>' +
+        '<div class="exploit-meta">Last updated: ' + e.updatedDate + '</div>' +
         '<div class="exploit-stats">' +
         '<span>sUNC: <span class="stat-value">' + sUNC + '%</span></span>' +
         '<span>UNC: <span class="stat-value">' + UNC + '%</span></span>' +
