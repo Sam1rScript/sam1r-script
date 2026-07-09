@@ -111,12 +111,12 @@ body {
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(255, 255, 255, 0.06);
     border-radius: 12px;
-    padding: 18px 22px;
+    padding: 16px 20px;
     margin-bottom: 12px;
     transition: all 0.2s;
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 6px;
 }
 .exploit-card:hover {
     border-color: rgba(139, 92, 246, 0.2);
@@ -125,81 +125,18 @@ body {
 .exploit-header {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: center;
     flex-wrap: wrap;
-    gap: 10px;
-}
-.exploit-info {
-    flex: 1;
-    min-width: 150px;
+    gap: 8px;
 }
 .exploit-name {
-    font-size: 18px;
+    font-size: 17px;
     font-weight: 600;
 }
 .exploit-version {
-    font-size: 14px;
-    color: rgba(255, 255, 255, 0.4);
-    margin-left: 8px;
-}
-.exploit-meta {
-    font-size: 13px;
-    color: rgba(255, 255, 255, 0.3);
-    margin-top: 2px;
-}
-.exploit-stats {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px 20px;
-    padding: 6px 0;
-    font-size: 13px;
-    color: rgba(255, 255, 255, 0.5);
-}
-.exploit-stats span {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-}
-.exploit-stats .stat-value {
-    color: #ffffff;
-    font-weight: 500;
-}
-.exploit-stats .stat-good {
-    color: #34d399;
-}
-.exploit-stats .stat-bad {
-    color: #ef4444;
-}
-.exploit-stats .stat-mid {
-    color: #fbbf24;
-}
-.exploit-status {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 13px;
-    font-weight: 500;
-}
-.status-updated {
-    color: #34d399;
-}
-.status-outdated {
-    color: #ef4444;
-}
-.status-unknown {
-    color: #fbbf24;
-}
-.exploit-cost {
     font-size: 13px;
     color: rgba(255, 255, 255, 0.4);
-    background: rgba(255, 255, 255, 0.04);
-    padding: 4px 14px;
-    border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.04);
-}
-.exploit-free {
-    color: #34d399;
-    border-color: rgba(52, 211, 153, 0.2);
+    margin-left: 6px;
 }
 .exploit-platform {
     font-size: 11px;
@@ -207,22 +144,18 @@ body {
     padding: 2px 10px;
     border-radius: 10px;
     color: rgba(255, 255, 255, 0.3);
+    margin-left: 6px;
 }
-.exploit-links {
+.exploit-meta {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.3);
+    margin-top: 2px;
+}
+.exploit-status-line {
     display: flex;
-    gap: 12px;
-    margin-top: 4px;
+    align-items: center;
+    gap: 10px;
     flex-wrap: wrap;
-}
-.exploit-links a {
-    color: rgba(139, 92, 246, 0.7);
-    text-decoration: none;
-    font-size: 13px;
-    transition: color 0.2s;
-}
-.exploit-links a:hover {
-    color: #8b5cf6;
-    text-decoration: underline;
 }
 .status-dot {
     display: inline-block;
@@ -237,8 +170,69 @@ body {
 .dot-outdated {
     background: #ef4444;
 }
-.dot-unknown {
-    background: #fbbf24;
+.status-text {
+    font-size: 13px;
+    font-weight: 500;
+}
+.status-updated {
+    color: #34d399;
+}
+.status-outdated {
+    color: #ef4444;
+}
+.exploit-cost {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.04);
+    padding: 2px 12px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.04);
+}
+.exploit-free {
+    color: #34d399;
+    border-color: rgba(52, 211, 153, 0.2);
+}
+.exploit-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 16px;
+    padding: 4px 0;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.4);
+}
+.exploit-stats span {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+.exploit-stats .stat-value {
+    color: #ffffff;
+    font-weight: 500;
+}
+.exploit-stats .stat-yes {
+    color: #34d399;
+}
+.exploit-stats .stat-no {
+    color: #ef4444;
+}
+.exploit-stats .stat-na {
+    color: rgba(255, 255, 255, 0.2);
+}
+.exploit-links {
+    display: flex;
+    gap: 12px;
+    margin-top: 4px;
+    flex-wrap: wrap;
+}
+.exploit-links a {
+    color: rgba(139, 92, 246, 0.7);
+    text-decoration: none;
+    font-size: 12px;
+    transition: color 0.2s;
+}
+.exploit-links a:hover {
+    color: #8b5cf6;
+    text-decoration: underline;
 }
 .script {
     background: rgba(255, 255, 255, 0.03);
@@ -401,19 +395,19 @@ body {
 .exploit-row {
     display: flex;
     flex-wrap: wrap;
-    gap: 16px;
+    gap: 14px;
     margin-top: 6px;
 }
 .exploit-row .exploit-card {
     flex: 0 0 auto;
-    width: calc(33.333% - 12px);
-    min-width: 280px;
+    width: calc(33.333% - 10px);
+    min-width: 260px;
     margin-bottom: 0;
 }
 @media (max-width: 900px) {
     .exploit-row .exploit-card {
-        width: calc(50% - 8px);
-        min-width: 240px;
+        width: calc(50% - 7px);
+        min-width: 220px;
     }
 }
 @media (max-width: 600px) {
