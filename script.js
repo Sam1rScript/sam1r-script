@@ -308,6 +308,13 @@ function filterExploits() {
     renderExploits();
 }
 
+
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.admin-role').forEach(function(el) {
+        el.style.color = '#8b5cf6';
+    });
+});
+
 function switchTab(tab) {
     document.querySelectorAll('.panel-btn').forEach(function(btn) {
         btn.classList.toggle('active', btn.dataset.tab === tab);
