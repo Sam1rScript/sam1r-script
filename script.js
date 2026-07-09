@@ -219,20 +219,20 @@ function createExploitHTML(e) {
     var costDisplay = e.cost || (e.free ? 'Free' : 'Unknown');
     var platformDisplay = e.platform || 'Unknown';
 
-    var sUNC = (e.suncPercentage !== undefined && e.suncPercentage !== null) ? e.suncPercentage : 'N/A';
-    var UNC = (e.uncPercentage !== undefined && e.uncPercentage !== null) ? e.uncPercentage : 'N/A';
-    var decompiler = (e.decompiler !== undefined && e.decompiler !== null) ? e.decompiler : 'N/A';
-    var multiInject = (e.multiInject !== undefined && e.multiInject !== null) ? e.multiInject : 'N/A';
-    var raknet = (e.raknet !== undefined && e.raknet !== null) ? e.raknet : 'N/A';
+    var sUNC = (e.suncPercentage !== undefined && e.suncPercentage !== null) ? e.suncPercentage : '-';
+    var UNC = (e.uncPercentage !== undefined && e.uncPercentage !== null) ? e.uncPercentage : '-';
+    var decompiler = (e.decompiler !== undefined && e.decompiler !== null) ? e.decompiler : '-';
+    var multiInject = (e.multiInject !== undefined && e.multiInject !== null) ? e.multiInject : '-';
+    var raknet = (e.raknet !== undefined && e.raknet !== null) ? e.raknet : '-';
 
     var website = e.websitelink || null;
     var discord = e.discordlink || null;
 
-    var decompilerDisplay = decompiler === true ? 'Yes' : decompiler === false ? 'No' : 'N/A';
+    var decompilerDisplay = decompiler === true ? '✓' : decompiler === false ? '✗' : '-';
     var decompilerClass = decompiler === true ? 'yes' : decompiler === false ? 'no' : 'na';
-    var multiDisplay = multiInject === true ? 'Yes' : multiInject === false ? 'No' : 'N/A';
+    var multiDisplay = multiInject === true ? '✓' : multiInject === false ? '✗' : '-';
     var multiClass = multiInject === true ? 'yes' : multiInject === false ? 'no' : 'na';
-    var raknetDisplay = raknet === true ? 'Yes' : raknet === false ? 'No' : 'N/A';
+    var raknetDisplay = raknet === true ? '✓' : raknet === false ? '✗' : '-';
     var raknetClass = raknet === true ? 'yes' : raknet === false ? 'no' : 'na';
 
     var linksHtml = '';
@@ -279,7 +279,6 @@ function createExploitHTML(e) {
         '</div>' +
         '</div>';
 }
-
 function updateFilters() {
     var select = document.getElementById('modeFilter');
     if (!select) return;
